@@ -86,7 +86,7 @@ public class DataAccessPizze {
     }
 
     public ArrayList<Pizze> estraiPizze(String pizzeria) {
-        query = "SELECT * FROM " + Nome_Tabella + " WHERE produttore = "+pizzeria;
+        query = "SELECT * FROM " + Nome_Tabella + " WHERE produttore = '"+pizzeria+"'";
         ArrayList<Pizze> pizze = new ArrayList<Pizze>();
         try {
             this.pizze = new ConnDatabase();

@@ -41,7 +41,7 @@ public class TestPizzePrenotate {
         a[0] = pizze.get(0).getIdpizza();
         a[1] = pizze.get(1).getIdpizza();*/
         //data.cancellapizze(a);
-        Pizze pizza = new Pizze();
+        /*Pizze pizza = new Pizze();
         pizza.setIdpizza(1);
         pizza.setIngredienti("ca");
         pizza.setPrezzo(50.5);
@@ -57,7 +57,11 @@ public class TestPizzePrenotate {
         pizze = new ArrayList<Pizze>();
         pizze.add(pizza);
         pizze.add(pizza2);
-        data.modificaPizze(pizze);
+        data.modificaPizze(pizze);*/
+        ArrayList<Pizze> pizze= data.estraiPizze("2c");
+        for(int i =0;i<pizze.size();i++){
+            System.out.println(pizze.get(i).getIdpizza());
+        }
         
     }
     
