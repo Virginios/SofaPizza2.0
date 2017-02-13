@@ -84,4 +84,13 @@ public class Cliente {
     public int getTipoCliente() {
         return tipoCliente;
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "email=" + email + ", password=" + password + ", nome=" + nome + ", cognome=" + cognome + ", via=" + via + ", paese=" + paese + ", carta=" + carta + ", tipoCliente=" + tipoCliente + '}';
+    }
+    
+    
+    
+    
 }
