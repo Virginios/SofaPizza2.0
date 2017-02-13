@@ -37,7 +37,7 @@ public class DataAccessPrenotazione {
             prepStat.setInt(3, prenotazione.getNumero_prenotazione());
             prepStat.setInt(4, prenotazione.getTpo_prenotazione());
             prepStat.setInt(5, prenotazione.getTipo_pagamento());
-            prepStat.setDate(6, Date.valueOf(prenotazione.getData_prenotazione()));
+            prepStat.setDate(6,prenotazione.getData_prenotazione());
             prepStat.executeUpdate();
             prepStat.close();
             pizzaConn.getConn().close();
@@ -93,12 +93,12 @@ public class DataAccessPrenotazione {
             ResultSet risultato = prepStat.executeQuery();
             while (risultato.next()) {
                 Prenotazione prenotazione = new Prenotazione();
-                prepStat.setString(1, prenotazione.getProduttore());
-                prepStat.setString(2, prenotazione.getCliente());
-                prepStat.setInt(3, prenotazione.getNumero_prenotazione());
-                prepStat.setInt(4, prenotazione.getTpo_prenotazione());
-                prepStat.setInt(5, prenotazione.getTipo_pagamento());
-                prepStat.setDate(6, Date.valueOf(prenotazione.getData_prenotazione()));
+                prenotazione.setCliente(risultato.getString("cliente"));
+                prenotazione.setNumero_prenotazione(risultato.getInt("numero prenotazione"));
+                prenotazione.setProduttore(risultato.getString("produttore"));
+                prenotazione.setTpo_prenotazione(risultato.getInt("tipo prenotazione"));
+                prenotazione.setTipo_pagamento(risultato.getInt("tipo pagamento"));
+                prenotazione.setData_prenotazione(risultato.getDate("data prenotazione"));
                 listaPrenotazione.add(prenotazione);
             }
             prepStat.close();
