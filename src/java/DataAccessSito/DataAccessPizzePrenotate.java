@@ -20,7 +20,7 @@ public class DataAccessPizzePrenotate {
         ConnDatabase pizzaConn;
     public DataAccessPizzePrenotate() {
     }
-    public void doSave(PizzePrenotate pizza){
+    public void aggiungi(PizzePrenotate pizza){
             try {
                 this.pizzaConn = new ConnDatabase();
                 String insertSQL="INSERT INTO " + Nome_Tabella +
@@ -40,7 +40,7 @@ public class DataAccessPizzePrenotate {
             }
 
     }
-    public ArrayList<PizzePrenotate> doRetrieveAll(){
+    public ArrayList<PizzePrenotate> prendiTutto(){
         String selectSQL = "SELECT * FROM " + Nome_Tabella;
         ArrayList<PizzePrenotate> listaPizze = new ArrayList<PizzePrenotate>();
         PreparedStatement prepStat;
@@ -63,14 +63,15 @@ public class DataAccessPizzePrenotate {
             }
         return listaPizze;
     }
-    public PizzePrenotate doRetrieveByKeys(int id){
-	String selectSQL = "SELECT * FROM " + Nome_Tabella +" WHERE idpizza = ?";
+    public PizzePrenotate ricercaChiave(int id,int numeroPrenotazione){
+	String selectSQL = "SELECT * FROM " + Nome_Tabella +" WHERE (idpizza = ? AND numero prenotazione = ?)";
         PizzePrenotate pizza = new PizzePrenotate();
         PreparedStatement prepStat;
             try {
                 this.pizzaConn = new ConnDatabase();
                 prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
                 prepStat.setInt(1,id);
+                prepStat.setInt(2, numeroPrenotazione);
                 ResultSet risultato = prepStat.executeQuery();
                 if(risultato.next()){
                     pizza.setIdpizza(risultato.getInt("idpizza"));
@@ -87,13 +88,14 @@ public class DataAccessPizzePrenotate {
         return pizza;
     }
     
-    public void doDelete(int id){
-        String deleteSQL = "DELETE FROM " + Nome_Tabella +" WHERE idpizza = ?";
+    public void cancella(int id,int numeroPrenotazione){
+        String deleteSQL = "DELETE FROM " + Nome_Tabella +" WHERE (idpizza = ? AND numero prenotazione = ?)";
         PreparedStatement prepStat;
         try {
             this.pizzaConn = new ConnDatabase();
             prepStat = pizzaConn.getConn().prepareStatement(deleteSQL);
             prepStat.setInt(1, id);
+            prepStat.setInt(2, numeroPrenotazione);
             prepStat.executeUpdate();
             prepStat.close();
 	    pizzaConn.chiudi();
