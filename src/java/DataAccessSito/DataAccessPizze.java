@@ -85,14 +85,14 @@ public class DataAccessPizze {
         }
     }
 
-    public ArrayList<Pizze> estraiPizze(String query) {
-
+    public ArrayList<Pizze> estraiPizze(String pizzeria) {
+        query = "SELECT * FROM " + Nome_Tabella + " WHERE produttore = "+pizzeria;
         ArrayList<Pizze> pizze = new ArrayList<Pizze>();
         try {
             this.pizze = new ConnDatabase();
             estrai = this.pizze.getConn().createStatement();
 
-            risultato = estrai.executeQuery("" + query);
+            risultato = estrai.executeQuery(query);
             while (risultato.next()) {
                 Pizze c = new Pizze();
                 c.setIdpizza(risultato.getInt("idpizza"));
@@ -112,5 +112,6 @@ public class DataAccessPizze {
         }
         return pizze;
     }
+    private static final String Nome_Tabella = "pizze";
 
 }

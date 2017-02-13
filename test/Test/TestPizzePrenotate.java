@@ -58,6 +58,7 @@ public class TestPizzePrenotate {
         pizze.add(pizza);
         pizze.add(pizza2);
         data.modificaPizze(pizze);
+        
     }
     
 }
