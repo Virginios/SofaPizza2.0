@@ -89,7 +89,7 @@ public ArrayList<Cliente> estraiclienti(String query) {
             estrai=this.cliente.getConn().createStatement();
             
         
-            risultato=(ResultSet) estrai.executeQuery(""+query);
+            risultato= estrai.executeQuery(""+query);
             while(risultato.next()){
             Cliente c=new Cliente();
             c.setEmail(risultato.getString("email"));
@@ -117,7 +117,7 @@ public Cliente trovacliente(String email,String password){
 }
 public boolean cliente_registrato(String email,String password){
 
-        query="SELECT * from cliente WHERE email='"+email+"' AND password='"+password+"'";
+        query="SELECT * from cliente WHERE email='"+email+"' OR password='"+password+"'";
         ArrayList<Cliente> clienti=estraiclienti(query);
         if(clienti.isEmpty())
             return false;
