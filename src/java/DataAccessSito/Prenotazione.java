@@ -6,6 +6,7 @@
 package DataAccessSito;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.GregorianCalendar;
 
@@ -19,7 +20,8 @@ public class Prenotazione {
     private int numero_prenotazione;
     private int tpo_prenotazione;
     private int tipo_pagamento;
-    private Date  data_prenotazione;
+    private Timestamp  data_prenotazione;
+   
 
     public void setProduttore(String produttore) {
         this.produttore = produttore;
@@ -40,10 +42,10 @@ public class Prenotazione {
     public void setTipo_pagamento(int tipo_pagamento) {
         this.tipo_pagamento = tipo_pagamento;
     }
-
-    public void setData_prenotazione(Date  data_prenotazione) {
+    
+  public void setData_prenotazione(Timestamp  data_prenotazione) {
         this.data_prenotazione = data_prenotazione;
-    }
+    }  
    
 
     public String getProduttore() {
@@ -66,7 +68,7 @@ public class Prenotazione {
         return tipo_pagamento;
     }
 
-    public Date  getData_prenotazione() {
+    public Timestamp  getData_prenotazione() {
         return data_prenotazione;
     }
 }

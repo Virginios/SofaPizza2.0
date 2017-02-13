@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -37,7 +38,7 @@ public class DataAccessPrenotazione {
             prepStat.setInt(3, prenotazione.getNumero_prenotazione());
             prepStat.setInt(4, prenotazione.getTpo_prenotazione());
             prepStat.setInt(5, prenotazione.getTipo_pagamento());
-            prepStat.setDate(6,prenotazione.getData_prenotazione());
+            prepStat.setTimestamp(6,new Timestamp(System.currentTimeMillis()));
             prepStat.executeUpdate();
             prepStat.close();
             pizzaConn.getConn().close();
@@ -98,7 +99,7 @@ public class DataAccessPrenotazione {
                 prenotazione.setProduttore(risultato.getString("produttore"));
                 prenotazione.setTpo_prenotazione(risultato.getInt("tipo prenotazione"));
                 prenotazione.setTipo_pagamento(risultato.getInt("tipo pagamento"));
-                prenotazione.setData_prenotazione(risultato.getDate("data prenotazione"));
+                prenotazione.setData_prenotazione(risultato.getTimestamp("data prenotazione"));
                 listaPrenotazione.add(prenotazione);
             }
             prepStat.close();
