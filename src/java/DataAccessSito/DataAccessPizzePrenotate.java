@@ -19,14 +19,10 @@ import java.util.logging.Logger;
 public class DataAccessPizzePrenotate {
         ConnDatabase pizzaConn;
     public DataAccessPizzePrenotate() {
-        try {
-            pizzaConn = new ConnDatabase();
-        } catch (SQLException ex) {
-            Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
     public void doSave(PizzePrenotate pizza){
             try {
+                this.pizzaConn = new ConnDatabase();
                 String insertSQL="INSERT INTO " + Nome_Tabella +
                         " (numero prenotazione, idpizza, prezzo, quantità)" +
                         " VALUES (?, ?, ?, ?)";
@@ -49,6 +45,7 @@ public class DataAccessPizzePrenotate {
         ArrayList<PizzePrenotate> listaPizze = new ArrayList<PizzePrenotate>();
         PreparedStatement prepStat;
             try {
+                this.pizzaConn = new ConnDatabase();
                 prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
                 ResultSet risultato = prepStat.executeQuery();
                 while(risultato.next()){
@@ -71,6 +68,7 @@ public class DataAccessPizzePrenotate {
         PizzePrenotate pizza = new PizzePrenotate();
         PreparedStatement prepStat;
             try {
+                this.pizzaConn = new ConnDatabase();
                 prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
                 prepStat.setInt(1,id);
                 ResultSet risultato = prepStat.executeQuery();
@@ -93,6 +91,7 @@ public class DataAccessPizzePrenotate {
         String deleteSQL = "DELETE FROM " + Nome_Tabella +" WHERE idpizza = ?";
         PreparedStatement prepStat;
         try {
+            this.pizzaConn = new ConnDatabase();
             prepStat = pizzaConn.getConn().prepareStatement(deleteSQL);
             prepStat.setInt(1, id);
             prepStat.executeUpdate();
