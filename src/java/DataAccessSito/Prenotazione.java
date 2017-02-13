@@ -16,7 +16,7 @@ public class Prenotazione {
     private String cliente;
     private int numero_prenotazione;
     private int tpo_prenotazione;
-     private int tipo_pagamento;
+    private int tipo_pagamento;
     private GregorianCalendar data_prenotazione;
 
     public void setProduttore(String produttore) {

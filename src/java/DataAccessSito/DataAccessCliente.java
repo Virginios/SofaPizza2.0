@@ -37,10 +37,7 @@ public class DataAccessCliente {
 public void inserisciCliente(Cliente cliente ){
 
         try {
-            
-          
             inserisci=this.cliente.getConn().prepareStatement("INSERT INTO cliente " +"(email, password, nome, cognome, via, paese, carta, tipocliente) values (?,?,?,?,?,?,?,?)");
-          
             inserisci.setString(1, cliente.getEmail());
             inserisci.setString(2, cliente.getPassword());
             inserisci.setString(3, cliente.getNome());
