@@ -76,7 +76,7 @@ public void modificaCliente(Cliente cliente ){
             inserisci.close();
             this.cliente.chiudi();
         
-        } catch (SQLException ex) {
+        }  catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
 }
