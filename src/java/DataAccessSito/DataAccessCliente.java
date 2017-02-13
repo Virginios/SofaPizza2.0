@@ -53,7 +53,7 @@ public void cancellaCliente(Cliente cliente ){
 
         try {
             
-        inserisci=this.cliente.getConn().prepareStatement("DELETE * FROM cliente WHERE email ="+cliente.getEmail());
+            inserisci=this.cliente.getConn().prepareStatement("DELETE * FROM cliente WHERE email ="+cliente.getEmail());
         
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -64,16 +64,16 @@ public void modificaCliente(Cliente cliente ){
 
         try {
             
-inserisci=this.cliente.getConn().prepareStatement(
-          " UPDATE cliente SET"
-        + " email="+cliente.getEmail()+","
-        + " password="+cliente.getPassword()+","
-        + " cognome="+cliente.getCognome()+","
-        + " nome="+cliente.getNome()+","
-        + " via="+cliente.getVia()+","
-        + " paese="+cliente.getPaese()+","
-        + " carta="+cliente.getCarta()+","
-        + " WHERE email ="+cliente.getEmail());
+            inserisci=this.cliente.getConn().prepareStatement(
+            " UPDATE cliente SET"
+            + " email="+cliente.getEmail()+","
+            + " password="+cliente.getPassword()+","
+            + " cognome="+cliente.getCognome()+","
+            + " nome="+cliente.getNome()+","
+            + " via="+cliente.getVia()+","
+            + " paese="+cliente.getPaese()+","
+            + " carta="+cliente.getCarta()+","
+            + " WHERE email ="+cliente.getEmail());
         
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
