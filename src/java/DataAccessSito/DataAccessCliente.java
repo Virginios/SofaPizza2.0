@@ -49,7 +49,7 @@ public void cancellaCliente(Cliente cliente ){
 
         try {
             
-            inserisci=this.cliente.getConn().prepareStatement("DELETE * FROM cliente WHERE email ="+cliente.getEmail());
+            inserisci=this.cliente.getConn().prepareStatement("DELETE FROM cliente WHERE email ="+cliente.getEmail());
             inserisci.close();
             this.cliente.chiudi();
         } catch (SQLException ex) {

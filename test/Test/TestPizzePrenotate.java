@@ -19,20 +19,45 @@ import java.util.ArrayList;
  */
 public class TestPizzePrenotate {
     public static void main(String args[]){
-        Pizze pizza = new Pizze();
+        /*Pizze pizza = new Pizze();
         pizza.setIdpizza(1);
         pizza.setIngredienti("bo");
         pizza.setPrezzo(50.5);
         pizza.setProduttore("2c");
         pizza.setNome("marg");
+        Pizze pizza2 = new Pizze();
+        pizza2.setIdpizza(2);
+        pizza2.setIngredienti("bo");
+        pizza2.setPrezzo(50.5);
+        pizza2.setProduttore("2c");
+        pizza2.setNome("marg");
         ArrayList<Pizze> pizze;
         pizze = new ArrayList<Pizze>();
         pizze.add(pizza);
+        pizze.add(pizza2);*/
         DataAccessPizze data = new DataAccessPizze();
         //data.inseriscipizze(pizze);
-        int[] a = new int[10];
+        /*int[] a = new int[10];
         a[0] = pizze.get(0).getIdpizza();
-        data.cancellapizze(a);
+        a[1] = pizze.get(1).getIdpizza();*/
+        //data.cancellapizze(a);
+        Pizze pizza = new Pizze();
+        pizza.setIdpizza(1);
+        pizza.setIngredienti("ca");
+        pizza.setPrezzo(50.5);
+        pizza.setProduttore("2c");
+        pizza.setNome("u");
+        Pizze pizza2 = new Pizze();
+        pizza2.setIdpizza(2);
+        pizza2.setIngredienti("bo");
+        pizza2.setPrezzo(50.5);
+        pizza2.setProduttore("2c");
+        pizza2.setNome("a");
+        ArrayList<Pizze> pizze;
+        pizze = new ArrayList<Pizze>();
+        pizze.add(pizza);
+        pizze.add(pizza2);
+        data.modificaPizze(pizze);
     }
     
 }

@@ -54,7 +54,8 @@ public class DataAccessPizze {
         try {
             this.pizze = new ConnDatabase();
             for (int i = 0; i < idpizze.length; i++) {
-                inserisci = this.pizze.getConn().prepareStatement("DELETE * FROM pizze WHERE  idpizza=" + idpizze[i]);
+                inserisci = this.pizze.getConn().prepareStatement("DELETE FROM pizze WHERE  idpizza= " + idpizze[i]);
+                inserisci.executeUpdate();
             }
             inserisci.close();
             this.pizze.chiudi();
@@ -69,13 +70,13 @@ public class DataAccessPizze {
             this.pizze = new ConnDatabase();
             for (int i = 0; i < pizze.size(); i++) {
                 inserisci = this.pizze.getConn().prepareStatement(
-                        " UPDATE pizze SET"
+                        "UPDATE pizze SET"
                         + " idpizza=" + pizze.get(i).getIdpizza() + ","
-                        + " produttore=" + pizze.get(i).getProduttore() + ","
                         + " nome=" + pizze.get(i).getNome() + ","
                         + " prezzo=" + pizze.get(i).getPrezzo() + ","
-                        + " ingredienti=" + pizze.get(i).getIngredienti() + ","
-                        + " WHERE idpizza=" + pizze.get(i).getIdpizza());
+                        + " ingredienti=" + pizze.get(i).getIngredienti() 
+                        + " WHERE  idpizza=" + pizze.get(i).getIdpizza());
+                inserisci.executeUpdate();
             }
             inserisci.close();
             this.pizze.chiudi();
