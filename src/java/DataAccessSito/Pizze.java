@@ -26,7 +26,7 @@ public class Pizze {
      public String getProduttore(){
     return produttore;
     }
-      public String getImgredienti(){
+      public String getIngredienti(){
     return ingredienti;
     }
      public Double getPrezzo(){
