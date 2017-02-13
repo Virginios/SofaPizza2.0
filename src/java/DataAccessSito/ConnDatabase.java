@@ -19,34 +19,31 @@ import java.util.logging.Logger;
  * @author ardemus
  */
 public class ConnDatabase {
+
     Connection conn;
-    
-    public ConnDatabase() throws SQLException{
-        try{
-    Class.forName("com.mysql.jdbc.Driver");
-    conn = DriverManager.getConnection ("jdbc:mysql://localhost:3306/sofapizza?useSSL=false" , "root","andrea1995" );
-   }
-    
-    catch(ClassNotFoundException e){
+
+    public ConnDatabase() throws SQLException {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sofapizza?useSSL=false", "root", "andrea1995");
+        } catch (ClassNotFoundException e) {
             System.out.println(e);
-   }
-        catch(SQLException s){
-        System.out.println(s);
-   }
-        
-    
-}
-   public void chiudi(){
+        } catch (SQLException s) {
+            System.out.println(s);
+        }
+
+    }
+
+    public void chiudi() {
         try {
             conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(ConnDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } 
-   
-   
-    public Connection getConn(){
-             return conn;   
-        } 
-   
-}  
+    }
+
+    public Connection getConn() {
+        return conn;
+    }
+
+}
