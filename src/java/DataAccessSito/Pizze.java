@@ -16,7 +16,6 @@ public class Pizze {
   private  String produttore;
   private  String ingredienti;
   private  Double prezzo;
-  private  Image immagine;
   private int idpizza;
     
 
@@ -33,9 +32,7 @@ public class Pizze {
      public Double getPrezzo(){
     return prezzo;
     }
-     public Image getImmagine(){
-    return immagine;
-    }
+  
     public int getIdpizza() {
         return idpizza;
     }
@@ -57,9 +54,7 @@ public class Pizze {
     public void setPrezzo(Double prezzo){
      this.prezzo=prezzo;
      }
-    public void setImmagine(Image immagine){
-     this.immagine=immagine;
-     }
+
 
     public void setIdpizza(int idpizza) {
         this.idpizza = idpizza;
