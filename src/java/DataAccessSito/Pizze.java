@@ -6,6 +6,7 @@
 package DataAccessSito;
 
 import java.awt.Image;
+import java.io.File;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Pizze {
   private  String ingredienti;
   private  Double prezzo;
   private int idpizza;
+  
     
 
     
@@ -36,7 +38,8 @@ public class Pizze {
     public int getIdpizza() {
         return idpizza;
     }
-     
+
+   
     
      
      public void setNome(String nome){
@@ -59,4 +62,9 @@ public class Pizze {
     public void setIdpizza(int idpizza) {
         this.idpizza = idpizza;
     }
+
+    
+    
+    
+    
 }
