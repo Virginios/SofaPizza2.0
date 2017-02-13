@@ -23,20 +23,11 @@ public class DataAccessCliente {
     ResultSet risultato;
     ConnDatabase cliente;
     String query;
-    
-    
-
-    public DataAccessCliente() {
-        try {
-            cliente = new ConnDatabase();
-        } catch (SQLException ex) {
-            Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
+     
 public void inserisciCliente(Cliente cliente ){
 
         try {
+            this.cliente = new ConnDatabase();
             inserisci=this.cliente.getConn().prepareStatement("INSERT INTO cliente " +"(email, password, nome, cognome, via, paese, carta, tipocliente) values (?,?,?,?,?,?,?,?)");
             inserisci.setString(1, cliente.getEmail());
             inserisci.setString(2, cliente.getPassword());
@@ -47,6 +38,8 @@ public void inserisciCliente(Cliente cliente ){
             inserisci.setString(7, cliente.getCarta());
             inserisci.setInt(8, cliente.getTipoCliente());
             inserisci.executeUpdate();
+            inserisci.close();
+            this.cliente.chiudi();
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -57,7 +50,8 @@ public void cancellaCliente(Cliente cliente ){
         try {
             
             inserisci=this.cliente.getConn().prepareStatement("DELETE * FROM cliente WHERE email ="+cliente.getEmail());
-        
+            inserisci.close();
+            this.cliente.chiudi();
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,7 +60,7 @@ public void cancellaCliente(Cliente cliente ){
 public void modificaCliente(Cliente cliente ){
 
         try {
-            
+            this.cliente = new ConnDatabase();
             inserisci=this.cliente.getConn().prepareStatement(
             " UPDATE cliente SET"
             + " email="+cliente.getEmail()+","
@@ -77,6 +71,8 @@ public void modificaCliente(Cliente cliente ){
             + " paese="+cliente.getPaese()+","
             + " carta="+cliente.getCarta()+","
             + " WHERE email ="+cliente.getEmail());
+             inserisci.close();
+             this.cliente.chiudi();
         
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,6 +82,7 @@ public ArrayList<Cliente> estraiclienti(String query) {
     
             ArrayList<Cliente> clienti= new ArrayList<Cliente>();
     try{
+            this.cliente = new ConnDatabase();
             estrai=this.cliente.getConn().createStatement();
             
         
@@ -101,6 +98,8 @@ public ArrayList<Cliente> estraiclienti(String query) {
             c.setCarta(risultato.getString("carta"));
             c.setTipoCliente(risultato.getInt("tipoutente"));
             clienti.add(c);
+            estrai.close();
+            this.cliente.chiudi();
             }
                       
         } catch (SQLException ex) {
