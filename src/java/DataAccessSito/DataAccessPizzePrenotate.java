@@ -40,13 +40,14 @@ public class DataAccessPizzePrenotate {
             }
 
     }
-    public ArrayList<PizzePrenotate> prendiTutto(){
-        String selectSQL = "SELECT * FROM " + Nome_Tabella;
+    public ArrayList<PizzePrenotate> prendiTutto(int numeroPrenotazione){
+        String selectSQL = "SELECT * FROM " + Nome_Tabella+" WHERE idpizza = ? ";
         ArrayList<PizzePrenotate> listaPizze = new ArrayList<PizzePrenotate>();
         PreparedStatement prepStat;
             try {
                 this.pizzaConn = new ConnDatabase();
                 prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
+                prepStat.setInt(1, numeroPrenotazione);
                 ResultSet risultato = prepStat.executeQuery();
                 while(risultato.next()){
                     PizzePrenotate pizza = new PizzePrenotate();
