@@ -42,7 +42,7 @@ public class ConnDatabase {
         } catch (SQLException ex) {
             Logger.getLogger(ConnDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
-        } 
+    } 
    
    
     public Connection getConn(){
