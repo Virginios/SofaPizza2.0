@@ -71,10 +71,9 @@ public class DataAccessPizze {
             for (int i = 0; i < pizze.size(); i++) {
                 inserisci = this.pizze.getConn().prepareStatement(
                         "UPDATE pizze SET"
-                        + " idpizza=" + pizze.get(i).getIdpizza() + ","
-                        + " nome=" + pizze.get(i).getNome() + ","
+                        + " nome='" + pizze.get(i).getNome() + "',"
                         + " prezzo=" + pizze.get(i).getPrezzo() + ","
-                        + " ingredienti=" + pizze.get(i).getIngredienti() 
+                        + " ingredienti='" + pizze.get(i).getIngredienti()+"'" 
                         + " WHERE  idpizza=" + pizze.get(i).getIdpizza());
                 inserisci.executeUpdate();
             }
