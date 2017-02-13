@@ -102,8 +102,5 @@ public class DataAccessPizzePrenotate {
             Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-
-
     private static final String TABLE_NAME = "pizze prenotate";
 }
