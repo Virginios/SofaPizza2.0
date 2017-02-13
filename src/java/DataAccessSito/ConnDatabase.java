@@ -43,4 +43,10 @@ public class ConnDatabase {
             Logger.getLogger(ConnDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
         } 
-}
+   
+   
+    public Connection getConn(){
+             return conn;   
+        } 
+   
+}  
