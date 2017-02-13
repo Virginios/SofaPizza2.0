@@ -25,7 +25,7 @@ public class ConnDatabase {
     public ConnDatabase() throws SQLException {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sofapizza?useSSL=false", "root", "andrea1995");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sofapizza?useSSL=false", "root", "valerio12");
         } catch (ClassNotFoundException e) {
             System.out.println(e);
         } catch (SQLException s) {

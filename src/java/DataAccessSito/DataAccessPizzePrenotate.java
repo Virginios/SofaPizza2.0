@@ -27,13 +27,13 @@ public class DataAccessPizzePrenotate {
         try {
             this.pizzaConn = new ConnDatabase();
             String insertSQL = "INSERT INTO " + Nome_Tabella
-                    + " (numero prenotazione, idpizza, prezzo, quantità)"
+                    + " (numeroPrenotazione, idpizza, prezzo, quantita)"
                     + " VALUES (?, ?, ?, ?)";
             PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(insertSQL);
             prepStat.setInt(1, pizza.getNumero_prenotazione());
             prepStat.setInt(2, pizza.getIdpizza());
             prepStat.setInt(3, pizza.getPrezzo());
-            prepStat.setInt(3, pizza.getQuantità());
+            prepStat.setInt(4, pizza.getQuantità());
             prepStat.executeUpdate();
             prepStat.close();
             pizzaConn.getConn().close();
@@ -124,5 +124,5 @@ public class DataAccessPizzePrenotate {
             Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    private static final String Nome_Tabella = "pizze prenotate";
+    private static final String Nome_Tabella = "pizzeprenotate";
 }
