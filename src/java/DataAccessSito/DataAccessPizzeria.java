@@ -31,12 +31,13 @@ public class DataAccessPizzeria {
 
         try {
             this.pizzeria = new ConnDatabase();
-            inserisci=this.pizzeria.getConn().prepareStatement("INSERT INTO pizzeria " +"(nomePizzeria, pIva, password, via, paese) values (?,?,?,?,?)");
+            inserisci=this.pizzeria.getConn().prepareStatement("INSERT INTO pizzeria " +"(nomePizzeria, pIva, password, via, paese, numTel) values (?,?,?,?,?,?)");
             inserisci.setString(1, pizzeria.getNome());
             inserisci.setString(2, pizzeria.getPiva());
             inserisci.setString(3, pizzeria.getPassword());
             inserisci.setString(4, pizzeria.getVia());
             inserisci.setString(5, pizzeria.getPaese());
+            inserisci.setString(6, pizzeria.getNumero());
             File file = new File("src\\img\\"+pizzeria.getPiva()+".jpg");
             ImageIO.write(pizzeria.getImmagine(),"jpg",file);
             inserisci.executeUpdate();
@@ -74,6 +75,7 @@ public class DataAccessPizzeria {
             + " password='"+pizzeria.getPassword()+"',"
             + " via='"+pizzeria.getVia()+"',"
             + " paese='"+pizzeria.getPaese()+"',"
+            + " numTel='"+pizzeria.getNumero()+ "',"
             + " WHERE pIva ='"+pizzeria.getPiva()+"'");
              File file = new File("src\\img\\"+pizzeria.getPiva()+".jpg");
              ImageIO.write(pizzeria.getImmagine(),"jpg",file);
@@ -104,6 +106,7 @@ public class DataAccessPizzeria {
             c.setPiva(risultato.getString("pIva"));
             c.setVia(risultato.getString("via"));
             c.setPaese(risultato.getString("paese"));
+            c.setNumero(risultato.getString("numTel"));
             BufferedImage foto=ImageIO.read(new File("src\\img\\"+c.getPiva()+".jpg"));
             c.setImmagine(foto);
             pizzerie.add(c);

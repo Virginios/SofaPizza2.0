@@ -14,8 +14,8 @@ private  String piva;
 private String nome;
 private String password;
 private String via;
-
 private String paese;
+private String numero;
 private  BufferedImage immagine;
 
 
@@ -44,6 +44,11 @@ private  BufferedImage immagine;
     public void setPaese(String paese) {
         this.paese = paese;
     }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+    
     
     
     
@@ -70,6 +75,10 @@ private  BufferedImage immagine;
 
     public String getPaese() {
         return paese;
+    }
+
+    public String getNumero() {
+        return numero;
     }
 
     
