@@ -30,15 +30,14 @@ public class DataAccessPrenotazione {
         try {
             this.pizzaConn = new ConnDatabase();
             String insertSQL = "INSERT INTO " + Nome_Tabella
-                    + " (produttore, cliente, numero prenotazione, tipo prenotazione,tipo pagamento,data prenotazione)"
-                    + " VALUES (?, ?, ?, ?, ?, ?)";
+                    + " (produttore, cliente, numeroPrenotazione, tipoPrenotazione,tipoPagamento)"
+                    + " VALUES ('?','?', ?, ?, ?)";
             PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(insertSQL);
             prepStat.setString(1, prenotazione.getProduttore());
             prepStat.setString(2, prenotazione.getCliente());
             prepStat.setInt(3, prenotazione.getNumero_prenotazione());
             prepStat.setInt(4, prenotazione.getTpo_prenotazione());
             prepStat.setInt(5, prenotazione.getTipo_pagamento());
-            prepStat.setTimestamp(6,new Timestamp(System.currentTimeMillis()));
             prepStat.executeUpdate();
             prepStat.close();
             pizzaConn.getConn().close();
