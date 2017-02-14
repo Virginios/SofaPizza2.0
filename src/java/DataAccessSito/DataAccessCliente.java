@@ -66,7 +66,7 @@ public void modificaCliente(Cliente cliente ){
                         "UPDATE pizze SET"
                         + " nome='" + cliente.getNome() + "',"
                         + " password= '" + cliente.getPassword() + "'"
-                        + " WHERE  email='" + cliente.getEmail()+"'");
+                        + " WHERE email='" + cliente.getEmail()+"'");
                 inserisci.executeUpdate();
             inserisci.executeUpdate();
             inserisci.close();
