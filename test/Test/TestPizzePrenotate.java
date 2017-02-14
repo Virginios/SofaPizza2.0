@@ -21,10 +21,10 @@ public class TestPizzePrenotate {
         p.setPrezzo(50);
         p.setQuantità(5);
         DataAccessPizzePrenotate pp = new DataAccessPizzePrenotate();
-        //pp.aggiungi(p);
+       pp.aggiungi(p);
         //pp.cancellaSingolaPrenotazione(1, 2);
-        ArrayList<PizzePrenotate> pizze  = pp.prendiTutto(2);
-        System.out.println(pizze.get(0).getIdpizza());
-        pp.cancellaSingolaPizzaPrenotata(2, 2);
+        //ArrayList<PizzePrenotate> pizze  = pp.prendiTutto(2);
+        //System.out.println(pizze.get(0).getIdpizza());
+        //pp.cancellaSingolaPizzaPrenotata(2, 2);
     }
 }

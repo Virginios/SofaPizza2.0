@@ -26,15 +26,20 @@ public class DataAccessPizzePrenotate {
     public void aggiungi(PizzePrenotate pizza) {
         try {
             this.pizzaConn = new ConnDatabase();
-            String insertSQL = "INSERT INTO " + Nome_Tabella
+            String sql = "SELECT idpizza,numeroPrenotazione IF (idpizza= "
+                    +pizza.getIdpizza()+ "AND numeroPrenotazione= "+pizza.getNumero_prenotazione()+", UPDATE " + Nome_Tabella + " SET quantita = ? WHERE idpizza= "
+                    +pizza.getIdpizza()+ "AND numeroPrenotazione= "+pizza.getNumero_prenotazione()+",INSERT INTO " + Nome_Tabella
                     + " (numeroPrenotazione, idpizza, prezzo, quantita)"
-                    + " VALUES (?, ?, ?, ?)";
-            PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(insertSQL);
+                    + " VALUES (?, ?, ?, ?)"  +" FROM pizzePrenotate)";
+           /* String insertSQL = "INSERT INTO " + Nome_Tabella
+                    + " (numeroPrenotazione, idpizza, prezzo, quantita)"
+                    + " VALUES (?, ?, ?, ?)";*/
+            PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(sql);
             prepStat.setInt(1, pizza.getNumero_prenotazione());
             prepStat.setInt(2, pizza.getIdpizza());
             prepStat.setInt(3, pizza.getPrezzo());
             prepStat.setInt(4, pizza.getQuantità());
-            prepStat.executeUpdate();
+            prepStat.execute();
             prepStat.close();
             pizzaConn.getConn().close();
 
