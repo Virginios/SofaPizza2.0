@@ -26,15 +26,16 @@ public class TestCliente {
         DataAccessCliente access = new DataAccessCliente();
         //access.inserisciCliente(cliente);
         //access.cancellaCliente(cliente.getEmail());
-        cliente.setVia("ciao");
+        /*cliente.setVia("ciao");
         cliente.setCarta("sss");
         cliente.setNome("jjj");
         cliente.setPaese("s");
         cliente.setTipoCliente(0);
         cliente.setPassword("sss");
         cliente.setCognome("jjjjj");
-        cliente.setEmail("alalal");
+        cliente.setEmail("gdgdgd");
         access.modificaCliente(cliente);
+        System.out.println(cliente.toString*/
     }
     
 }
