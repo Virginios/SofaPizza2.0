@@ -26,22 +26,22 @@ public class DataAccessPizzePrenotate {
     public void aggiungi(PizzePrenotate pizza) {
         try {
             this.pizzaConn = new ConnDatabase();
-            String sql = "SELECT idpizza,numeroPrenotazione IF (idpizza= "
-                    +pizza.getIdpizza()+ "AND numeroPrenotazione= "+pizza.getNumero_prenotazione()+", UPDATE " + Nome_Tabella + " SET quantita = ? WHERE idpizza= "
-                    +pizza.getIdpizza()+ "AND numeroPrenotazione= "+pizza.getNumero_prenotazione()+",INSERT INTO " + Nome_Tabella
-                    + " (numeroPrenotazione, idpizza, prezzo, quantita)"
-                    + " VALUES (?, ?, ?, ?)"  +" FROM pizzePrenotate)";
-           /* String insertSQL = "INSERT INTO " + Nome_Tabella
-                    + " (numeroPrenotazione, idpizza, prezzo, quantita)"
-                    + " VALUES (?, ?, ?, ?)";*/
-            PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(sql);
-            prepStat.setInt(1, pizza.getNumero_prenotazione());
-            prepStat.setInt(2, pizza.getIdpizza());
-            prepStat.setInt(3, pizza.getPrezzo());
-            prepStat.setInt(4, pizza.getQuantità());
-            prepStat.execute();
-            prepStat.close();
-            pizzaConn.getConn().close();
+                PizzePrenotate risultato = ricercaChiave(pizza.getIdpizza(),pizza.getNumero_prenotazione());
+                if(risultato == null){
+                    String insertSQL = "INSERT INTO " + Nome_Tabella
+                            + " (numeroPrenotazione, idpizza, prezzo, quantita)"
+                            + " VALUES (?, ?, ?, ?)";
+                    PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(insertSQL);
+                    prepStat.setInt(1, pizza.getNumero_prenotazione());
+                    prepStat.setInt(2, pizza.getIdpizza());
+                    prepStat.setInt(3, pizza.getPrezzo());
+                    prepStat.setInt(4, pizza.getQuantità());
+                    prepStat.close();
+                    pizzaConn.chiudi();
+                    prepStat.execute();
+                }else{
+                    aggiornaQuantita(risultato);
+                }
 
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,6 +88,49 @@ public class DataAccessPizzePrenotate {
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public void aggiornaQuantita(PizzePrenotate pizza){
+        String update = "UPDATE " + Nome_Tabella + " SET quantita = ? "
+                + "WHERE (idpizza = ? AND numeroPrenotazione = ?)";
+         PreparedStatement prepStat;
+        try {
+            this.pizzaConn = new ConnDatabase();
+            prepStat = pizzaConn.getConn().prepareStatement(update);
+            prepStat.setInt(1, pizza.getQuantità()+1);
+            prepStat.setInt(2, pizza.getIdpizza());
+            prepStat.setInt(3, pizza.getNumero_prenotazione());
+            prepStat.executeUpdate();
+            prepStat.close();
+            pizzaConn.chiudi();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+    }
+    public PizzePrenotate ricercaChiave(int id, int numeroPrenotazione) {
+        String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE (idpizza = ? AND numeroPrenotazione = ?)";
+        PizzePrenotate pizza = new PizzePrenotate();
+        PreparedStatement prepStat;
+        try {
+            this.pizzaConn = new ConnDatabase();
+            prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
+            prepStat.setInt(1, id);
+            prepStat.setInt(2, numeroPrenotazione);
+            ResultSet risultato = prepStat.executeQuery();
+            if (risultato.next()) {
+                pizza.setIdpizza(risultato.getInt("idpizza"));
+                pizza.setPrezzo(risultato.getInt("prezzo"));
+                pizza.setNumero_prenotazione(risultato.getInt("numeroPrenotazione"));
+                pizza.setQuantità(risultato.getInt("quantita"));
+            }
+            prepStat.close();
+            pizzaConn.chiudi();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return pizza;
     }
     private static final String Nome_Tabella = "pizzeprenotate";
 }

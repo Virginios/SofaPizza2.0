@@ -16,12 +16,12 @@ import java.util.ArrayList;
 public class TestPizzePrenotate {
     public static void main(String args[]){
         PizzePrenotate p = new PizzePrenotate();
-        p.setIdpizza(2);
+        p.setIdpizza(1);
         p.setNumero_prenotazione(2);
-        p.setPrezzo(50);
-        p.setQuantità(5);
+        p.setPrezzo(3);
+        p.setQuantità(1);
         DataAccessPizzePrenotate pp = new DataAccessPizzePrenotate();
-       pp.aggiungi(p);
+        pp.aggiungi(p);
         //pp.cancellaSingolaPrenotazione(1, 2);
         //ArrayList<PizzePrenotate> pizze  = pp.prendiTutto(2);
         //System.out.println(pizze.get(0).getIdpizza());
