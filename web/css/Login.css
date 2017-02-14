@@ -1,0 +1,70 @@
+body {
+    height:750px;
+	background-color:#CACACA;
+}
+table{
+	width:100%;	
+	padding:5%;
+}
+
+.errore{
+    display:none;
+    color:red;
+}
+#form
+{
+	background-image: url(immaginetrasppp.jpg);
+	height: 72.2%;
+}
+
+
+.input
+{
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+}
+#contReg{
+}
+#login{
+	position: relative;
+	right:-33px;
+	font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 100px;
+	height: 30px;
+	background:#ff9900;
+	opacity:0.70;
+	margin-bottom: 5px;
+}
+
+
+@media screen and (min-width: 480px) {
+	#tabella{
+		padding-left: 7%;
+	}
+}
+@media screen and (min-width: 768px) {
+#tabella{
+		padding-left: 15%;
+	}
+}
+@media screen and (min-width: 1024px) {
+	#tabella{
+		padding-left: 20%;
+			padding-right: 10%;
+
+	}
+}
+@media screen and (min-width: 1200px) {
+	#tabella{
+		padding-left: 30%;
+			padding-right: 14%;
+
+	}
+}
