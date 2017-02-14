@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class TestCliente {
     public static void main(String args[]){
-        Cliente cliente = new Cliente(); 
+        Cliente cliente = new Cliente() ; 
        /* cliente.setVia("ciao");
         cliente.setCarta("sss");
         cliente.setNome("aaa");
