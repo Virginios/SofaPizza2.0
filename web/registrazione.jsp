@@ -106,20 +106,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><b>CAP</b></td>
-                        <td>
-                            <input class="input" id="CAP" name="CAP" type="text"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="errore" id="erroreCAP">controlla il campo CAP</span>
-                        </td>
-                    </tr>
-                    <tr>
                         <td><b>Telefono</b></td>
                         <td>
-                            <input class="input" id="Numero" name="num_telefono" type="text"/>
+                            <input class="input" id="Numero" name="num_telefono" pattern="[0-9]{10}" type="text" required/>
                         </td>
                     </tr>
                     <tr>
@@ -130,7 +119,10 @@
                     <tr>
                         <td><b>Email</b></td>
                         <td>
-                            <input class="input" id="Email" name="email" type="text"/>
+                            <input class="input" id="Email" name="email" 
+                                   placeholder="Indirizzo e-mail" 
+                                   type="text" pattern="\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b" 
+                                   title="Indirizzo di posta elettronica" required/>
                         </td>
                     </tr>
                     <tr>
@@ -141,7 +133,7 @@
                     <tr>
                         <td><b>Password</b></td>
                         <td>
-                            <input  class="input" id="Password" name="password" type="text"/>
+                            <input  onblur="checkpassword"  class="input" id="Password" name="password" type="password" placeholder="Password" pattern="[^\s]{4,8}" title="Password (dai 6 ai 18 caratteri alfanumerici e speciali, spazi esclusi)" required/>
                         </td>
                     </tr>
                     <tr>
@@ -152,7 +144,7 @@
                     <tr>
                         <td><b>Conferma Password</b></td>
                         <td>
-                            <input  class="input" id="Conferma" name="conferma" type="text"/>
+                            <input  class="input" id="Conferma" name="conferma" type="password" placeholder="Password" pattern="[^\s]{4,8}" title="Password (dai 6 ai 18 caratteri alfanumerici e speciali, spazi esclusi)" required/>
                         </td>
                     </tr>
                     <tr>
