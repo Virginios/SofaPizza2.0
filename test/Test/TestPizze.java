@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Valerio
  */
-public class TestPizzePrenotate {
+public class TestPizze {
     public static void main(String args[]){
         /*Pizze pizza = new Pizze();
         pizza.setIdpizza(1);
