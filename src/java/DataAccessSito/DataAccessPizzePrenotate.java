@@ -28,6 +28,7 @@ public class DataAccessPizzePrenotate {
             this.pizzaConn = new ConnDatabase();
                 PizzePrenotate risultato = ricercaChiave(pizza.getIdpizza(),pizza.getNumero_prenotazione());
                 if(risultato == null){
+                    System.out.println("s");
                     String insertSQL = "INSERT INTO " + Nome_Tabella
                             + " (numeroPrenotazione, idpizza, prezzo, quantita)"
                             + " VALUES (?, ?, ?, ?)";
@@ -36,9 +37,9 @@ public class DataAccessPizzePrenotate {
                     prepStat.setInt(2, pizza.getIdpizza());
                     prepStat.setInt(3, pizza.getPrezzo());
                     prepStat.setInt(4, pizza.getQuantità());
+                    prepStat.executeUpdate();
                     prepStat.close();
                     pizzaConn.chiudi();
-                    prepStat.execute();
                 }else{
                     aggiornaQuantita(risultato);
                 }
@@ -123,10 +124,10 @@ public class DataAccessPizzePrenotate {
                 pizza.setPrezzo(risultato.getInt("prezzo"));
                 pizza.setNumero_prenotazione(risultato.getInt("numeroPrenotazione"));
                 pizza.setQuantità(risultato.getInt("quantita"));
+            }else{
+                pizza = null;
             }
             prepStat.close();
-            pizzaConn.chiudi();
-
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
         }
