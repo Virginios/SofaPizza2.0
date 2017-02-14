@@ -62,16 +62,12 @@ public void modificaCliente(Cliente cliente ){
 
         try {
             this.cliente = new ConnDatabase();
-            inserisci=this.cliente.getConn().prepareStatement(
-            " UPDATE cliente SET"
-            + " email='"+cliente.getEmail()+"',"
-            + " password='"+cliente.getPassword()+"',"
-            + " cognome='"+cliente.getCognome()+"',"
-            + " nome='"+cliente.getNome()+"',"
-            + " via='"+cliente.getVia()+"',"
-            + " paese='"+cliente.getPaese()+"',"
-            + " carta='"+cliente.getCarta()+"'"
-            + " WHERE email ='"+cliente.getEmail()+"'");
+            inserisci = this.cliente.getConn().prepareStatement(
+                        "UPDATE pizze SET"
+                        + " nome='" + cliente.getNome() + "',"
+                        + " password= '" + cliente.getPassword() + "'"
+                        + " WHERE  email='" + cliente.getEmail()+"'");
+                inserisci.executeUpdate();
             inserisci.executeUpdate();
             inserisci.close();
             this.cliente.chiudi();
