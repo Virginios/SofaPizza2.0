@@ -19,6 +19,9 @@ public class TestFunzionamentoImmagini {
 BufferedImage foto=ImageIO.read(new File("C:\\Users\\ardemus\\Desktop\\images.jpg"));
 File file = new File("src\\img\\images2.jpg");
 ImageIO.write(foto,"jpg",file);
+
+File file2 = new File("src\\img\\images2.jpg");
+file2.delete();
      }
 
 }
