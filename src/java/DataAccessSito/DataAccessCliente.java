@@ -93,15 +93,15 @@ public ArrayList<Cliente> estraiclienti(String query) {
             c.setEmail(risultato.getString("email"));
             c.setPassword(risultato.getString("password"));
             c.setNome(risultato.getString("nome"));
-            c.setCognome(risultato.getString("cogmone"));
+            c.setCognome(risultato.getString("cognome"));
             c.setVia(risultato.getString("via"));
             c.setPaese(risultato.getString("paese"));
             c.setCarta(risultato.getString("carta"));
-            c.setTipoCliente(risultato.getInt("tipoutente"));
+            c.setTipoCliente(risultato.getInt("tipocliente"));
             clienti.add(c);
+            }
             estrai.close();
             this.cliente.chiudi();
-            }
                       
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);

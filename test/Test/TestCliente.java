@@ -7,6 +7,7 @@ package Test;
 
 import DataAccessSito.Cliente;
 import DataAccessSito.DataAccessCliente;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,7 +27,7 @@ public class TestCliente {
         DataAccessCliente access = new DataAccessCliente();
         //access.inserisciCliente(cliente);
         //access.cancellaCliente(cliente.getEmail());
-        /*cliente.setVia("ciao");
+        cliente.setVia("ciao");
         cliente.setCarta("sss");
         cliente.setNome("jjj");
         cliente.setPaese("s");
@@ -34,8 +35,17 @@ public class TestCliente {
         cliente.setPassword("sss");
         cliente.setCognome("jjjjj");
         cliente.setEmail("gdgdgd");
-        access.modificaCliente(cliente);
-        System.out.println(cliente.toString*/
+        //access.modificaCliente(cliente);
+        //Cliente clienteTrovato = access.trovacliente(cliente.getEmail(), cliente.getPassword());
+        //System.out.println(clienteTrovato.toString());
+       /*if(access.cliente_registrato("a", "s"))
+           System.out.println("registrato");
+       else
+           System.out.println("non registrato");*/
+       ArrayList<Cliente> c = access.filtri_clienti("email", "gdgdgd");
+       for(int i = 0;i<c.size();i++)
+           System.out.println(c.get(i).getNome());
+
     }
     
 }
