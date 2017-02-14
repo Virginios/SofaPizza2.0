@@ -8,6 +8,8 @@ package Test;
 import DataAccessSito.DataAccessPrenotazione;
 import DataAccessSito.Prenotazione;
 import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,14 +18,24 @@ import java.sql.Timestamp;
 public class TestPrenotazione {
     public static void main(String args[]){
         Prenotazione prenotazione = new Prenotazione();
-        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         prenotazione.setCliente("gdgdgd");
         prenotazione.setNumero_prenotazione(2);
-        prenotazione.setTpo_prenotazione(1);
+        prenotazione.setTpo_prenotazione(0);
         prenotazione.setTipo_pagamento(1);
         prenotazione.setProduttore("2c");
         DataAccessPrenotazione access = new DataAccessPrenotazione();
-        access.aggiungiPrenotazione(prenotazione);
+        //access.aggiungiCarrello(prenotazione);
+        //access.cancellaStorico(prenotazione.getProduttore());
+        //access.cancellaCarrello(prenotazione.getCliente());
+        /*ArrayList<Prenotazione> p = access.prendiPrenotazioni(prenotazione.getProduttore(),0);
+        for(int i = 0;i<p.size();i++){
+            System.out.println(p.get(i).getNumero_prenotazione());
+        }*/
+        /*ArrayList<Prenotazione> p = access.prendiCarrello(prenotazione.getCliente());
+         for(int i = 0;i<p.size();i++){
+            System.out.println(p.get(i).getNumero_prenotazione());
+        }*/
+        access.cambiaTipo(prenotazione.getNumero_prenotazione(), 0);
     }
 
 }
