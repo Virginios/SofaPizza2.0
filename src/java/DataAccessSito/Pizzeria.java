@@ -6,14 +6,20 @@
 package DataAccessSito;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class Pizzeria {
 private  String piva;
 private String nome;
 private String password;
 private String via;
-private Image immagine;
+
 private String paese;
+private  BufferedImage immagine;
+
+
+
 
     public void setPiva(String piva) {
         this.piva = piva;
@@ -31,7 +37,7 @@ private String paese;
         this.via = via;
     }
 
-    public void setImmagine(Image immagine) {
+    public void setImmagine(BufferedImage immagine) {
         this.immagine = immagine;
     }
 
@@ -58,13 +64,15 @@ private String paese;
         return via;
     }
 
-    public Image getImmagine() {
+    public BufferedImage getImmagine() {
         return immagine;
     }
 
     public String getPaese() {
         return paese;
     }
+
+    
     
     
    
