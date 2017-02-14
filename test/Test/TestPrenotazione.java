@@ -20,7 +20,7 @@ public class TestPrenotazione {
         Prenotazione prenotazione = new Prenotazione();
         prenotazione.setCliente("gdgdgd");
         prenotazione.setNumero_prenotazione(2);
-        prenotazione.setTpo_prenotazione(0);
+        prenotazione.setTpo_prenotazione(2);
         prenotazione.setTipo_pagamento(1);
         prenotazione.setProduttore("2c");
         DataAccessPrenotazione access = new DataAccessPrenotazione();
@@ -35,7 +35,8 @@ public class TestPrenotazione {
          for(int i = 0;i<p.size();i++){
             System.out.println(p.get(i).getNumero_prenotazione());
         }*/
-        access.cambiaTipo(prenotazione.getNumero_prenotazione(), 0);
+        //access.cambiaTipo(prenotazione.getNumero_prenotazione(), 0);
+        access.cancellaCarrello(prenotazione.getCliente());
     }
 
 }

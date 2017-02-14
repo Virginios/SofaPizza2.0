@@ -139,7 +139,7 @@ public ArrayList<Prenotazione> prendiCarrello(String cliente) {
     }
 
     public void cambiaTipo(int numeroPrenotazione,int tipo) {
-        String update = "UPDATE " + Nome_Tabella + "SET tipoPrenotazione = ? "
+        String update = "UPDATE " + Nome_Tabella + " SET tipoPrenotazione = ? "
                 + "WHERE numeroPrenotazione = ?";
          PreparedStatement prepStat;
         try {
