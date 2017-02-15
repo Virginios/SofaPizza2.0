@@ -41,7 +41,8 @@
                     <tr>
                         <td><b>Nome</b></td>
                         <td>
-                            <input class="input" id="Nome" name="nome" type="text"/>
+                            <input class="input" id="Nome" name="nome" type="text" required pattern="[A-Za-z\s]{3,45}" 
+                                   placeholder=" nome" title="nome utente (dai 3 ai 45 caratteri)" />
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +53,8 @@
                     <tr>
                         <td><b>Cognome</b></td>
                         <td>
-                            <input class="input" id="Cognome" name="cognome" type="text"/>
+                            <input class="input" id="Cognome" name="cognome" type="text" required pattern="[A-Za-z\s]{3,45}" 
+                                   placeholder=" cognome" title="cognome  utente (dai 3 ai 45 caratteri)"/>
                         </td>
                     </tr><tr>
                         <td>
@@ -62,9 +64,9 @@
                     <tr>
                         <td><b>Data di nascita</b></td>
                         <td>		 
-                            <input class="input" id="Giorno" style="width: 30px" type="text" name="giorno"/> /
-                            <input class="input" id="Mese" style="width: 30px" type="text" name="mese"/> /
-                            <input class="input" id="Anno" style="width: 50px" type="text" name="anno"/>
+                            <input class="input" id="Giorno" style="width: 30px" type="text" name="giorno" required pattern="[0-9]{2}" placeholder="es:01" title="giorno di nascita( solo due caratteri)"/> /
+                            <input class="input" id="Mese" style="width: 30px" type="text" name="mese" required pattern="[0-9]{2}"  placeholder="es:01" title="mese di nascita( solo due caratteri)"/> /
+                            <input class="input" id="Anno" style="width: 50px" type="text" name="anno" required pattern="[0-9]{4}"  placeholder="es:1981" title="mese di nascita( solo 4 caratteri)"/>
                         </td>
                     </tr>
                     <tr>
@@ -101,7 +103,8 @@
                 <tr>
                     <td><b>Indirizzo</b></td>
                     <td>
-                        <input class="input" id="Indirizzo" name="indirizzo" type="text"/>
+                        <input class="input" id="Indirizzo" name="indirizzo" type="text" required  pattern="[A-Za-z0-9\s]{3,45}" 
+                                   placeholder=" indirizzo" title="via (dai 3 ai 45 caratteri)"/>
                     </td>
                 </tr>
                 <tr>
@@ -117,7 +120,8 @@
                 <tr>
                     <td><b>Telefono</b></td>
                     <td>
-                        <input class="input" id="Numero" name="num_telefono" type="text"/>
+                        <input class="input" id="Numero" name="num_telefono" type="text" required 
+                               pattern="[0-9]{10}" placeholder="es:0815143536" title="giorno di nascita( solo due caratteri)"/>
                     </td>
                 </tr>
                 <tr>
@@ -128,7 +132,10 @@
                 <tr>
                     <td><b>Email</b></td>
                     <td>
-                        <input class="input" id="Email" name="email" type="text"/>
+                        <input class="input" id="Email" name="email" type="text" required 
+                               placeholder="Indirizzo e-mail"
+                               pattern="\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b" 
+                               title="Indirizzo di posta elettronica" />
                     </td>
                 </tr>
                 <tr>
@@ -139,7 +146,9 @@
                 <tr>
                     <td><b>Password</b></td>
                     <td>
-                        <input  class="input" id="Password" name="password" type="text"/>
+                        <input  class="input" id="Password" name="password" type="text" required
+                                placeholder="Password" pattern="[^\s]{4,8}" 
+                                title="Password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"/>
                     </td>
                 </tr>
                 <tr>
@@ -150,7 +159,20 @@
                 <tr>
                     <td><b>Conferma Password</b></td>
                     <td>
-                        <input  class="input" id="Conferma" name="conferma" type="text"/>
+                        <input  class="input" id="Conferma" name="conferma" type="text" required 
+                                placeholder=" Password" pattern="[^\s]{4,8}" 
+                                title=" Conferma password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"
+                                onblur="checkpassworda()" />
+                         <script>
+function checkpassworda(){
+    var password1 = document.getElementById("Password").value;
+    var password2 = document.getElementById("Conferma").value;
+    if(password1 !== password2){
+            password2.value = password2.value.toUpperCase();
+    }
+    
+}
+</script>
                     </td>
                 </tr>
                 <tr>
@@ -168,6 +190,8 @@
             </table>
         </div>
     </form>
+
+
 </body>
 </html>
 
