@@ -5,6 +5,7 @@
  */
 package DataAccessSito;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +29,7 @@ public void inserisciCliente(Cliente cliente ){
 
         try {
             this.cliente = new ConnDatabase();
-            inserisci=this.cliente.getConn().prepareStatement("INSERT INTO cliente " +"(email, password, nome, cognome, via, paese, carta, tipocliente) values (?,?,?,?,?,?,?,?)");
+            inserisci=this.cliente.getConn().prepareStatement("INSERT INTO cliente " +"(email, password, nome, cognome, via, paese, carta, tipocliente,dataNascita) values (?,?,?,?,?,?,?,?,?)");
             inserisci.setString(1, cliente.getEmail());
             inserisci.setString(2, cliente.getPassword());
             inserisci.setString(3, cliente.getNome());
@@ -37,6 +38,7 @@ public void inserisciCliente(Cliente cliente ){
             inserisci.setString(6, cliente.getPaese());
             inserisci.setString(7, cliente.getCarta());
             inserisci.setInt(8, cliente.getTipoCliente());
+            inserisci.setDate(9, Date.valueOf(cliente.getDataNascita()));
             inserisci.executeUpdate();
             inserisci.close();
             this.cliente.chiudi();

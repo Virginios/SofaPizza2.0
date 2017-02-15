@@ -5,6 +5,8 @@
  */
 package DataAccessSito;
 
+import java.time.LocalDate;
+
 /**
  *
  * @author ardemus
@@ -18,6 +20,15 @@ public class Cliente {
     private String paese;
     private String carta;
     private int tipoCliente;
+    private LocalDate dataNascita;
+
+    public LocalDate getDataNascita() {
+        return dataNascita;
+    }
+
+    public void setDataNascita(String dataNascita) {
+        this.dataNascita = LocalDate.parse(dataNascita);
+    }
 
     public void setEmail(String email) {
         this.email = email;
