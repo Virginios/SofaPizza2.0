@@ -75,7 +75,7 @@ public class DataAccessPizzeria {
             + " password='"+pizzeria.getPassword()+"',"
             + " via='"+pizzeria.getVia()+"',"
             + " paese='"+pizzeria.getPaese()+"',"
-            + " numTel='"+pizzeria.getNumero()+ "',"
+            + " numTel='"+pizzeria.getNumero()+ "'"
             + " WHERE pIva ='"+pizzeria.getPiva()+"'");
              File file = new File("src\\img\\"+pizzeria.getPiva()+".jpg");
              ImageIO.write(pizzeria.getImmagine(),"jpg",file);
@@ -124,7 +124,7 @@ public class DataAccessPizzeria {
 
 public ArrayList<Pizzeria> trovaPizzerieDaNome(String nome){
 
-        query="SELECT * from pizzeria WHERE nomePizzeria='"+nome+"'";
+        query="SELECT * from pizzeria WHERE nomePizzeria ='"+nome+"'";
         ArrayList<Pizzeria> pizzerie =estraipizzerie(query);
         return pizzerie;
 }
@@ -154,7 +154,7 @@ public boolean Pizzeria_registrata(String Piva,String password){
 }
 public ArrayList<Pizzeria> filtri_pizzerie (String filtro,String campo){
 
-        query="SELECT * from pizzeria WHERE "+filtro+"='"+campo+"'";
+        query="SELECT * from pizzeria WHERE "+filtro+" = '"+campo+"'";
         ArrayList<Pizzeria> pizzerie=estraipizzerie(query);
        
        return pizzerie; 
