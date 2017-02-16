@@ -52,7 +52,7 @@
                     <tr>
                         <td><b>Cognome</b></td>
                         <td>
-                            <input class="input" id="Cognome" name="cognome" type="text" required pattern="[A-Za-z\s]{3,45}" 
+                            <input class="input" id="Cognome"  name="cognome" type="text" required pattern="[A-Za-z\s]{3,45}" 
                                    placeholder=" cognome" title="cognome  utente (dai 3 ai 45 caratteri)"/>
                         </td>
                     </tr>
