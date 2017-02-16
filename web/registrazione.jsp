@@ -59,7 +59,7 @@
                     <tr>
                         <td><b>Data di nascita</b></td>
                         <td>		 
-                            <input class="input" id="Giorno" style="width: 30px" type="text" name="giorno" required pattern="[0-9]{2}" placeholder="es:01" title="giorno di nascita( solo due caratteri)"/> /
+                            <input class="input" id="Giorno"  style="width: 30px" type="text" name="giorno" required pattern="[0-9]{2}" placeholder="es:01" title="giorno di nascita( solo due caratteri)"/> /
                             <input class="input" id="Mese" style="width: 30px" type="text" name="mese" required pattern="[0-9]{2}"  placeholder="es:01" title="mese di nascita( solo due caratteri)"/> /
                             <input class="input" id="Anno" style="width: 50px" type="text" name="anno" required pattern="[0-9]{4}"  placeholder="es:1981" title="mese di nascita( solo 4 caratteri)"/>
                         </td>
