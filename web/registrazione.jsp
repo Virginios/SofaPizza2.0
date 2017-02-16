@@ -13,6 +13,10 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <script type="text/javascript" src="js/checkpassworda.js">
+            </script>
+            <script type="text/javascript" src="js/controlForm.js">
+        </script>
         <link href="css/Home.css" rel="stylesheet" type="text/css">
         <link href="css/prova.css" rel="stylesheet" type="text/css">
         <link href="css/RegistrazioneCliente.css" rel="stylesheet" type="text/css">
@@ -25,7 +29,7 @@
         <li class="spost"><a href="Login.html">Login</a></li>
         <li class="spost"><a href="RegistrazioneCliente.html" class="active">Registrazione</a></li>
     </ul>      
-    <form name="modulo" id="form" action="RegistrazioneCliente" method="post">
+    <form name="modulo" id="form" action="RegistrazioneCliente" method="post" onSubmit="return controlForm()">
         <div id="tabella">
             <table cellspacing="6">
                 <tbody>
@@ -46,19 +50,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <span class="errore" id="erroreNome">il campo non pu� essere lasciato vuoto</span>
-                        </td>
-                    </tr>
-                    <tr>
                         <td><b>Cognome</b></td>
                         <td>
                             <input class="input" id="Cognome" name="cognome" type="text" required pattern="[A-Za-z\s]{3,45}" 
                                    placeholder=" cognome" title="cognome  utente (dai 3 ai 45 caratteri)"/>
-                        </td>
-                    </tr><tr>
-                        <td>
-                            <span class="errore" id="erroreCognome">il campo non pu� essere lasciato vuoto</span>
                         </td>
                     </tr>
                     <tr>
@@ -67,16 +62,6 @@
                             <input class="input" id="Giorno" style="width: 30px" type="text" name="giorno" required pattern="[0-9]{2}" placeholder="es:01" title="giorno di nascita( solo due caratteri)"/> /
                             <input class="input" id="Mese" style="width: 30px" type="text" name="mese" required pattern="[0-9]{2}"  placeholder="es:01" title="mese di nascita( solo due caratteri)"/> /
                             <input class="input" id="Anno" style="width: 50px" type="text" name="anno" required pattern="[0-9]{4}"  placeholder="es:1981" title="mese di nascita( solo 4 caratteri)"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="errore" id="erroreData">controlla la tua data di nascita(devi avere almeno 13 anni per iscriverti)</span>
-                        </td>
-                    </tr>                        
-                    <tr>
-                        <td>
-                            <span class="errore" id="erroreCodice">il campo non pu� essere lasciato vuoto</span>
                         </td>
                     </tr>
                     <tr>
@@ -108,25 +93,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <span class="errore" id="erroreIndirizzo">il campo non pu� essere lasciato vuoto</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="errore" id="erroreCAP">controlla il campo CAP</span>
-                    </td>
-                </tr>
-                <tr>
                     <td><b>Telefono</b></td>
                     <td>
                         <input class="input" id="Numero" name="num_telefono" type="text" required 
                                pattern="[0-9]{10}" placeholder="es:0815143536" title="giorno di nascita( solo due caratteri)"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="errore" id="erroreTelefono">controlla che il tuo numero di telefono sia corretto</span>
                     </td>
                 </tr>
                 <tr>
@@ -139,21 +109,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <span class="errore" id="erroreEmail">il campo non pu� essere lasciato vuoto</span>
-                    </td>
-                </tr>
-                <tr>
                     <td><b>Password</b></td>
                     <td>
                         <input  class="input" id="Password" name="password" type="text" required
                                 placeholder="Password" pattern="[^\s]{4,8}" 
                                 title="Password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span class="errore" id="errorePassword">la password deve essere compresa tra 4 e 10 caratteri</span>
                     </td>
                 </tr>
                 <tr>
@@ -163,16 +123,6 @@
                                 placeholder=" Password" pattern="[^\s]{4,8}" 
                                 title=" Conferma password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"
                                 onblur="checkpassworda()" />
-                         <script>
-function checkpassworda(){
-    var password1 = document.getElementById("Password").value;
-    var password2 = document.getElementById("Conferma").value;
-    if(password1 !== password2){
-            password2.value = password2.value.toUpperCase();
-    }
-    
-}
-</script>
                     </td>
                 </tr>
                 <tr>

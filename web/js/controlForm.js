@@ -5,12 +5,12 @@
  */
 
 
-function checkpassworda(){
+function controlForm(){
     var password1 = document.getElementById("Password").value;
     var password2 = document.getElementById("Conferma").value;
     if(password1 !== password2){
-        document.getElementById("erroreConfermaPassword").style.display='block';    
+        return false;    
     }else{
-        document.getElementById("erroreConfermaPassword").style.display='none';
+        return true;
     }
 }
