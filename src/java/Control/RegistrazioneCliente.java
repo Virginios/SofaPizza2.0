@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Valerio
  */
-@WebServlet(name = "RegistrazioneCliente", urlPatterns = {"/RegistrazioneCliente"})
+@WebServlet (name = "RegistrazioneCliente", urlPatterns = {"/RegistrazioneCliente"})
 public class RegistrazioneCliente extends HttpServlet {
 
     /**
@@ -44,7 +44,7 @@ public class RegistrazioneCliente extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet HelloWorl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
-            out.println("</html>");
+             out.println("</html>");
         }
     }
 
