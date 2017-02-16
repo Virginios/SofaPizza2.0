@@ -18,14 +18,11 @@
     <body>
         <%ArrayList<Prenotazione> a = access.prendiPrenotazioni("ggh", 1);
         %>
-        <%for(int i=0;i<a.size();i++){%>
-        <div id="produttore" name="produttore">"Produttore"= <%=a.get(i).getCliente()%></div>
-        <div id="cliente" name="cliente">"Cliente"= <%=a.get(i).getProduttore()%></div>
-        <div id="numeroPrenotazione" name="numeroPrenotazione">"NumeroPrenotazione"= <%=a.get(i).getNumero_prenotazione()%></div>
-        <div id="tipoPrenotazione" name="tipoPrenotazione">"TipoPrenotazione"= <%=a.get(i).getTpo_prenotazione()%></div>
-        <div id="tipoPagamento" name="tipoPagamento">"TipoPagamento"= <%=a.get(i).getTipo_pagamento()%></div>
-        <div id="dataPrenotazione" name="dataPrenotazione">"DataPrenotazione"= <%=a.get(i).getData_prenotazione()%></div>
-        <%}
-        %>
+        <div id="produttore" name="produttore" widht="100px">"Produttore"= <%=a.get(0).getCliente()%></div>
+        <div id="cliente" name="cliente">"Cliente"= <%=a.get(0).getProduttore()%></div>
+        <div id="numeroPrenotazione" name="numeroPrenotazione">"NumeroPrenotazione"= <%=a.get(0).getNumero_prenotazione()%></div>
+        <div id="tipoPrenotazione" name="tipoPrenotazione">"TipoPrenotazione"= <%=a.get(0).getTpo_prenotazione()%></div>
+        <div id="tipoPagamento" name="tipoPagamento">"TipoPagamento"= <%=a.get(0).getTipo_pagamento()%></div>
+        <div id="dataPrenotazione" name="dataPrenotazione">"DataPrenotazione"= <%=a.get(0).getData_prenotazione()%></div>
     </body>
 </html>
