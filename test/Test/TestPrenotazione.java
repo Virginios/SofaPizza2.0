@@ -17,13 +17,13 @@ import java.util.ArrayList;
  */
 public class TestPrenotazione {
     public static void main(String args[]){
-        Prenotazione prenotazione = new Prenotazione();
+        /*Prenotazione prenotazione = new Prenotazione();
         prenotazione.setCliente("gdgdgd");
         prenotazione.setNumero_prenotazione(2);
         prenotazione.setTpo_prenotazione(2);
         prenotazione.setTipo_pagamento(1);
         prenotazione.setProduttore("2c");
-        DataAccessPrenotazione access = new DataAccessPrenotazione();
+        DataAccessPrenotazione access = new DataAccessPrenotazione();*/
         //access.aggiungiCarrello(prenotazione);
         //access.cancellaStorico(prenotazione.getProduttore());
         //access.cancellaCarrello(prenotazione.getCliente());
@@ -37,6 +37,10 @@ public class TestPrenotazione {
         }*/
         //access.cambiaTipo(prenotazione.getNumero_prenotazione(), 0);
        // access.cancellaCarrello(prenotazione.getCliente());
+     
+
+
+
     }
 
 }

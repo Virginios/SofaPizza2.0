@@ -42,6 +42,11 @@ public class Prenotazione {
     public void setTipo_pagamento(int tipo_pagamento) {
         this.tipo_pagamento = tipo_pagamento;
     }
+
+    @Override
+    public String toString() {
+        return "Prenotazione{" + "produttore=" + produttore + ", cliente=" + cliente + ", numero_prenotazione=" + numero_prenotazione + ", tpo_prenotazione=" + tpo_prenotazione + ", tipo_pagamento=" + tipo_pagamento + ", data_prenotazione=" + data_prenotazione + '}';
+    }
     
   public void setData_prenotazione(Timestamp  data_prenotazione) {
         this.data_prenotazione = data_prenotazione;

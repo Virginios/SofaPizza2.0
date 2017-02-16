@@ -83,9 +83,10 @@ public class DataAccessPrenotazione {
         }
     }
 
-    public ArrayList<Prenotazione> prendiPrenotazioni(String produttore, int tipo) {
-        String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE (produttore = ? AND tipoPrenotazione =?)";
-        ArrayList<Prenotazione> listaPrenotazione = new ArrayList<Prenotazione>();
+    public Prenotazione prendiPrenotazioni(String produttore, int tipo) {
+        String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE numeroPrenotazione = "
+                + "(SELECT MIN(numeroPrenotazione) FROM " + Nome_Tabella + " WHERE (produttore = ? AND tipoPrenotazione =?))";
+                Prenotazione prenotazione = new Prenotazione();
         PreparedStatement prepStat;
         try {
             this.pizzaConn = new ConnDatabase();
@@ -93,23 +94,22 @@ public class DataAccessPrenotazione {
             prepStat.setString(1, produttore);
             prepStat.setInt(2, tipo);
             ResultSet risultato = prepStat.executeQuery();
-            while (risultato.next()) {
-                Prenotazione prenotazione = new Prenotazione();
+            if (risultato.next()) {
                 prenotazione.setCliente(risultato.getString("cliente"));
                 prenotazione.setNumero_prenotazione(risultato.getInt("numeroPrenotazione"));
                 prenotazione.setProduttore(risultato.getString("produttore"));
                 prenotazione.setTpo_prenotazione(risultato.getInt("tipoPrenotazione"));
                 prenotazione.setTipo_pagamento(risultato.getInt("tipoPagamento"));
                 prenotazione.setData_prenotazione(risultato.getTimestamp("dataPrenotazione"));
-                listaPrenotazione.add(prenotazione);
             }
             prepStat.close();
             pizzaConn.chiudi();
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return listaPrenotazione;
+        return prenotazione;
     }
+    
 public ArrayList<Prenotazione> prendiCarrello(String cliente) {
         String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE (cliente = ? AND tipoPrenotazione =?)";
         ArrayList<Prenotazione> listaPrenotazione = new ArrayList<Prenotazione>();
