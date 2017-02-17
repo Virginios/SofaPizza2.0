@@ -37,7 +37,7 @@ public class TestPrenotazione {
         }*/
         //access.cambiaTipo(prenotazione.getNumero_prenotazione(), 0);
        // access.cancellaCarrello(prenotazione.getCliente());
-     
+      
 
 
 
