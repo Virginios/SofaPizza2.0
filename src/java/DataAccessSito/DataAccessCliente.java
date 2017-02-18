@@ -117,9 +117,9 @@ public Cliente trovacliente(String email,String password){
         ArrayList<Cliente> clienti=estraiclienti(query);
         return clienti.get(0);
 }
-public boolean cliente_registrato(String email,String password){
+public boolean cliente_registrato(String email){
 
-        query="SELECT * from cliente WHERE email='"+email+"' OR password='"+password+"'";
+        query="SELECT * from cliente WHERE email='"+email+"'";
         ArrayList<Cliente> clienti=estraiclienti(query);
         if(clienti.isEmpty())
             return false;

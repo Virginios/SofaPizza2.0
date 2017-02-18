@@ -14,6 +14,10 @@ table{
     display:none;
 
 }
+#erroreMail{
+    color:red;
+    display:block;
+}
 #form
 {
 	background-image: url('img/immaginetrasppp.png');

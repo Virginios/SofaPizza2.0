@@ -5,7 +5,7 @@
  */
 
 
-function checkpassworda(){
+function checkpassword(){
     var password1 = document.getElementById("Password").value;
     var password2 = document.getElementById("Conferma").value;
     if(password1 !== password2){

@@ -108,6 +108,11 @@
                                title="Indirizzo di posta elettronica" />
                     </td>
                 </tr>
+                 <tr>
+                    <td>
+                        <span id="erroreMail">la mail e' gia' spresente</span>
+                    </td>
+                </tr>
                 <tr>
                     <td><b>Password</b></td>
                     <td>
