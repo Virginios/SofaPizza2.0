@@ -15,8 +15,9 @@ table{
 
 }
 #erroreMail{
-    color:red;
     display:block;
+    color:red;
+    
 }
 #form
 {
