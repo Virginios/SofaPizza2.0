@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Control;
+package DataAccessSito;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -27,7 +27,7 @@ public class DataAccessFile {
     }
 
     public ArrayList<String> getComuni(String provincia) {
-        String filename = "/ALESSANDRIA.txt";
+        String filename = "/file/"+provincia+".txt";
         ArrayList<String> texts = new ArrayList<String>();
         File file = new File(filename);
         FileReader fileReader = null;

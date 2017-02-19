@@ -15,7 +15,6 @@
         </script>
         <script type="text/javascript" src="js/getComuni.js">
         </script>
-        <link href="prova.css" rel="stylesheet" type="text/css">
     </head>
     <body>
 <div class="prodselectbox">

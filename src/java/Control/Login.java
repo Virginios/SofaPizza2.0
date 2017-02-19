@@ -5,31 +5,24 @@
  */
 package Control;
 
-import DataAccessSito.DataAccessFile;
-import com.google.gson.Gson;
-import java.io.BufferedReader;
-import java.io.FileReader;
+import DataAccessSito.Cliente;
+import DataAccessSito.DataAccessCliente;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.logging.Logger;
-import javax.servlet.ServletContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Valerio
  */
-@WebServlet(name = "InvioComuni", urlPatterns = {"/InvioComuni"})
-public class InvioComuni extends HttpServlet {
-
-    private static Logger logger = Logger.getLogger("classname");
+@WebServlet(name = "Login", urlPatterns = {"/Login"})
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,10 +41,10 @@ public class InvioComuni extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet InvioComuni</title>");
+            out.println("<title>Servlet Login</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet InvioComuni at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -69,6 +62,7 @@ public class InvioComuni extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
@@ -82,17 +76,17 @@ public class InvioComuni extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-
-        String provincia = request.getParameter("selezionato");
-      	DataAccessFile daof = new DataAccessFile();
-        ArrayList<String> comuni = daof.getComuni(provincia);
-        String json = (new Gson().toJson(comuni));
-        response.getWriter().write(json);
-
-
-
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        DataAccessCliente daoc = new DataAccessCliente();
+        Cliente c = daoc.trovacliente(email, password);
+        if (c != null) {
+            HttpSession session = request.getSession();
+            session.setAttribute("email", email);
+        } else {
+            RequestDispatcher view = request.getRequestDispatcher("LoginError.jsp");
+            view.forward(request, response);
+        }
     }
 
     /**

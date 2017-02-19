@@ -48,7 +48,7 @@ public class testPizzeria {
           //System.out.println(ap.get(0).getNome());
             //Pizzeria ap  = daop.trovaPizzeria("ggh", "hhj");
             //System.out.println(ap.getNome());
-            ArrayList<Pizzeria> ap = daop.filtri_pizzerie("nomePizzeria", "giorgio");
+            ArrayList<Pizzeria> ap = daop.trovaPizzerie("giorgio");
             System.out.println(ap.get(0).getNome());
 
 

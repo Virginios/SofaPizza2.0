@@ -100,6 +100,7 @@ public ArrayList<Cliente> estraiclienti(String query) {
             c.setPaese(risultato.getString("paese"));
             c.setCarta(risultato.getString("carta"));
             c.setTipoCliente(risultato.getInt("tipocliente"));
+            c.setDataNascita(risultato.getString("dataNascita"));
             clienti.add(c);
             }
             estrai.close();
@@ -115,7 +116,16 @@ public Cliente trovacliente(String email,String password){
 
         query="SELECT * from cliente WHERE email='"+email+"' AND password='"+password+"'";
         ArrayList<Cliente> clienti=estraiclienti(query);
-        return clienti.get(0);
+         if(clienti.isEmpty()){
+                         System.out.println("vacanto");
+
+            return null;
+         }
+         else{        
+                         System.out.println("c'è");
+
+            return clienti.get(0);
+         }
 }
 public boolean cliente_registrato(String email){
 

@@ -8,8 +8,9 @@ package DataAccessSito;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.Serializable;
 
-public class Pizzeria {
+public class Pizzeria  implements Serializable{
 private  String piva;
 private String nome;
 private String password;
