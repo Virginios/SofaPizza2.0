@@ -7,20 +7,22 @@ package Control;
 
 import DataAccessSito.DataAccessPizzeria;
 import DataAccessSito.OggettoStub;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Valerio
  */
-public class SHome extends HttpServlet {
+@WebServlet(name = "InvioPizzerie", urlPatterns = {"/InvioPizzerie"})
+public class InvioPizzerie extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +41,10 @@ public class SHome extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet provaC</title>");            
+            out.println("<title>Servlet InvioPizzerie</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet provaC at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet InvioPizzerie at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,10 +63,6 @@ public class SHome extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-          DataAccessPizzeria p = new DataAccessPizzeria();
-        ArrayList<OggettoStub> ogg = p.getAll();
-        HttpSession session = request.getSession(true);
-        session.setAttribute("pizze", ogg);
     }
 
     /**
@@ -78,8 +76,12 @@ public class SHome extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+      response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        DataAccessPizzeria p = new DataAccessPizzeria();
+        ArrayList<OggettoStub> ogg = p.getAll();
+        String json = (new Gson().toJson(ogg));
+       response.getWriter().write((new Gson()).toJson(ogg));    }
 
     /**
      * Returns a short description of the servlet.

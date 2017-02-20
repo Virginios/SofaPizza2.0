@@ -130,14 +130,16 @@ ol{
     list-style-type: none;
 
 }
-ol li  {    background: #ffe5e5;
+ol li  {    
+    border-top-right-radius:20px; 
+    border-top-left-radius:20px; 
+    border-bottom-right-radius:20px; 
+    border-bottom-left-radius:20px;
+    background: #ffe5e5;
             padding: 5px;
-            margin-left: 18%;
-            width: 60%;
-            border-top-right-radius:20px; 
-            border-top-left-radius:20px; 
-            border-bottom-right-radius:20px; 
-            border-bottom-left-radius:20px;
+            margin-left: 17.5%;
+            width: 60.7%;
+       
             cursor: pointer;
 }
 ol li:hover {

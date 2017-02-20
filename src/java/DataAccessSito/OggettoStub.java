@@ -14,7 +14,10 @@ import java.io.Serializable;
 public class OggettoStub implements Serializable{
     String nome;
     String via;
-
+   public OggettoStub(){
+        this.nome = "";
+        this.via="";
+    }
     public String getNome() {
         return nome;
     }
