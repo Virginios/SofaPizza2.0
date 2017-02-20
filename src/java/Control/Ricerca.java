@@ -77,9 +77,9 @@ public class Ricerca extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //String ricerca = request.getParameter("cerco");
+        String ricerca = request.getParameter("cerco");
         DataAccessPizzeria daop = new DataAccessPizzeria();
-        ArrayList<Pizzeria> p = daop.trovaPizzerie("giorgio");
+        ArrayList<Pizzeria> p =  daop.trovaPizzerieDaFiltro(ricerca);
         HttpSession session = request.getSession(true);
         if (p.isEmpty()) {
             session.setAttribute("pizzerie", null);
@@ -88,9 +88,9 @@ public class Ricerca extends HttpServlet {
         }
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        RequestDispatcher view = request.getRequestDispatcher("Ricerca.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("RisultatiRicerca.jsp");
         view.forward(request, response);
-             out.println("<html>");
+             /*out.println("<html>");
     out.println("<head>");
     out.println("<title>Hola</title>");
     out.println("</head>");
@@ -98,7 +98,7 @@ public class Ricerca extends HttpServlet {
                 out.println("<h1>Servlet HelloWorl at"+p.get(0).getNome() +"</h1>");
 
     out.println("</body>");
-    out.println("</html>");
+    out.println("</html>");*/
 
     }
 

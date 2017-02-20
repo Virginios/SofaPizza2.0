@@ -133,9 +133,9 @@ public class DataAccessPizzeria {
         return pizzerie;
     }
 
-    public ArrayList<Pizzeria> trovaPizzerieDaPosto(String posto) {
+    public ArrayList<Pizzeria> trovaPizzerieDaFiltro(String cercato) {
 
-        query = "SELECT * from pizzeria WHERE via='" + posto + "' OR paese='" + posto + "'";
+        query = "SELECT * FROM pizzeria WHERE nomePizzeria  LIKE '%"+cercato+"%' OR via  LIKE '%"+cercato+"%'";
         ArrayList<Pizzeria> pizzerie = estraipizzerie(query);
         return pizzerie;
     }
@@ -167,21 +167,7 @@ public class DataAccessPizzeria {
         return pizzerie;
     }
 
-   /* public  ArrayList<OggettoRicerca> effettuaRicerca(){
-    String select ="Select Nome from pizzeria";
-    ArrayList<OggettoRicerca> oggetti = new ArrayList<OggettoRicerca>();
-         try {
-             this.pizzeria = new ConnDatabase();
-             inserisci=this.pizzeria.getConn().prepareStatement(query);
-             ResultSet risultato = inserisci.executeQuery();
-              while(risultato.next()){
-                  OggettoRicerca ogg = new OggettoRicerca();
-                  ogg.setNome(query);
-              }
-         } catch (SQLException ex) {
-             Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
-         }
-}*/
+ 
     public ArrayList<OggettoStub> getAll() {
         ArrayList<OggettoStub> ogg = new ArrayList<OggettoStub>();
         String tutto = "Select nomePizzeria,via from pizzeria";

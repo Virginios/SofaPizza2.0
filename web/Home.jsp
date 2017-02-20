@@ -7,9 +7,12 @@
          session="true"
          contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@page import="DataAccessSito.DataAccessPizzeria"%>
 <%@page import="DataAccessSito.OggettoStub"%>
 <%@page import="java.util.ArrayList"%>
-<%ArrayList<OggettoStub> oggetti = (ArrayList<OggettoStub>)session.getAttribute("pizze");
+<%  
+    DataAccessPizzeria p = new DataAccessPizzeria();
+    ArrayList<OggettoStub> oggetti = p.getAll();
 %>
 <!DOCTYPE html>
 <html>
@@ -37,10 +40,10 @@
 
 
     <body>
-       <form id="conteiner_imm_ricerca_did" action="" method="post"> 
+       <form id="conteiner_imm_ricerca_did" action="/Ricerca" method="post"> 
             <div id="didascalia">  Ordina pizza a domicilio </div>
             <div id="didascalia2"> Centinaia di pizzerie per te </div>
-            <input name="cerco" type="search" id="barraricerca" placeholder="   Inserisci l'indirizzo di consegna, un punto di riferimento o il nome di un ristorante" value=""> 
+            <input name="cerco" type="search" id="barraricerca" placeholder="   Inserisci l'indirizzo di consegna, un punto di riferimento o il nome di un ristorante" value="" autocomplete="off"> 
             <input type="submit" id="tastocerca" name="sub" value="Cerca">
 
         <ol class="commentlist">

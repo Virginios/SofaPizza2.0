@@ -48,8 +48,10 @@ public class testPizzeria {
           //System.out.println(ap.get(0).getNome());
             //Pizzeria ap  = daop.trovaPizzeria("ggh", "hhj");
             //System.out.println(ap.getNome());
-            ArrayList<Pizzeria> ap = daop.trovaPizzerie("giorgio");
-            System.out.println(ap.get(0).getNome());
+            ArrayList<Pizzeria> ap = daop.trovaPizzerieDaFiltro("sd");
+            for(int i=0;i<ap.size();i++){
+                System.out.println(ap.get(i).getNome());
+            }
 
 
         }

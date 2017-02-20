@@ -14,7 +14,7 @@
 <html> 
     <head>
         <meta charset="utf-8">
-        <script type="text/javascript" src="js/checkpassworda.js">
+        <script type="text/javascript" src="js/checkpassword.js">
             </script>
             <script type="text/javascript" src="js/controlForm.js">
         </script>
