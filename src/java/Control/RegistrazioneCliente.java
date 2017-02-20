@@ -9,18 +9,23 @@ import DataAccessSito.Cliente;
 import DataAccessSito.DataAccessCliente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Valerio
  */
-@WebServlet (name = "RegistrazioneCliente", urlPatterns = {"/RegistrazioneCliente"})
+@WebServlet(name = "RegistrazioneCliente", urlPatterns = {"/RegistrazioneCliente"})
 public class RegistrazioneCliente extends HttpServlet {
+
+    private static Logger logger = Logger.getLogger("classname");
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,7 +49,7 @@ public class RegistrazioneCliente extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet HelloWorl at " + request.getContextPath() + "</h1>");
             out.println("</body>");
-             out.println("</html>");
+            out.println("</html>");
         }
     }
 
@@ -84,16 +89,21 @@ public class RegistrazioneCliente extends HttpServlet {
         c.setCarta("h");
         c.setTipoCliente(Integer.parseInt(request.getParameter("pizzeriacliente")));
         c.setPassword(request.getParameter("password"));
-        String data = (request.getParameter("anno")+
-                "-"+request.getParameter("mese")+"-"+request.getParameter("giorno"));
+        String data = (request.getParameter("anno")
+                + "-" + request.getParameter("mese") + "-" + request.getParameter("giorno"));
         c.setDataNascita(data);
-        DataAccessCliente daoc =new DataAccessCliente();
-        daoc.inserisciCliente(c);
-       
-         //response.setContentType("text/html");
-    //PrintWriter out = response.getWriter();
+        DataAccessCliente daoc = new DataAccessCliente();
+        if (!daoc.cliente_registrato(request.getParameter("email"))) {
+            daoc.inserisciCliente(c);
+        
+        } else {
+            RequestDispatcher view = request.getRequestDispatcher("RegError.jsp");
+            view.forward(request, response);
+        }
+        //response.setContentType("text/html");
+        //PrintWriter out = response.getWriter();
 
-    /*out.println("<html>");
+        /*out.println("<html>");
     out.println("<head>");
     out.println("<title>Hola</title>");
     out.println("</head>");
@@ -102,7 +112,6 @@ public class RegistrazioneCliente extends HttpServlet {
 
     out.println("</body>");
     out.println("</html>");*/
-        
     }
 
     /**
