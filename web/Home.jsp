@@ -22,7 +22,7 @@
         </script>
         <link href="css/Home.css" rel="stylesheet" type="text/css">
         <link href="css/prova.css" rel="stylesheet" type="text/css">
-    <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
+    <div align="center" id="contlogo"> <img src="/img/logo.png" alt="Logo" id="logo" > </div>
 
     <ul>
         <li><a class="active" href="Home.html">Home</a></li>

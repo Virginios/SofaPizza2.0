@@ -109,9 +109,9 @@ public class DataAccessPizzeria {
                 c.setVia(risultato.getString("via"));
                 c.setPaese(risultato.getString("paese"));
                 c.setNumero(risultato.getString("numTel"));
-                /*BufferedImage foto;
+                BufferedImage foto;
             foto = ImageIO.read(new File("src\\img\\"+c.getPiva()+".jpg"));
-            c.setImmagine(foto);*/
+            c.setImmagine(foto);
                 pizzerie.add(c);
             }
             estrai.close();
@@ -120,9 +120,9 @@ public class DataAccessPizzeria {
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        /*catch (IOException ex) {
+        catch (IOException ex) {
                     Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
-                }*/
+                }
         return pizzerie;
     }
 

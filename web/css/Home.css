@@ -73,6 +73,7 @@ div#hormenu li:hover ul
 #conteiner_imm_ricerca_did{
     padding-top:10%;
     height: 72.2%;
+    background-image: url('/img/immaginetrasppp.png');
 }
 #didascalia{
 

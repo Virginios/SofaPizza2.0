@@ -52,7 +52,7 @@
                     <tr>
                         <td  id="immagine">
                             <div id="immc">
-                                <img src="immaginehome.jpeg" alt="immaginehome">
+                                <img src="<%=pizzerie.get(i).getImmagine()%>" alt="immaginehome">
                             </div>
                         </td>
                         <td id="cont_info">
