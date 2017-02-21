@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Valerio
+ * @author 
  */
 @WebServlet(name = "InvioPizzerie", urlPatterns = {"/InvioPizzerie"})
 public class InvioPizzerie extends HttpServlet {
