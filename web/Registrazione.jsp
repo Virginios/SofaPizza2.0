@@ -75,7 +75,7 @@
                         </td>
                     </tr>
                     <tr>
-  
+     
                     </tr>
                 <td><b>Comune di residenza</b></td>
                 <td>
