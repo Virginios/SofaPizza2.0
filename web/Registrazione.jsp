@@ -84,7 +84,6 @@
                     </select> 
                 </td>   
                 <tr>
-a
                 </tr>
                 <tr>
                     <td><b>Indirizzo</b></td>
