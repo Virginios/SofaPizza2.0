@@ -41,16 +41,15 @@ public class DataAccessPizzeria {
             inserisci.setString(4, pizzeria.getVia());
             inserisci.setString(5, pizzeria.getPaese());
             inserisci.setString(6, pizzeria.getNumero());
-            File file = new File("src\\img\\" + pizzeria.getPiva() + ".jpg");
-            ImageIO.write(pizzeria.getImmagine(), "jpg", file);
+            
             inserisci.executeUpdate();
             inserisci.close();
             this.pizzeria.chiudi();
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } /*catch (IOException ex) {
             Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
     public void cancellaPizzeria(String Piva) {
@@ -80,17 +79,17 @@ public class DataAccessPizzeria {
                     + " paese='" + pizzeria.getPaese() + "',"
                     + " numTel='" + pizzeria.getNumero() + "'"
                     + " WHERE pIva ='" + pizzeria.getPiva() + "'");
-            File file = new File("src\\img\\" + pizzeria.getPiva() + ".jpg");
-            ImageIO.write(pizzeria.getImmagine(), "jpg", file);
+            /*File file = new File("src\\img\\" + pizzeria.getPiva() + ".jpg");
+            ImageIO.write(pizzeria.getImmagine(), "jpg", file);*/
             inserisci.executeUpdate();
             inserisci.close();
             this.pizzeria.chiudi();
 
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } /*catch (IOException ex) {
             Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
     public ArrayList<Pizzeria> estraipizzerie(String query) {
@@ -109,9 +108,7 @@ public class DataAccessPizzeria {
                 c.setVia(risultato.getString("via"));
                 c.setPaese(risultato.getString("paese"));
                 c.setNumero(risultato.getString("numTel"));
-                BufferedImage foto;
-            foto = ImageIO.read(new File("src\\img\\"+c.getPiva()+".jpg"));
-            c.setImmagine(foto);
+                c.setImmagine(c.getPiva());
                 pizzerie.add(c);
             }
             estrai.close();
@@ -120,9 +117,9 @@ public class DataAccessPizzeria {
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch (IOException ex) {
+        /*catch (IOException ex) {
                     Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                }*/
         return pizzerie;
     }
 

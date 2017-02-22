@@ -10,6 +10,7 @@ import DataAccessSito.Pizzeria;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,6 +25,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Ricerca", urlPatterns = {"/Ricerca"})
 public class Ricerca extends HttpServlet {
+    private static Logger logger = Logger.getLogger("classname");
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -80,11 +82,10 @@ public class Ricerca extends HttpServlet {
         String ricerca = request.getParameter("cerco");
         DataAccessPizzeria daop = new DataAccessPizzeria();
         ArrayList<Pizzeria> p =  daop.trovaPizzerieDaFiltro(ricerca);
-        HttpSession session = request.getSession(true);
         if (p.isEmpty()) {
-            session.setAttribute("pizzerie", null);
+            request.setAttribute("pizzerie", null);
         } else {
-            session.setAttribute("pizzerie", p);
+            request.setAttribute("pizzerie", p);
         }
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();

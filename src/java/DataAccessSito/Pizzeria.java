@@ -17,7 +17,7 @@ private String password;
 private String via;
 private String paese;
 private String numero;
-private  BufferedImage immagine;
+private  String immagine;
 
 
 
@@ -38,7 +38,7 @@ private  BufferedImage immagine;
         this.via = via;
     }
 
-    public void setImmagine(BufferedImage immagine) {
+    public void setImmagine(String immagine) {
         this.immagine = immagine;
     }
 
@@ -70,7 +70,7 @@ private  BufferedImage immagine;
         return via;
     }
 
-    public BufferedImage getImmagine() {
+    public String getImmagine() {
         return immagine;
     }
 

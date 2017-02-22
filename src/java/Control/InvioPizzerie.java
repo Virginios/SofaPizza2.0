@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "InvioPizzerie", urlPatterns = {"/InvioPizzerie"})
 public class InvioPizzerie extends HttpServlet {
+    private static Logger logger = Logger.getLogger("classname");
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -81,7 +83,9 @@ public class InvioPizzerie extends HttpServlet {
         DataAccessPizzeria p = new DataAccessPizzeria();
         ArrayList<OggettoStub> ogg = p.getAll();
         String json = (new Gson().toJson(ogg));
-       response.getWriter().write((new Gson()).toJson(ogg));    }
+        logger.info("cazzo");
+       response.getWriter().write((new Gson()).toJson(ogg));    
+    }
 
     /**
      * Returns a short description of the servlet.

@@ -5,12 +5,9 @@
  */
 package Control;
 
-import DataAccessSito.DataAccessPizzeria;
-import DataAccessSito.OggettoStub;
-import DataAccessSito.Pizzeria;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,7 +20,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-public class ProvaRicerca extends HttpServlet {
+@WebServlet(name = "GetCarrello", urlPatterns = {"/GetCarrello"})
+public class GetCarrello extends HttpServlet {
+    private static Logger logger = Logger.getLogger("classname");
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +41,10 @@ public class ProvaRicerca extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProvaRicerca</title>");            
+            out.println("<title>Servlet GetCarrello</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProvaRicerca at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet GetCarrello at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,11 +76,16 @@ public class ProvaRicerca extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DataAccessPizzeria p = new DataAccessPizzeria();
-        ArrayList<OggettoStub> ogg = p.getAll();
+        String id[] = request.getParameterValues("id[]");
+        String quantita[] = request.getParameterValues("quantita[]");
+        String totale = request.getParameter("totale");
         HttpSession session = request.getSession(true);
-        session.setAttribute("pizze", ogg);
-        
+        session.setAttribute("id", id);
+                session.setAttribute("quantita", quantita);
+                                session.setAttribute("totale", totale);
+
+        logger.info(totale);
+          
     }
 
     /**

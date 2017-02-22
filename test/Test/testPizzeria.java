@@ -22,8 +22,8 @@ import javax.imageio.ImageIO;
 public class testPizzeria {
         public static void main(String args[]) throws IOException{
             Pizzeria p = new Pizzeria();
-            BufferedImage foto=ImageIO.read(new File("C:\\Users\\lenovo\\Desktop\\arrayImmagini\\imm.jpg"));
-            p.setImmagine(foto);
+           // BufferedImage foto=ImageIO.read(new File("C:\\Users\\lenovo\\Desktop\\arrayImmagini\\imm.jpg"));
+            //p.setImmagine(foto);
             p.setNome("giorgio");
             p.setNumero("0515");
             p.setPaese("ostuni");

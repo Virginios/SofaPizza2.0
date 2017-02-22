@@ -10,7 +10,7 @@
 <%@page import="DataAccessSito.Pizzeria"%>
 <%@page import="java.util.ArrayList"%>
 <%
-    ArrayList<Pizzeria> pizzerie = (ArrayList<Pizzeria>) session.getAttribute("pizzerie");
+    ArrayList<Pizzeria> pizzerie = (ArrayList<Pizzeria>) request.getAttribute("pizzerie");
 %>
 <!doctype html>
 <html>
@@ -52,7 +52,7 @@
                     <tr>
                         <td  id="immagine">
                             <div id="immc">
-                                <img src="<%=pizzerie.get(i).getImmagine()%>" alt="immaginehome">
+                                <img src="/img/admin.jpg" alt="immaginehome">
                             </div>
                         </td>
                         <td id="cont_info">

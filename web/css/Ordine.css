@@ -13,8 +13,10 @@
 }
 .pizzerie{
 	margin-top: 35px;
+	position: relative;
+	right: -29%;
 }
-.sceltamenu{
+#sceltamenu{
 	list-style-type: none;
 	position:relative;
 	right: -45%;
@@ -22,7 +24,7 @@
 }
 .pizzemenu{
 	background-color: white;
-	margin-top: 9%;
+	margin-top: 6%;
 	position: absolute;
 	right: 25%;
 }
@@ -32,7 +34,7 @@
   color: #0000000;              
   font-weight: bold;         
   padding: 0;                
-  height: 90%;              
+  height: 140%;              
   width: 150%;
 }
 .menucarrello{
@@ -44,8 +46,7 @@
 	background-color: #E4EB00;
   border: 2px solid #0000000; 
   color: #0000000;              
-  font-weight: bold;         
-  padding: 0;                
-  height: 32px;              
-  width: 190px;
+  font-weight: bold;                   
+  height: 300%;              
+  width: 170%;
 }

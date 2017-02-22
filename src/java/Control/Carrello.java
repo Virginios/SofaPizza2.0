@@ -5,13 +5,9 @@
  */
 package Control;
 
-import DataAccessSito.DataAccessPizzeria;
-import DataAccessSito.OggettoStub;
-import DataAccessSito.Pizzeria;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import javax.servlet.RequestDispatcher;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +19,10 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-public class ProvaRicerca extends HttpServlet {
+@WebServlet(name = "Carrello", urlPatterns = {"/Carrello"})
+public class Carrello extends HttpServlet {
+        private static Logger logger = Logger.getLogger("classname");
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +41,10 @@ public class ProvaRicerca extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProvaRicerca</title>");            
+            out.println("<title>Servlet Carrello</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProvaRicerca at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Carrello at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,11 +76,11 @@ public class ProvaRicerca extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DataAccessPizzeria p = new DataAccessPizzeria();
-        ArrayList<OggettoStub> ogg = p.getAll();
-        HttpSession session = request.getSession(true);
-        session.setAttribute("pizze", ogg);
-        
+        processRequest(request, response);
+               HttpSession session = request.getSession(true);
+               String id[]= (String[]) session.getAttribute("id");
+               String quantita[]= (String[]) session.getAttribute("quantita");
+               logger.info(id[0]);
     }
 
     /**

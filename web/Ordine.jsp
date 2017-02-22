@@ -4,7 +4,13 @@
     Author     : Valerio
 --%>
 
+<%@page import="DataAccessSito.Pizze"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DataAccessSito.DataAccessPizze"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%DataAccessPizze p = new DataAccessPizze();
+    ArrayList<Pizze> pizze = p.estraiPizze("ds");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +19,16 @@
         <link href="css/prova.css" rel="stylesheet" type="text/css">
         <link href="css/Ordine.css" rel="stylesheet" type="text/css">
 
-
+        <script type="text/javascript" src="js/jquery.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.min.js">
+        </script>
+        <script type="text/javascript" src="js/add.js">
+        </script>
+        <script type="text/javascript" src="js/decr.js">
+        </script>
+        <script type="text/javascript" src="js/sendCarrelo.js">
+        </script>
         <title>Home</title>
     </head>
 
@@ -53,43 +68,32 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><pre><b>Marinara</b>
-Pomodoro, Olio, Origano</pre></td>
-                    <td><button class="bottone">
-                            <span class="aggiungielemento">+</span>
-                        </button></td>
+                    <%for (int i = 0; i < pizze.size(); i++) {%>
+                    <td><pre><b><%=pizze.get(i).getNome()%></b><%=pizze.get(i).getIngredienti()%></pre><b class="quantita" id="<%=pizze.get(i).getIdpizza()%>">0</b>
+                    </td>
+                    <td>            <input  type="button" value="+" class="bottone" id="<%=pizze.get(i).getPrezzo()%>" OnClick="add('<%="#" + pizze.get(i).getIdpizza()%>', this.id);"/>
+                        <input  type="button" value="-" class="bottone" id="<%=pizze.get(i).getPrezzo()%>" OnClick="decr('<%="#" + pizze.get(i).getIdpizza()%>', this.id);"/>
+                    </td>
                 </tr>
-                <tr >
-                    <td><pre><b>Margherita</b>
-Pomodoro, Mozzarella</pre></td>
-                    <td><button class="bottone">
-                            <span class="aggiungielemento">+</span>
-                        </button></td>
-                </tr>
-                <tr>
-                    <td><pre><b>Diavola</b>
-Pomodoro, Mozzarella, Salame Piccante</pre></td>
-                    <td><button class="bottone">
-                            <span class="aggiungielemento">+</span>
-                        </button></td>
-                </tr>
+                <%}%>
             </tbody>
         </table>
     </body>
+    <form action="/Carrello" method="post">
     <div class="menucarrello" style="position: absolute; top: 250px; right: 90px">
         <table>
             <header>
                 <p>
                     <span class="totaleordine"><b>Totale Ordine</b></span>
-                    <span data-baskettotal class="infototale"> â‚¬ 0,00</span>
+                    <span data-baskettotal class="infototale" id="totale">0.0</span>
                 </p>
             </header>
             <thead>
-            <td><button class="bottoneordina">
+            <td><button class="bottoneordina" OnClick="inviaCarrello()">
                     <span class="aggiungielemento">Ordina Adesso</span>
                 </button></td>
             </thead>
         </table>
     </div>
-
+    </form>
 </html>
