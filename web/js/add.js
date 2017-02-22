@@ -15,5 +15,4 @@ function add(id, myid) {
     var numero = parseFloat(totale);
     var tot = numero + bottone;
     $("#totale").text(tot.toFixed(2));
-
 }
