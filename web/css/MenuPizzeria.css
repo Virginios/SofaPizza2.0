@@ -1,0 +1,27 @@
+.titolo{
+	margin-top: 2%;
+}
+.tabellamenu{
+	position: absolute;
+	right: 36%;
+	margin-top: 2%;
+}
+#salva{
+	position: absolute;
+	right: 47%;
+	margin-top: 5%;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	height: 5%;
+	width: 5%;
+	background: #ff9900
+}
+.bottone{
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	background: #ff9900
+}
