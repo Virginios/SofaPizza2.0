@@ -5,8 +5,14 @@
  */
 package Control;
 
+import DataAccessSito.DataAccessPizze;
+import DataAccessSito.DataAccessPizzePrenotate;
+import DataAccessSito.Pizze;
+import DataAccessSito.PizzePrenotate;
+import DataAccessSito.Prodotti;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,8 +27,8 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "Carrello", urlPatterns = {"/Carrello"})
 public class Carrello extends HttpServlet {
-        private static Logger logger = Logger.getLogger("classname");
 
+    private static Logger logger = Logger.getLogger("classname");
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,7 +47,7 @@ public class Carrello extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Carrello</title>");            
+            out.println("<title>Servlet Carrello</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet Carrello at " + request.getContextPath() + "</h1>");
@@ -77,10 +83,22 @@ public class Carrello extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-               HttpSession session = request.getSession(true);
-               String id[]= (String[]) session.getAttribute("id");
-               String quantita[]= (String[]) session.getAttribute("quantita");
-               logger.info(id[0]);
+        HttpSession session = request.getSession(true);
+        String id[] = (String[]) session.getAttribute("id");
+        String quantita[] = (String[]) session.getAttribute("quantita");
+        ArrayList<Pizze> pizze = new ArrayList<Pizze>();
+        DataAccessPizze daop = new DataAccessPizze();
+        Prodotti carrello = new Prodotti();
+        for(int i =0;i<id.length;i++){
+            pizze.add(daop.estraiPizza(Integer.parseInt(id[i])));
+            carrello.setQuantita(Integer.parseInt(quantita[i]));
+            logger.info(""+carrello.getQuantita());
+            
+        }
+         carrello.setPizza(pizze);
+         session.removeAttribute("id");
+         session.removeAttribute("quantita");
+         session.setAttribute("carrello", carrello);
     }
 
     /**

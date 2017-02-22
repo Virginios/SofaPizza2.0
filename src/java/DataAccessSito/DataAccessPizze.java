@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author ardemus
@@ -73,7 +72,7 @@ public class DataAccessPizze {
                         "UPDATE pizze SET"
                         + " nome='" + pizze.get(i).getNome() + "',"
                         + " prezzo= " + pizze.get(i).getPrezzo() + ","
-                        + " ingredienti='" + pizze.get(i).getIngredienti()+"'" 
+                        + " ingredienti='" + pizze.get(i).getIngredienti() + "'"
                         + " WHERE  idpizza=" + pizze.get(i).getIdpizza());
                 inserisci.executeUpdate();
             }
@@ -86,7 +85,7 @@ public class DataAccessPizze {
     }
 
     public ArrayList<Pizze> estraiPizze(String pizzeria) {
-        query = "SELECT * FROM " + Nome_Tabella + " WHERE produttore = '"+pizzeria+"'";
+        query = "SELECT * FROM " + Nome_Tabella + " WHERE produttore = '" + pizzeria + "'";
         ArrayList<Pizze> pizze = new ArrayList<Pizze>();
         try {
             this.pizze = new ConnDatabase();
@@ -111,6 +110,28 @@ public class DataAccessPizze {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
         }
         return pizze;
+    }
+
+    public Pizze estraiPizza(int id) {
+        String query = "SELECT * FROM " + Nome_Tabella+" WHERE idpizza = ?";
+        Pizze p = new Pizze();
+        try {
+            this.pizze = new ConnDatabase();
+            inserisci = this.pizze.getConn().prepareStatement(query);
+            inserisci.setInt(1, id);
+            risultato = inserisci.executeQuery();
+            if(risultato.next()){
+                p.setIdpizza(risultato.getInt("idpizza"));
+                p.setIngredienti(risultato.getString("ingredienti"));
+                p.setNome(risultato.getString("nome"));
+                p.setPrezzo(risultato.getDouble("prezzo"));
+                p.setProduttore(risultato.getString("produttore"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessPizze.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return p;
     }
     private static final String Nome_Tabella = "pizze";
 

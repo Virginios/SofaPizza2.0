@@ -30,13 +30,12 @@ public class DataAccessPizzePrenotate {
                 if(risultato == null){
                     System.out.println("s");
                     String insertSQL = "INSERT INTO " + Nome_Tabella
-                            + " (numeroPrenotazione, idpizza, prezzo, quantita)"
-                            + " VALUES (?, ?, ?, ?)";
+                            + " (idpizza, prezzo, quantita)"
+                            + " VALUES (?, ?, ?)";
                     PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(insertSQL);
-                    prepStat.setInt(1, pizza.getNumero_prenotazione());
-                    prepStat.setInt(2, pizza.getIdpizza());
-                    prepStat.setInt(3, pizza.getPrezzo());
-                    prepStat.setInt(4, pizza.getQuantità());
+                    prepStat.setInt(1, pizza.getIdpizza());
+                    prepStat.setDouble(2, pizza.getPrezzo());
+                    prepStat.setInt(3, pizza.getQuantità());
                     prepStat.executeUpdate();
                     prepStat.close();
                     pizzaConn.chiudi();
@@ -62,7 +61,7 @@ public class DataAccessPizzePrenotate {
             while (risultato.next()) {
                 PizzePrenotate pizza = new PizzePrenotate();
                 pizza.setIdpizza(risultato.getInt("idpizza"));
-                pizza.setPrezzo(risultato.getInt("prezzo"));
+                pizza.setPrezzo(risultato.getDouble("prezzo"));
                 pizza.setNumero_prenotazione(risultato.getInt("numeroprenotazione"));
                 pizza.setQuantità(risultato.getInt("quantita"));
                 listaPizze.add(pizza);
@@ -121,7 +120,7 @@ public class DataAccessPizzePrenotate {
             ResultSet risultato = prepStat.executeQuery();
             if (risultato.next()) {
                 pizza.setIdpizza(risultato.getInt("idpizza"));
-                pizza.setPrezzo(risultato.getInt("prezzo"));
+                pizza.setPrezzo(risultato.getDouble("prezzo"));
                 pizza.setNumero_prenotazione(risultato.getInt("numeroPrenotazione"));
                 pizza.setQuantità(risultato.getInt("quantita"));
             }else{

@@ -12,7 +12,7 @@ package DataAccessSito;
 public class PizzePrenotate {
     private int numero_prenotazione;
     private int idpizza;
-    private int prezzo;
+    private Double prezzo;
     private int quantità;
 
     public int getNumero_prenotazione() {
@@ -23,7 +23,7 @@ public class PizzePrenotate {
         return idpizza;
     }
 
-    public int getPrezzo() {
+    public Double getPrezzo() {
         return prezzo;
     }
 
@@ -41,7 +41,7 @@ public class PizzePrenotate {
         this.idpizza = idpizza;
     }
 
-    public void setPrezzo(int prezzo) {
+    public void setPrezzo(Double prezzo) {
         this.prezzo = prezzo;
     }
 

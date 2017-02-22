@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 function inviaCarrello() {
-            var quantita = [];
-            var id = [];
-            $(".quantita").each(function () {
-                quantita.push($(this).text());
-                id.push($(this).attr('id'));
-            });
-                var totale = $("#totale").text();
-            $.post('/GetCarrello',{"id": id,"quantita":quantita,"totale":totale});
-             $("form").submit();
+    var quantita = [];
+    var id = [];
+    $(".quantita").each(function () {
+        alert("cazzo");
+        //quantita.push($(this).text());
+        //id.push($(this).attr('id'));
+    });
+    //var totale = $("#totale").text();
+    //$.post('/GetCarrello', {"id": id, "quantita": quantita, "totale": totale});
+    //$("form").submit();
 
-        }
+}
 

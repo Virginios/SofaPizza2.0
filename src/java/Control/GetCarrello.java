@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "GetCarrello", urlPatterns = {"/GetCarrello"})
 public class GetCarrello extends HttpServlet {
+
     private static Logger logger = Logger.getLogger("classname");
 
     /**
@@ -41,7 +42,7 @@ public class GetCarrello extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GetCarrello</title>");            
+            out.println("<title>Servlet GetCarrello</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet GetCarrello at " + request.getContextPath() + "</h1>");
@@ -81,11 +82,9 @@ public class GetCarrello extends HttpServlet {
         String totale = request.getParameter("totale");
         HttpSession session = request.getSession(true);
         session.setAttribute("id", id);
-                session.setAttribute("quantita", quantita);
-                                session.setAttribute("totale", totale);
+        session.setAttribute("quantita", quantita);
+        session.setAttribute("totale", totale);
 
-        logger.info(totale);
-          
     }
 
     /**

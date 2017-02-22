@@ -1,4 +1,4 @@
-#conteiner_imm_ricerca_did{
+ #conteiner_imm_ricerca_did{
 	position:relative;
 	width: 1000%;
 }
@@ -14,9 +14,8 @@
 .pizzerie{
 	margin-top: 35px;
 	position: relative;
-	right: -29%;
 }
-#sceltamenu{
+.sceltamenu{
 	list-style-type: none;
 	position:relative;
 	right: -45%;
@@ -26,27 +25,50 @@
 	background-color: white;
 	margin-top: 6%;
 	position: absolute;
-	right: 25%;
+	right: 27.5%;
 }
-.bottone{
-	 background-color: #E4EB00;
-  border: 2px solid #0000000; 
-  color: #0000000;              
+.bottone1{
+	 background-color: #E4EB00; 
+border: 2px solid #000000; 
+  color: #000000;              
   font-weight: bold;         
   padding: 0;                
-  height: 140%;              
-  width: 150%;
+  height: 70%;              
+  width: 60%;
+	position: relative;
+	right: -40%;
+	bottom: -60%;
+}
+.bottone2{
+	 background-color: #E4EB00;
+  border: 2px solid #000000; 
+  color: #000000;              
+  font-weight: bold;         
+  padding: 0;                
+  height: 70%;              
+  width: 60%;
+	position: relative;
+	left: -40%;
+	top: -65%;
 }
 .menucarrello{
 	background-color: white;
-	height: 20%;
+	height: 18%;
 	width: 15%;
 }
 .bottoneordina{
 	background-color: #E4EB00;
-  border: 2px solid #0000000; 
-  color: #0000000;              
-  font-weight: bold;                   
-  height: 300%;              
-  width: 170%;
+  color: #000000;              
+  font-weight: bold; 
+	position: absolute;
+	bottom: 5%;
+  height: 40%;              
+  width: 97%;
+}
+.nostrepizze{
+	position: relative;
+	right: -18%;
+}
+.menu{
+	list-style-image: 
 }
