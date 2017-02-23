@@ -28,18 +28,21 @@
     </ul>     
     <body>
         <h1 align="center" class="titolo">Componi il tuo Men&ugrave</h1>
-        <form class="tabellamenu">
+        <form action="/ComposizioneMenuPizzeria" method="post">
+        <div class="tabellamenu">
             <div class="contenitore" id="1">
-                <input type="url" id="text" value="Inserisci il nome della pizza" size="20" class="textarea" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk">
-                <input type="type" id="text" value="Inserisci Ingredienti" size="20" class="textarea">
+                <input type="text" name="nomePizza" id="text" placeholder="inserisci nome pizza" size="20" class="textarea" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required>
+                <input type="text" name="nomeIngredienti" id="text" placeholder="inserisci ingredienti" size="20" class="textarea" required>
+                <input type="text" name="prezzo" id="text" placeholder="inserisci prezzo" size="20" class="textarea" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required pattern="[0-9]+([\,|\.][0-9]+)?">
                 <input type="button" value="+"  class="bottone">
             </div>
-        </form>
+        </div>
     <tr id="salva">
         <td>
-            <input name="Submit" id="salva"  type="button" value="Salva" />
+            <input name="Submit" id="salva"  type="submit" value="Salva" />
         </td>
     </tr>
+        </form>
 </body>
 <script>
     $(document).on("click", ".bottone", function () {
@@ -49,7 +52,7 @@
         $(this).remove();
         var idDiv = num + "del";
         $('.bottoneDecr').remove();
-        $('<div class="contenitore" id="att"><input type="url" id="text" value="Inserisci il nome della pizza" size="20" class="textarea" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk"> <input type="type" id="text" value="Inserisci Ingredienti" size="20" class="textarea"><input type="button" value="+"  class="bottone"><input type="button" value="-"  class="bottoneDecr" id="bottoneDecre"></div>').appendTo('.tabellamenu');
+        $('<div class="contenitore" id="att"><input type="text" name="nomePizza" id="text" placeholder="inserisci nome pizza" size="20" class="textarea" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required> <input type="text" name="nomeIngredienti"  id="text" placeholder="inserisci ingredienti" size="20" class="textarea" required><input type="text" name="prezzo" id="text" placeholder="inserisci prezzo" size="20" class="margin" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required pattern="[0-9]+([\,|\.][0-9]+)?"><input type="button" value="+"  class="bottone"><input type="button" value="-"  class="bottoneDecr" id="bottoneDecre"></div>').appendTo('.tabellamenu');
         $("#att").attr('id', idDiv);
         $("#bottoneDecre").attr('id', num);
         var n = "#" + num;

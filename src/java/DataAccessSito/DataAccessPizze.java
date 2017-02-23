@@ -30,8 +30,7 @@ public class DataAccessPizze {
 
         try {
             this.pizze = new ConnDatabase();
-            inserisci = this.pizze.getConn().prepareStatement("INSERT INTO pizze " + "(idpizza,ingedienti,prezzo,produttore,nome) values (?,?,?,?,?)");
-
+            inserisci = this.pizze.getConn().prepareStatement("INSERT INTO pizze " + "(idpizza,ingredienti,prezzo,produttore,nome) values (?,?,?,?,?)");
             for (int i = 0; i < pizze.size(); i++) {
                 inserisci.setInt(1, pizze.get(i).getIdpizza());
                 inserisci.setString(2, pizze.get(i).getIngredienti());

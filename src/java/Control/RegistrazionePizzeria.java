@@ -7,9 +7,10 @@ package Control;
 
 import DataAccessSito.Cliente;
 import DataAccessSito.DataAccessCliente;
+import DataAccessSito.DataAccessPizzeria;
+import DataAccessSito.Pizzeria;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,10 +23,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "RegistrazioneCliente", urlPatterns = {"/RegistrazioneCliente"})
-public class RegistrazioneCliente extends HttpServlet {
-
-    private static Logger logger = Logger.getLogger("classname");
+@WebServlet(name = "RegistrazionePizzeria", urlPatterns = {"/RegistrazionePizzeria"})
+public class RegistrazionePizzeria extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +43,10 @@ public class RegistrazioneCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloWorl</title>");
+            out.println("<title>Servlet RegistrazionePizzeria</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HelloWorl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RegistrazionePizzeria at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,38 +78,23 @@ public class RegistrazioneCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cliente c = new Cliente();
+        Pizzeria c = new Pizzeria();
         c.setNome(request.getParameter("nome"));
-        c.setCognome(request.getParameter("cognome"));
-        c.setEmail(request.getParameter("email"));
+        c.setPiva(request.getParameter("partitaIva"));
         c.setVia(request.getParameter("indirizzo"));
         c.setPaese(request.getParameter("paese"));
-        c.setTipoCliente(Integer.parseInt(request.getParameter("pizzeriacliente")));
         c.setPassword(request.getParameter("password"));
-        String data = (request.getParameter("anno")
-                + "-" + request.getParameter("mese") + "-" + request.getParameter("giorno"));
-        c.setDataNascita(data);
-        logger.info(c.getCognome());
-        DataAccessCliente daoc = new DataAccessCliente();
-        if (!daoc.cliente_registrato(request.getParameter("email"))) {
-            daoc.inserisciCliente(c);
         
+        DataAccessPizzeria daoc = new DataAccessPizzeria();
+        if (!daoc.Pizzeria_registrata(request.getParameter("partitaIva"))) {
+            HttpSession session = request.getSession();
+            session.setAttribute("pizzeria", c);   
+            RequestDispatcher view = request.getRequestDispatcher("MenuPizzeria.jsp");
+            view.forward(request, response);
         } else {
-            RequestDispatcher view = request.getRequestDispatcher("RegErrorCliente.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("RegErrorPizzeria.jsp");
             view.forward(request, response);
         }
-        //response.setContentType("text/html");
-        //PrintWriter out = response.getWriter();
-
-        /*out.println("<html>");
-    out.println("<head>");
-    out.println("<title>Hola</title>");
-    out.println("</head>");
-    out.println("<body>");
-                out.println("<h1>Servlet HelloWorl at " + request.getParameter("giorno")+ request.getParameter("mese")+request.getParameter("anno") +"</h1>");
-
-    out.println("</body>");
-    out.println("</html>");*/
     }
 
     /**

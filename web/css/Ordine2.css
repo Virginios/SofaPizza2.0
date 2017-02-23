@@ -1,0 +1,97 @@
+body{
+	height:750px;
+	
+}
+#conteiner_imm_ricerca_did{
+	
+
+	width: 1000%;
+}
+.pizzerie{
+	
+}
+.filtri{
+	
+}
+.filtra{
+	
+}
+.pizzerie{
+	margin-top: 35px;
+	
+}
+.sceltamenu{
+	list-style-type: none;
+	margin-left:43%;
+	margin-top: 3%;
+}
+.pizzemenu{
+	margin-top: 10%;
+	right: 27.5%;
+}
+.bottone1{
+	 background-color: #FF9900;
+  border: 2px solid #0000000; 
+  font-weight: bold;         
+  padding: 0;                
+  height: 70%;              
+  width: 40%;
+  opacity:0.71;
+
+}
+
+
+.menucarrello{
+	
+	height: 18%;
+	width: 15%;
+	margin-left: 85.5%;
+	margin-top:-23%;
+	
+}
+.bottoneordina{
+  background-color: #FF9900;
+  font-weight: bold; 
+  bottom: 5%;
+  height: 150%;              
+  width: 130%;
+  opacity:0.71;
+  
+}
+.nostrepizze{
+	right: -18%;
+	
+}
+.titolo1{
+
+	right: 38%;
+}
+.titolo2{
+	
+	right: 44%;
+}
+.menucarrello{
+	width:146px;
+	height:65px;
+	margin-left:85%;
+	margin-top:2%;
+		
+	}
+#tab{
+		margin-top:-5.5%;
+		font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;}
+#container{
+			height:100%;
+			background-image:url(immaginetrasppp.jpg);
+			margin-top:-2%;
+			font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+		}
+
+#pizzeria{
+	margin-top:0;}
+#nomePizz{
+	height:0px;}
+	#caratt{
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+	}
+		

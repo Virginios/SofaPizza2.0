@@ -5,12 +5,15 @@
  */
 package Control;
 
-import DataAccessSito.Cliente;
-import DataAccessSito.DataAccessCliente;
+import DataAccessSito.DataAccessPizze;
+import DataAccessSito.DataAccessPizzeria;
+import DataAccessSito.Pizze;
+import DataAccessSito.Pizzeria;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,8 +25,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "RegistrazioneCliente", urlPatterns = {"/RegistrazioneCliente"})
-public class RegistrazioneCliente extends HttpServlet {
+@WebServlet(name = "ComposizioneMenuPizzeria", urlPatterns = {"/ComposizioneMenuPizzeria"})
+public class ComposizioneMenuPizzeria extends HttpServlet {
 
     private static Logger logger = Logger.getLogger("classname");
 
@@ -44,10 +47,10 @@ public class RegistrazioneCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet HelloWorl</title>");
+            out.println("<title>Servlet ComposizioneMenuPizzeria</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HelloWorl at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ComposizioneMenuPizzeria at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -79,38 +82,30 @@ public class RegistrazioneCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cliente c = new Cliente();
-        c.setNome(request.getParameter("nome"));
-        c.setCognome(request.getParameter("cognome"));
-        c.setEmail(request.getParameter("email"));
-        c.setVia(request.getParameter("indirizzo"));
-        c.setPaese(request.getParameter("paese"));
-        c.setTipoCliente(Integer.parseInt(request.getParameter("pizzeriacliente")));
-        c.setPassword(request.getParameter("password"));
-        String data = (request.getParameter("anno")
-                + "-" + request.getParameter("mese") + "-" + request.getParameter("giorno"));
-        c.setDataNascita(data);
-        logger.info(c.getCognome());
-        DataAccessCliente daoc = new DataAccessCliente();
-        if (!daoc.cliente_registrato(request.getParameter("email"))) {
-            daoc.inserisciCliente(c);
-        
-        } else {
-            RequestDispatcher view = request.getRequestDispatcher("RegErrorCliente.jsp");
-            view.forward(request, response);
+        String nomePizze[] = request.getParameterValues("nomePizza");
+        String nomeIngredienti[] = request.getParameterValues("nomeIngredienti");
+        String prezzo[] = request.getParameterValues("prezzo");
+        HttpSession session = request.getSession();
+        Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");    
+                 DataAccessPizzeria pizzerie = new DataAccessPizzeria();
+
+        pizzerie.inserisciPizzeria(p);
+
+                ArrayList<Pizze> listaPizze = new ArrayList<Pizze>();
+
+        for (int i = 0; i < prezzo.length; i++) {
+            Pizze pizza = new Pizze();
+            double numero = Double.parseDouble(prezzo[i]);
+            numero = Math.floor(numero * 100) / 100;
+            pizza.setIngredienti(nomeIngredienti[i]);
+            pizza.setNome(nomePizze[i]);
+            pizza.setPrezzo(numero);
+            pizza.setProduttore(p.getPiva());
+            listaPizze.add(pizza);
         }
-        //response.setContentType("text/html");
-        //PrintWriter out = response.getWriter();
-
-        /*out.println("<html>");
-    out.println("<head>");
-    out.println("<title>Hola</title>");
-    out.println("</head>");
-    out.println("<body>");
-                out.println("<h1>Servlet HelloWorl at " + request.getParameter("giorno")+ request.getParameter("mese")+request.getParameter("anno") +"</h1>");
-
-    out.println("</body>");
-    out.println("</html>");*/
+        DataAccessPizze pizze = new DataAccessPizze();
+       
+        pizze.inseriscipizze(listaPizze);
     }
 
     /**

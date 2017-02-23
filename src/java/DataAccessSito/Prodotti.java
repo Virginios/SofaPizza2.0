@@ -14,7 +14,15 @@ import java.util.ArrayList;
 public class Prodotti{
     private ArrayList<Pizze> pizza;
     private int quantita;
+    private double totale;
 
+    public double getTotale() {
+        return totale;
+    }
+
+    public void setTotale(double totale) {
+        this.totale = totale;
+    }
  
 
     public ArrayList<Pizze> getPizza() {

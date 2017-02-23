@@ -5,17 +5,23 @@ body {
 
 
 table{
-	width:90%;	
+	width:115%;	
 	padding-right:5px;
 }
 
 .errore{
-    display:none;
     color:red;
+    display:none;
+
+}
+#errori{
+    display:block;
+    color:red;
+    
 }
 #form
 {
-	background-image: url(immaginetrasppp.jpg);
+	background-image: url('img/immaginetrasppp.png');
 	height: 72.2%;
 }
 
@@ -31,7 +37,7 @@ table{
 }
 #registrati{
 	position:absolute;
-	right:500px;
+	right:530px;
 	font-weight: bold;
 	font-size:15px;
 	border-top-right-radius:20px; 

@@ -144,9 +144,9 @@ public class DataAccessPizzeria {
         return pizzerie.get(0);
     }
 
-    public boolean Pizzeria_registrata(String Piva, String password) {
+    public boolean Pizzeria_registrata(String Piva) {
 
-        query = "SELECT * from pizzeria WHERE pIva='" + Piva + "' OR password='" + password + "'";
+        query = "SELECT * from pizzeria WHERE pIva='" + Piva + "'";
         ArrayList<Pizzeria> pizzerie = estraipizzerie(query);
         if (pizzerie.isEmpty()) {
             return false;

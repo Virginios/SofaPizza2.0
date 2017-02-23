@@ -86,6 +86,7 @@ public class Carrello extends HttpServlet {
         HttpSession session = request.getSession(true);
         String id[] = (String[]) session.getAttribute("id");
         String quantita[] = (String[]) session.getAttribute("quantita");
+        String totale =  (String) session.getAttribute("totale");
         ArrayList<Pizze> pizze = new ArrayList<Pizze>();
         DataAccessPizze daop = new DataAccessPizze();
         Prodotti carrello = new Prodotti();
@@ -95,9 +96,11 @@ public class Carrello extends HttpServlet {
             logger.info(""+carrello.getQuantita());
             
         }
+        carrello.setTotale(Double.parseDouble(totale));
          carrello.setPizza(pizze);
          session.removeAttribute("id");
          session.removeAttribute("quantita");
+         session.removeAttribute("totale");
          session.setAttribute("carrello", carrello);
     }
 
