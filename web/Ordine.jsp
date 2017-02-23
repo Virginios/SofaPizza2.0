@@ -107,7 +107,6 @@
             var quantita = [];
             var id = [];
             $(".infoquantita").each(function () {
-                alert("cazzo");
                 quantita.push($(this).text());
                 id.push($(this).attr('id'));
             });
