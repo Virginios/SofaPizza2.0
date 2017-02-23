@@ -19,12 +19,13 @@
         <title>ComponiPizza</title>
     </head>
     <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
-    <ul class="menu">
-        <li><a  href="Home.html">Home</a></li>
+  
+        <ul class="menu">
+        <li><a href="Home.html">Home</a></li>               
         <li><a href="Chi Siamo.html">Chi Siamo</a></li>
-        <li class="spost"><a href="Login.html" class="active">Login</a></li>
-        <li class="spost"><a href="RegistrazioneCliente.html">Registrazione</a></li>
-    </ul>      
+        <li class="spost"><a href="Home.html">Esci</a></li>
+        <li class="spost"><a href="ProfiloPizzeria.Html">Ciao,Pizzeria</a></li>
+    </ul>     
     <body>
         <h1 align="center" class="titolo">Componi il tuo Men&ugrave</h1>
         <form class="tabellamenu">
