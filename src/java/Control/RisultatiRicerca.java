@@ -5,13 +5,11 @@
  */
 package Control;
 
-import DataAccessSito.Cliente;
-import DataAccessSito.DataAccessCliente;
-import DataAccessSito.DataAccessPizzeria;
 import DataAccessSito.Pizzeria;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.RequestDispatcher;
+import java.util.ArrayList;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +21,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "RegistrazionePizzeria", urlPatterns = {"/RegistrazionePizzeria"})
-public class RegistrazionePizzeria extends HttpServlet {
+@WebServlet(name = "RisultatiRicerca", urlPatterns = {"/RisultatiRicerca"})
+public class RisultatiRicerca extends HttpServlet {
+    private static Logger logger = Logger.getLogger("classname");
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +42,10 @@ public class RegistrazionePizzeria extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegistrazionePizzeria</title>");            
+            out.println("<title>Servlet RisultatiRicerca</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RegistrazionePizzeria at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet RisultatiRicerca at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -64,7 +63,21 @@ public class RegistrazionePizzeria extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         String partitaIva =request.getParameter("pizzeria");
+                 HttpSession session = request.getSession();
+         ArrayList<Pizzeria> p   = (ArrayList<Pizzeria>) session.getAttribute("pizzerie");
+         Pizzeria pizzeria = null;
+         for(int i=0;i<p.size();i++){
+             if(p.get(i).getPiva().equals(partitaIva)){
+                 logger.info("boh");
+                 pizzeria = p.get(i);
+                 break;
+             }
+               
+
+         }
+         logger.info(pizzeria.getNome());
+
     }
 
     /**
@@ -78,23 +91,7 @@ public class RegistrazionePizzeria extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Pizzeria c = new Pizzeria();
-        c.setNome(request.getParameter("nome"));
-        c.setPiva(request.getParameter("partitaIva"));
-        c.setVia(request.getParameter("indirizzo"));
-        c.setPaese(request.getParameter("paese"));
-        c.setPassword(request.getParameter("password"));
-        
-        DataAccessPizzeria daoc = new DataAccessPizzeria();
-        if (!daoc.Pizzeria_registrata(request.getParameter("partitaIva"))) {
-            HttpSession session = request.getSession();
-            session.setAttribute("pizzeria", c);   
-            RequestDispatcher view = request.getRequestDispatcher("jspImmagine.jsp");
-            view.forward(request, response);
-        } else {
-            RequestDispatcher view = request.getRequestDispatcher("RegErrorPizzeria.jsp");
-            view.forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

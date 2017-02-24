@@ -82,10 +82,12 @@ public class Ricerca extends HttpServlet {
         String ricerca = request.getParameter("cerco");
         DataAccessPizzeria daop = new DataAccessPizzeria();
         ArrayList<Pizzeria> p =  daop.trovaPizzerieDaFiltro(ricerca);
+        HttpSession session = request.getSession();
+
         if (p.isEmpty()) {
-            request.setAttribute("pizzerie", null);
+            session.setAttribute("pizzerie", null);
         } else {
-            request.setAttribute("pizzerie", p);
+            session.setAttribute("pizzerie", p);
         }
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();

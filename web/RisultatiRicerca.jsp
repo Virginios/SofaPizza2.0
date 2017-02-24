@@ -10,7 +10,7 @@
 <%@page import="DataAccessSito.Pizzeria"%>
 <%@page import="java.util.ArrayList"%>
 <%
-    ArrayList<Pizzeria> pizzerie = (ArrayList<Pizzeria>) request.getAttribute("pizzerie");
+    ArrayList<Pizzeria> pizzerie = (ArrayList<Pizzeria>) session.getAttribute("pizzerie");
 %>
 <!doctype html>
 <html>
@@ -43,10 +43,14 @@
         </div>
         <div id="contenitore">
             <%if (pizzerie != null) {
-                    for (int i = 0; i < pizzerie.size(); i++) {%>
+                %>
+                   <% for (int i = 0; i < pizzerie.size(); i++) {%>
+                                   <form id="<%=i%>" action="/RisultatiRicerca">
+
             <table id="pizzerie" cellspacing="25" style="height: 40%">
-                <thead align="center" style="height: 5%" >
-                    <tr align="center"><td></td><th ><%=pizzerie.get(i).getNome()%></th></tr>
+                <thead align="center" style="height: 5%">
+                    <tr align="center"><td></td><th><a href="#" onclick="document.getElementById('<%=i%>').submit();" ><%=pizzerie.get(i).getNome()%></a>
+                        <input type="hidden" name="pizzeria" value="<%=pizzerie.get(i).getPiva()%>"></th></tr>
                 </thead>
                 <tbody id="conte" >
                     <tr>
@@ -65,6 +69,7 @@
                 </tbody>
             </table>
               <div style="height: 5px"></div>
+               </form>
             <%
                 }
             %>

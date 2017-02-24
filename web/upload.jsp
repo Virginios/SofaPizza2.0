@@ -1,11 +1,9 @@
-<%@page import="DataAccessSito.Pizzeria"%>
 <HTML>
 <HEAD>
 <%@ page 
 language="java"
 contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"
-session="true"
 %>
 <TITLE>upload.jsp</TITLE>
 </HEAD>
@@ -13,7 +11,7 @@ session="true"
 <%@ page import="java.io.*" %>
 
 <%
-Pizzeria pizzeria = (Pizzeria)session.getAttribute("pizzeria");
+
 response.setContentType("text/html");
 response.setHeader("Cache-control","no-cache");
 
@@ -78,7 +76,7 @@ if (name.equals("file")) {
 if (buffer!=null)
 buffer.close();
 lastFileName = fileName;
-fileName=pizzeria.getPiva()+".jpg";
+fileName="admin.jpg";
 buffer = new java.io.FileOutputStream(getServletContext().getRealPath("/img/"+fileName));
 }
 }else if(s.startsWith("Content-Type") && state==1) {
@@ -102,10 +100,14 @@ if(!ok) {
 out.println(err);
 }else{
 %>
-<SCRIPT language="javascript">
-alert('Uploaded <%=lastFileName%>');
-</SCRIPT>
+
 <%
 }
 out.println("done");
+%>
+<%
+   // New location to be redirected
+   String site = new String("http://localhost:8080/MenuPizzeria.jsp");
+   response.setStatus(response.SC_MOVED_TEMPORARILY);
+   response.setHeader("Location", site); 
 %>

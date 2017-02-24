@@ -9,18 +9,23 @@ import DataAccessSito.DataAccessPizze;
 import DataAccessSito.DataAccessPizzeria;
 import DataAccessSito.Pizze;
 import DataAccessSito.Pizzeria;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import static java.lang.System.out;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -48,7 +53,7 @@ public class ComposizioneMenuPizzeria extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ComposizioneMenuPizzeria</title>");            
+            out.println("<title>Servlet ComposizioneMenuPizzeria</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ComposizioneMenuPizzeria at " + request.getContextPath() + "</h1>");
@@ -87,12 +92,12 @@ public class ComposizioneMenuPizzeria extends HttpServlet {
         String nomeIngredienti[] = request.getParameterValues("nomeIngredienti");
         String prezzo[] = request.getParameterValues("prezzo");
         HttpSession session = request.getSession();
-        Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");    
-                 DataAccessPizzeria pizzerie = new DataAccessPizzeria();
+        Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");
+        DataAccessPizzeria pizzerie = new DataAccessPizzeria();
 
         pizzerie.inserisciPizzeria(p);
 
-                ArrayList<Pizze> listaPizze = new ArrayList<Pizze>();
+        ArrayList<Pizze> listaPizze = new ArrayList<Pizze>();
 
         for (int i = 0; i < prezzo.length; i++) {
             Pizze pizza = new Pizze();
@@ -105,9 +110,17 @@ public class ComposizioneMenuPizzeria extends HttpServlet {
             listaPizze.add(pizza);
         }
         DataAccessPizze pizze = new DataAccessPizze();
-       
+
         pizze.inseriscipizze(listaPizze);
-        
+        try (PrintWriter out = response.getWriter()) {
+            logger.info("cazzo");
+            Part part = request.getPart("file");
+            InputStream is = part.getInputStream();
+            BufferedImage bufImage = ImageIO.read(is);
+            File file = new File("src\\img\\images2.jpg");
+            ImageIO.write(bufImage, "jpg", file);
+        }
+
     }
 
     /**
