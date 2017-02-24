@@ -165,7 +165,7 @@ public class DataAccessPizzeria {
     }
 
  
-    public ArrayList<OggettoStub> getAll() {
+    public OggettoStub getAll() {
         ArrayList<OggettoStub> ogg = new ArrayList<OggettoStub>();
         String nome = "Select distinct nomePizzeria from pizzeria";
         String via="Select distinct via from pizzeria";
@@ -195,7 +195,7 @@ public class DataAccessPizzeria {
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return ogg;
+        return alessandro;
     }
 
 }
