@@ -11,6 +11,7 @@ import DataAccessSito.Pizze;
 import DataAccessSito.Pizzeria;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -106,6 +107,7 @@ public class ComposizioneMenuPizzeria extends HttpServlet {
         DataAccessPizze pizze = new DataAccessPizze();
        
         pizze.inseriscipizze(listaPizze);
+        
     }
 
     /**
