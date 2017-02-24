@@ -169,33 +169,31 @@ public class DataAccessPizzeria {
         ArrayList<OggettoStub> ogg = new ArrayList<OggettoStub>();
         String nome = "Select distinct nomePizzeria from pizzeria";
         String via="Select distinct via from pizzeria";
-        ArrayList<String> nomi= new ArrayList<String>();
-        ArrayList<String> vie= new ArrayList<String>();
-        OggettoStub alessandro=new OggettoStub();
+        ArrayList<String> ricerca= new ArrayList<String>();
+        OggettoStub oggetto=new OggettoStub();
         try {
             this.pizzeria = new ConnDatabase();
             inserisci = this.pizzeria.getConn().prepareStatement(nome);
             risultato = inserisci.executeQuery();
             while (risultato.next()) {
               String g=(risultato.getString("nomePizzeria"));
-              nomi.add(g);
+              ricerca.add(g);
             }
             inserisci = this.pizzeria.getConn().prepareStatement(via);
             risultato = inserisci.executeQuery();
             while (risultato.next()) {
               String g=(risultato.getString("via"));
-              vie.add(g);
+              ricerca.add(g);
             }
             
-            alessandro.setNome(nomi);
-            alessandro.setNome(vie);
+            oggetto.setRicerca(ricerca);
             inserisci.close();
             pizzeria.chiudi();
             
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return alessandro;
+        return oggetto;
     }
 
 }

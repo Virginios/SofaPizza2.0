@@ -49,11 +49,16 @@ public class testPizzeria {
           //System.out.println(ap.get(0).getNome());
             //Pizzeria ap  = daop.trovaPizzeria("ggh", "hhj");
             //System.out.println(ap.getNome());
-            ArrayList<OggettoStub> ap = daop.getAll();
-            for(int i=0;i<ap.size();i++){
-                System.out.println("Via="+ap.get(i).getVia()+" Nome="+ap.get(i).getNome());
+            OggettoStub ap = daop.getAll();
+            ArrayList<String> nome = ap.getNome();
+                        ArrayList<String> via = ap.getVia();
+
+            for(int i=0;i<via.size();i++){
+                System.out.println("Via="+via.get(i));
             }
 
-
+            for(int i=0;i<nome.size();i++){
+                System.out.println("Nome="+nome.get(i));
+            }
         }
 }

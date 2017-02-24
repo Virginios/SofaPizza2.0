@@ -14,9 +14,7 @@
         <title>JSP Page</title>
         <script type="text/javascript" src="js/jquery.js">
         </script>
-        <script type="text/javascript" src="js/jquery.min.js">
-        </script>
-        <script type="text/javascript" src="js/ricerca.js">
+        <script type="text/javascript" src="js/ricerc.js">
         </script>
         <script type="text/javascript" src="js/autocomplete.js">
         </script>

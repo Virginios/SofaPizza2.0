@@ -13,25 +13,14 @@ import java.util.ArrayList;
  * @author Valerio
  */
 public class OggettoStub implements Serializable{
-    private ArrayList<String> nome;
-    private ArrayList<String> via;
+    private ArrayList<String> ricerca;
 
-    public ArrayList<String> getNome() {
-        return nome;
+    public ArrayList<String> getRicerca() {
+        return ricerca;
     }
 
-    public void setNome(ArrayList<String> nome) {
-        this.nome = nome;
+    public void setRicerca(ArrayList<String> ricerca) {
+        this.ricerca = ricerca;
     }
 
-    public ArrayList<String> getVia() {
-        return via;
-    }
-
-    public void setVia(ArrayList<String> via) {
-        this.via = via;
-    }
- 
-
-    
 }

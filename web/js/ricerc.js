@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */$(document).ready(function () {
     $(window).on("load", function () {
-        $.post('/InvioPizzerie', function (data) {
+        $.post('/InvioPizzerie', function (ricerca) {
             var lista = (".commentlist");
-            console.log("" + data);
-            $.each(data, function (i, pizzeria) {
-                var li = $('<li/>').addClass('tuttiFiltri').text(pizzeria.nome).appendTo(lista);
-                var lo = $('<li/>').addClass('tuttiFiltri').text(pizzeria.via).appendTo(lista);
+            $.each(ricerca, function (i, pizzeria) {
+                var li = $('<li/>').addClass('tuttiFiltri').text(pizzeria).appendTo(lista);
             });
             $(".commentlist li").css('display', 'none');
         });

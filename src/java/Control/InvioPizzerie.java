@@ -81,10 +81,11 @@ public class InvioPizzerie extends HttpServlet {
       response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         DataAccessPizzeria p = new DataAccessPizzeria();
-        ArrayList<OggettoStub> ogg = p.getAll();
-        String json = (new Gson().toJson(ogg));
-        logger.info("cazzo");
-       response.getWriter().write((new Gson()).toJson(ogg));    
+        OggettoStub ogg = p.getAll();
+        ArrayList<String> ricerca = ogg.getRicerca();
+    
+String json = (new Gson().toJson(ricerca));
+        response.getWriter().write(json);
     }
 
     /**
