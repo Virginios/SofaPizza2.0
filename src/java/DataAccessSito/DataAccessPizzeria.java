@@ -167,7 +167,7 @@ public class DataAccessPizzeria {
  
     public ArrayList<OggettoStub> getAll() {
         ArrayList<OggettoStub> ogg = new ArrayList<OggettoStub>();
-        String tutto = "Select nomePizzeria,via from pizzeria";
+        String tutto = "Select distinct nomePizzeria,via from pizzeria";
 
         try {
             this.pizzeria = new ConnDatabase();
