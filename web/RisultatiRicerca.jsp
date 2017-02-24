@@ -74,9 +74,10 @@
                 }
             %>
             <%
-                }
+                }else{
 
-            %>
+            %><h1>non ci sono pizzerie disponibili</h1>
+            <%}%>
         </div>
     </body>
 </html>

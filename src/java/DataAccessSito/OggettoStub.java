@@ -6,32 +6,32 @@
 package DataAccessSito;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author Valerio
  */
 public class OggettoStub implements Serializable{
-    String nome;
-    String via;
-   public OggettoStub(){
-        this.nome = "";
-        this.via="";
-    }
-    public String getNome() {
+    private ArrayList<String> nome;
+    private ArrayList<String> via;
+
+    public ArrayList<String> getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(ArrayList<String> nome) {
         this.nome = nome;
     }
 
-    public String getVia() {
+    public ArrayList<String> getVia() {
         return via;
     }
 
-    public void setVia(String via) {
+    public void setVia(ArrayList<String> via) {
         this.via = via;
     }
+ 
+
     
 }

@@ -1,40 +1,40 @@
 @charset "utf-8";
 /* CSS Document */
- 
+
 
 
 @media screen and (min-width: 480px) {
 
-	#tastocerca{
-		width:10%; 
-		font-size:13px;
+    #tastocerca{
+        width:10%; 
+        font-size:13px;
 
-	}
-	#contbarraricerca{
-    top: 60%;
-	}
-	#didascalia{
-		font-size: 1.370em;
-		margin-left: 29%;
+    }
+    #contbarraricerca{
+        top: 60%;
+    }
+    #didascalia{
+        font-size: 1.370em;
+        margin-left: 29%;
 
-	}
-	#didascalia2{
-			margin-left: 34%;
-	}
-	#logo{
-		width: 80%
-	}
-	ul{
-		box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+    }
+    #didascalia2{
+        margin-left: 34%;
+    }
+    #logo{
+        width: 80%
+    }
+    ul{
+        box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
 
-	}
-	li {
-		float:left;
-		box-shadow: none;
-	}
-	.spost{
-		float:right;
-	}
+    }
+    li {
+        float:left;
+        box-shadow: none;
+    }
+    .spost{
+        float:right;
+    }
 
 }
 
@@ -42,27 +42,27 @@
 
 @media screen and (min-width: 768px) {
 
-	#tastocerca{
-		width:8%; 
-	}
-	#didascalia{
-				margin-left: 35%;
+    #tastocerca{
+        width:8%; 
+    }
+    #didascalia{
+        margin-left: 35%;
 
-		font-size: 1.600em;
-	}
-	#didascalia2{
-			margin-left: 40%;
-	}
+        font-size: 1.600em;
+    }
+    #didascalia2{
+        margin-left: 40%;
+    }
 
-#contbarraricerca{
-	
-    top: 50%;
-   
-}
+    #contbarraricerca{
 
-#logo {	
- width: 50%;     
-}
+        top: 50%;
+
+    }
+
+    #logo {	
+        width: 50%;     
+    }
 
 
 
@@ -72,35 +72,35 @@
 
 
 @media screen and (min-width: 1024px) {
-	#didascalia{
-		font-size: 1.700em;
-	}
-	#contbarraricerca{
-	
-    top: 40%;
-   
-}
+    #didascalia{
+        font-size: 1.700em;
+    }
+    #contbarraricerca{
 
-#logo {	
- width: 40%;     
-}
+        top: 40%;
+
+    }
+
+    #logo {	
+        width: 40%;     
+    }
 }
 
 
 
 
 @media screen and (min-width: 1200px) {
-	#didascalia{
-		font-size: 1.860em;
-	}
-	#contbarraricerca{
-	
-    top: 30%;
-   
-}
+    #didascalia{
+        font-size: 1.860em;
+    }
+    #contbarraricerca{
 
-#logo {	
- width: 30%;     
-}
+        top: 30%;
+
+    }
+
+    #logo {	
+        width: 30%;     
+    }
 
 }

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpSession;
  */
 @WebServlet(name = "RisultatiRicerca", urlPatterns = {"/RisultatiRicerca"})
 public class RisultatiRicerca extends HttpServlet {
+
     private static Logger logger = Logger.getLogger("classname");
 
     /**
@@ -42,7 +44,7 @@ public class RisultatiRicerca extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RisultatiRicerca</title>");            
+            out.println("<title>Servlet RisultatiRicerca</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet RisultatiRicerca at " + request.getContextPath() + "</h1>");
@@ -63,20 +65,23 @@ public class RisultatiRicerca extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         String partitaIva =request.getParameter("pizzeria");
-                 HttpSession session = request.getSession();
-         ArrayList<Pizzeria> p   = (ArrayList<Pizzeria>) session.getAttribute("pizzerie");
-         Pizzeria pizzeria = null;
-         for(int i=0;i<p.size();i++){
-             if(p.get(i).getPiva().equals(partitaIva)){
-                 logger.info("boh");
-                 pizzeria = p.get(i);
-                 break;
-             }
-               
+        String partitaIva = request.getParameter("pizzeria");
+        HttpSession session = request.getSession();
+        ArrayList<Pizzeria> p = (ArrayList<Pizzeria>) session.getAttribute("pizzerie");
+        Pizzeria pizzeria = null;
+        for (int i = 0; i < p.size(); i++) {
+            if (p.get(i).getPiva().equals(partitaIva)) {
+                logger.info("boh");
+                pizzeria = p.get(i);
+                break;
+            }
 
-         }
-         logger.info(pizzeria.getNome());
+        }
+        session.removeAttribute("pizzere");
+        session.removeAttribute("pizzeria");
+        session.setAttribute("pizzeria", pizzeria);
+        RequestDispatcher view = request.getRequestDispatcher("OrdineDefinitivo.jsp");
+        view.forward(request, response);
 
     }
 

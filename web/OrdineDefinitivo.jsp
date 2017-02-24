@@ -4,12 +4,15 @@
     Author     : Valerio
 --%>
 
+<%@page import="DataAccessSito.Pizzeria"%>
 <%@page import="DataAccessSito.Pizze"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DataAccessSito.DataAccessPizze"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%DataAccessPizze p = new DataAccessPizze();
-    ArrayList<Pizze> pizze = p.estraiPizze("ds");
+<%
+    Pizzeria pizzeria = (Pizzeria) session.getAttribute("pizzeria");
+    DataAccessPizze p = new DataAccessPizze();
+    ArrayList<Pizze> pizze = p.estraiPizze(pizzeria.getPiva());
 %>
 <!doctype html>
 <html>

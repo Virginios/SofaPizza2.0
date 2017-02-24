@@ -6,6 +6,7 @@
 package Test;
 
 import DataAccessSito.DataAccessPizzeria;
+import DataAccessSito.OggettoStub;
 import DataAccessSito.Pizzeria;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -21,15 +22,15 @@ import javax.imageio.ImageIO;
  */
 public class testPizzeria {
         public static void main(String args[]) throws IOException{
-            Pizzeria p = new Pizzeria();
+            //Pizzeria p = new Pizzeria();
            // BufferedImage foto=ImageIO.read(new File("C:\\Users\\lenovo\\Desktop\\arrayImmagini\\imm.jpg"));
             //p.setImmagine(foto);
-            p.setNome("giorgio");
+            /*p.setNome("giorgio");
             p.setNumero("0515");
             p.setPaese("ostuni");
             p.setPassword("hhj");
             p.setPiva("ggh");
-            p.setVia("kk");
+            p.setVia("kk");*/
             DataAccessPizzeria daop = new DataAccessPizzeria();
             //daop.inserisciPizzeria(p);
             /*BufferedImage foto=ImageIO.read(new File("C:\\Users\\lenovo\\Desktop\\arrayImmagini\\imm3.jpg"));
@@ -48,9 +49,9 @@ public class testPizzeria {
           //System.out.println(ap.get(0).getNome());
             //Pizzeria ap  = daop.trovaPizzeria("ggh", "hhj");
             //System.out.println(ap.getNome());
-            ArrayList<Pizzeria> ap = daop.trovaPizzerieDaFiltro("sd");
+            ArrayList<OggettoStub> ap = daop.getAll();
             for(int i=0;i<ap.size();i++){
-                System.out.println(ap.get(i).getNome());
+                System.out.println("Via="+ap.get(i).getVia()+" Nome="+ap.get(i).getNome());
             }
 
 
