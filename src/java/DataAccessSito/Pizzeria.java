@@ -19,6 +19,7 @@ private String paese;
 private String numero;
 private  String immagine;
 private String provincia;
+private int celiaci;
 
 
 
@@ -54,6 +55,11 @@ private String provincia;
     public void setProvincia(String provincia) {
         this.provincia = provincia;
     }
+
+    public void setCeliaci(int celiaci) {
+        this.celiaci = celiaci;
+    }
+    
     
     
     
@@ -89,6 +95,10 @@ private String provincia;
 
     public String getProvincia() {
         return provincia;
+    }
+
+    public int getCeliaci() {
+        return celiaci;
     }
 
     
