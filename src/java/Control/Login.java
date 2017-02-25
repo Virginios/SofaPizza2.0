@@ -79,14 +79,14 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         DataAccessCliente daoc = new DataAccessCliente();
-        Cliente c = daoc.trovacliente(email, password);
+        /*Cliente c = daoc.trovacliente(email, password);
         if (c != null) {
             HttpSession session = request.getSession();
             session.setAttribute("email", email);
         } else {
             RequestDispatcher view = request.getRequestDispatcher("LoginError.jsp");
             view.forward(request, response);
-        }
+        }*/
     }
 
     /**

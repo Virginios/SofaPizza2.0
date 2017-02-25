@@ -153,3 +153,8 @@ div#hormenu li:hover ul
 #barraricerca::-webkit-search-cancel-button{
     display: none;    
 }
+#celiaci{
+		margin-left:22%;
+		font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+		
+		}
