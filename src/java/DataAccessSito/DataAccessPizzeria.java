@@ -34,7 +34,7 @@ public class DataAccessPizzeria {
 
         try {
             this.pizzeria = new ConnDatabase();
-            inserisci = this.pizzeria.getConn().prepareStatement("INSERT INTO pizzeria " + "(nomePizzeria, pIva, password, via, paese, provincia, numTel) values (?,?,?,?,?,?)");
+            inserisci = this.pizzeria.getConn().prepareStatement("INSERT INTO pizzeria " + "(nomePizzeria, pIva, password, via, paese, provincia, numTel, celiaci) values (?,?,?,?,?,?)");
             inserisci.setString(1, pizzeria.getNome());
             inserisci.setString(2, pizzeria.getPiva());
             inserisci.setString(3, pizzeria.getPassword());
@@ -42,6 +42,7 @@ public class DataAccessPizzeria {
             inserisci.setString(5, pizzeria.getPaese());
             inserisci.setString(6, pizzeria.getProvincia());
             inserisci.setString(7, pizzeria.getNumero());
+            inserisci.setInt(8, pizzeria.getCeliaci());
             inserisci.executeUpdate();
             inserisci.close();
             risultato=estrai.executeQuery("SELECT numImmagine FROM pizzeria WHERE pIva='"+pizzeria.getPiva()+"'");
@@ -123,7 +124,7 @@ public class DataAccessPizzeria {
                 c.setProvincia(risultato.getString("provincia"));
                 c.setNumero(risultato.getString("numTel"));
                 c.setImmagine(risultato.getString("numImmagine"));
-                
+                c.setCeliaci(risultato.getInt("celiaci"));
                 pizzerie.add(c);
             }
             estrai.close();
@@ -140,9 +141,12 @@ public class DataAccessPizzeria {
 
     
 
-    public ArrayList<Pizzeria> trovaPizzerieDaFiltro(String cercato) {
-
-        query = "SELECT * FROM pizzeria WHERE nomePizzeria  LIKE '%"+cercato+"%' OR via  LIKE '%"+cercato+"%'";
+    public ArrayList<Pizzeria> trovaPizzerieDaFiltro(String cercato,int celiaci) {
+        if(celiaci==0)
+        query = "SELECT * FROM pizzeria WHERE (nomePizzeria  LIKE '%"+cercato+"%' OR via  LIKE '%"+cercato+"%'";
+        else
+        query = "SELECT * FROM pizzeria WHERE (nomePizzeria  LIKE '%"+cercato+"%' OR via  LIKE '%"+cercato+"%') AND celiaci="+celiaci;
+        
         ArrayList<Pizzeria> pizzerie = estraipizzerie(query);
         return pizzerie;
     }
