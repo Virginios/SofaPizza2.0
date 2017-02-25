@@ -35,8 +35,8 @@
                                 
                 <li><a href="Chi Siamo.html">Chi Siamo</a></li>
                 <li class="spost"><a >Login</a><ul id="containerComaparsaLogin">
-                 <li id="liLoginCliente"><a href="LoginCLIENTE.html" id="comparsaLoginCliente">Cliente</a></li>
-                 <li id="liLoginPizzeria"><a href="LoginPIZZERIA.html" id="comparsaLoginPizzeria">Pizzeria</a></li>
+                 <li id="liLoginCliente"><a href="LoginCLIENTE.jsp" id="comparsaLoginCliente">Cliente</a></li>
+                 <li id="liLoginPizzeria"><a href="LoginPIZZERIA.jsp" id="comparsaLoginPizzeria">Pizzeria</a></li>
                 </ul></li>
                 <li class="spost"><a href="">Registrazione</a><ul id="containerComaparsaRegistrazione">
                  <li id="liRegistrazioneCliente"><a href="RegistrazioneCLIENTE.html" id="comparsaRegistrazioneCliente">Cliente</a></li>
