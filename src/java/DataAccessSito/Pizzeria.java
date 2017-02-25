@@ -18,6 +18,7 @@ private String via;
 private String paese;
 private String numero;
 private  String immagine;
+private String provincia;
 
 
 
@@ -48,6 +49,10 @@ private  String immagine;
 
     public void setNumero(String numero) {
         this.numero = numero;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
     }
     
     
@@ -80,6 +85,10 @@ private  String immagine;
 
     public String getNumero() {
         return numero;
+    }
+
+    public String getProvincia() {
+        return provincia;
     }
 
     

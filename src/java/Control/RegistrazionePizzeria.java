@@ -89,7 +89,7 @@ public class RegistrazionePizzeria extends HttpServlet {
         DataAccessPizzeria daoc = new DataAccessPizzeria();
         if (!daoc.Pizzeria_registrata(request.getParameter("partitaIva"))) {
             HttpSession session = request.getSession();
-            session.setAttribute("pizzeria", c);   
+            session.setAttribute("pizzeria", c.getPiva());   
             RequestDispatcher view = request.getRequestDispatcher("jspImmagine.jsp");
             view.forward(request, response);
         } else {

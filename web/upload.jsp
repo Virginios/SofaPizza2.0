@@ -14,6 +14,7 @@ pageEncoding="ISO-8859-1"
 
 response.setContentType("text/html");
 response.setHeader("Cache-control","no-cache");
+String pathpizzeria = (String)session.getAttribute("pizzeria");
 
 out.println("request "+request.getParameter("file")+"");
 
@@ -76,7 +77,7 @@ if (name.equals("file")) {
 if (buffer!=null)
 buffer.close();
 lastFileName = fileName;
-fileName="admin.jpg";
+fileName=pathpizzeria+".jpg";
 buffer = new java.io.FileOutputStream(getServletContext().getRealPath("/img/"+fileName));
 }
 }else if(s.startsWith("Content-Type") && state==1) {

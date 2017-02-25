@@ -34,30 +34,41 @@ public class DataAccessPizzeria {
 
         try {
             this.pizzeria = new ConnDatabase();
-            inserisci = this.pizzeria.getConn().prepareStatement("INSERT INTO pizzeria " + "(nomePizzeria, pIva, password, via, paese, numTel) values (?,?,?,?,?,?)");
+            inserisci = this.pizzeria.getConn().prepareStatement("INSERT INTO pizzeria " + "(nomePizzeria, pIva, password, via, paese, provincia, numTel) values (?,?,?,?,?,?)");
             inserisci.setString(1, pizzeria.getNome());
             inserisci.setString(2, pizzeria.getPiva());
             inserisci.setString(3, pizzeria.getPassword());
             inserisci.setString(4, pizzeria.getVia());
             inserisci.setString(5, pizzeria.getPaese());
-            inserisci.setString(6, pizzeria.getNumero());
-            
+            inserisci.setString(6, pizzeria.getProvincia());
+            inserisci.setString(7, pizzeria.getNumero());
             inserisci.executeUpdate();
             inserisci.close();
+            risultato=estrai.executeQuery("SELECT numImmagine FROM pizzeria WHERE pIva='"+pizzeria.getPiva()+"'");
+            int immagine=risultato.getInt("numImmagine");
+            File file2 = new File("web\\img\\" + pizzeria.getPiva() + ".jpg");
+            BufferedImage foto;
+            foto = ImageIO.read(file2);
+            File file = new File("web\\img\\"+immagine+".jpg");
+            ImageIO.write(foto,"jpg",file);
+            file2.delete();
+            estrai.close();
             this.pizzeria.chiudi();
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
         } /*catch (IOException ex) {
             Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
         }*/
     }
 
-    public void cancellaPizzeria(String Piva) {
+    public void cancellaPizzeria(String Piva,int numimmagine) {
 
         try {
             this.pizzeria = new ConnDatabase();
             inserisci = this.pizzeria.getConn().prepareStatement("DELETE FROM pizzeria WHERE pIva ='" + Piva + "'");
-            File file2 = new File("src\\img\\" + Piva + ".jpg");
+            File file2 = new File("web\\img\\" + numimmagine + ".jpg");
             file2.delete();
             inserisci.executeUpdate();
             inserisci.close();
@@ -77,8 +88,10 @@ public class DataAccessPizzeria {
                     + " password='" + pizzeria.getPassword() + "',"
                     + " via='" + pizzeria.getVia() + "',"
                     + " paese='" + pizzeria.getPaese() + "',"
+                    + " provincia='" + pizzeria.getProvincia() + "'"
                     + " numTel='" + pizzeria.getNumero() + "'"
                     + " WHERE pIva ='" + pizzeria.getPiva() + "'");
+                  
             /*File file = new File("src\\img\\" + pizzeria.getPiva() + ".jpg");
             ImageIO.write(pizzeria.getImmagine(), "jpg", file);*/
             inserisci.executeUpdate();
@@ -107,8 +120,10 @@ public class DataAccessPizzeria {
                 c.setPiva(risultato.getString("pIva"));
                 c.setVia(risultato.getString("via"));
                 c.setPaese(risultato.getString("paese"));
+                c.setProvincia(risultato.getString("provincia"));
                 c.setNumero(risultato.getString("numTel"));
-                c.setImmagine(c.getPiva());
+                c.setImmagine(risultato.getString("numImmagine"));
+                
                 pizzerie.add(c);
             }
             estrai.close();
@@ -123,12 +138,7 @@ public class DataAccessPizzeria {
         return pizzerie;
     }
 
-    public ArrayList<Pizzeria> trovaPizzerie(String cercato) {
-
-        query = "SELECT * from pizzeria WHERE ( nomePizzeria ='" + cercato + "' OR via='" + cercato + "' OR paese='" + cercato + "')";
-        ArrayList<Pizzeria> pizzerie = estraipizzerie(query);
-        return pizzerie;
-    }
+    
 
     public ArrayList<Pizzeria> trovaPizzerieDaFiltro(String cercato) {
 
