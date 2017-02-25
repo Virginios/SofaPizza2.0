@@ -19,21 +19,31 @@
         <script type="text/javascript" src="js/autocomplete.js">
         </script>
         <link href="css/Home.css" rel="stylesheet" type="text/css">
-        <link href="css/prova.css" rel="stylesheet" type="text/css">
+        <link href="css/prova.css" rel="stylesheet" type="text/css">7
+        
     <div align="center" id="contlogo"> <img src="/img/logo.png" alt="Logo" id="logo" > </div>
-
+    
 <ul class="menu">
                 <li><a class="active" href="Home.html">Home</a></li>
                 
                  
                    
                                 
-                <li><a href="Chi Siamo.html">Chi Siamo</a></li>
+            <li><a href="Chi Siamo.html">Chi Siamo</a></li>
                 <li class="spost"><a href="LoginCLIENTE.html">Login</a></li>
-                <li class="spost"><a href="RegistrazioneCliente.html">Registrazione</a></li>
+                <li class="spost">Registrazione
+                    <ul>
+                        
+                        <li><a href="RegistrazioneCLIENTE.html">Cliente</a></li>
+                        <li><a href="RegistrazionePIZZERIA.html">Pizzeria</a></li>
+                    </ul>
+                
+                
+                </li>
             </ul>     
 
 </head>
+
 <body>
     <form id="conteiner_imm_ricerca_did" action="/Ricerca" method="post"> 
         <div id="didascalia">  Ordina pizza a domicilio </div>
