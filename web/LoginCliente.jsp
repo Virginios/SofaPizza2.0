@@ -15,12 +15,23 @@
         <title>LoginCliente</title>
     </head>
     <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
-    <ul class="menu">
-        <li><a  href="Home.html">Home</a></li>
-        <li><a href="Chi Siamo.html">Chi Siamo</a></li>
-        <li class="spost"><a href="Login.html" class="active">Login</a></li>
-        <li class="spost"><a href="RegistrazioneCliente.html">Registrazione</a></li>
-    </ul>      
+
+<ul class="menu">
+                <li><a  href="Home.html">Home</a></li>
+                
+                 
+                   
+                                
+                <li><a href="Chi Siamo.html">Chi Siamo</a></li>
+                <li class="spost"><a class="active">Login</a><ul id="containerComaparsaLogin">
+                        <li id="liLoginCliente"><a href="LoginCLIENTE.html" id="comparsaLoginCliente" >Cliente</a></li>
+                 <li id="liLoginPizzeria"><a href="LoginPIZZERIA.html" id="comparsaLoginPizzeria">Pizzeria</a></li>
+                </ul></li>
+                <li class="spost"><a href="">Registrazione</a><ul id="containerComaparsaRegistrazione">
+                 <li id="liRegistrazioneCliente"><a href="RegistrazioneCLIENTE.html" id="comparsaRegistrazioneCliente">Cliente</a></li>
+                 <li id="liRegistrazionePizzeria"><a href="RegistrazionePIZZERIA.html" id="comparsaRegistrazionePizzeria">Pizzeria</a></li>
+     </ul></li>
+            </ul>     
     <body>
         <form name="modulo" id="form" action="/Login" method="post">
             <div id="tabella">
@@ -54,7 +65,7 @@
                     <tr id ="contReg">
                         <td></td>
                         <td>
-                            <input type="submit" value="submit" id="login"/>						
+                            <input type="submit" value="Accedi" id="login"/>						
                         </td>
                     </tr>
                     </tbody>
