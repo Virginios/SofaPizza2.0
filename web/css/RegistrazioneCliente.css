@@ -18,10 +18,9 @@ table{
     color:red;
     
 }
-#form
-{
-	background-image: url('img/immaginetrasppp.png');
-	height: 72.2%;
+#container{
+    background-image: url(/img/immaginetrasppp.jpg);
+    height: 100%;
 }
 
 

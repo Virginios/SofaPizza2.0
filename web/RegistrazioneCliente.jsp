@@ -33,20 +33,12 @@
         <li><a href="Chi Siamo.html">Chi Siamo</a></li>
         <li class="spost"><a href="Login.html">Login</a></li>
         <li class="spost"><a href="RegistrazioneCliente.html" class="active">Registrazione</a></li>
-    </ul>      
+    </ul>
+    <div id="container">
     <form name="modulo" id="form" action="/RegistrazioneCliente" method="post" onSubmit="return controlForm()">
         <div id="tabella">
             <table cellspacing="6">
                 <tbody>
-                    <tr>
-                        <td><b>Tipo</b></td>
-                        <td>
-                            <input id= "Tipo" name="pizzeriacliente" type="radio" value="1" checked="checked">
-                            <label class="radio-item"><b>Cliente</b></label>
-                            <input id="Tipopizz" name ="pizzeriacliente" type="radio" value="0">
-                            <label class="radio-item"><b>Pizzeria</b></label>
-                        </td>
-                    </tr>
                     <tr>
                         <td><b>Nome</b></td>
                         <td>
@@ -145,7 +137,7 @@
             </table>
         </div>
     </form>
-
+    </div>
 
 </body>
 </html>

@@ -21,8 +21,7 @@
         <link href="css/Ricerca.css" rel="stylesheet" type="text/css">
 
         <title>Home</title>
-    </head>
-
+        
     <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
 
     <ul class="menu">
@@ -36,6 +35,7 @@
         <li class="spost"><a href="RegistrazioneCliente.html">Registrazione</a></li>
     </ul>     
 
+    </head>
 
     <body>
         <div>
@@ -48,7 +48,7 @@
                                    <form id="<%=i%>" action="/RisultatiRicerca">
 
             <table id="pizzerie" cellspacing="25" style="height: 40%">
-                <thead align="center" style="height: 5%">
+                <thead align="center">
                     <tr align="center"><td></td><th><a href="#" onclick="document.getElementById('<%=i%>').submit();" ><%=pizzerie.get(i).getNome()%></a>
                         <input type="hidden" name="pizzeria" value="<%=pizzerie.get(i).getPiva()%>"></th></tr>
                 </thead>
@@ -56,7 +56,7 @@
                     <tr>
                         <td  id="immagine">
                             <div id="immc">
-                                <img src="/img/admin.jpg" alt="immaginehome">
+                                <img src="/img/logo.png" alt="immaginehome">
                             </div>
                         </td>
                         <td id="cont_info">
@@ -76,7 +76,7 @@
             <%
                 }else{
 
-            %><h1>non ci sono pizzerie disponibili</h1>
+            %><h1>Non ci sono pizzerie disponibili</h1>
             <%}%>
         </div>
     </body>

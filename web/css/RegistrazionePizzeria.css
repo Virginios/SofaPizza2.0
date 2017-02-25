@@ -18,12 +18,13 @@ table{
     color:red;
     
 }
-#form
-{
-	background-image: url('img/immaginetrasppp.png');
-	height: 72.2%;
-}
 
+#container
+{
+                   background-image: url(/img/immaginetrasppp.jpg);
+                   height: 100%;
+
+}
 
 .input
 {
@@ -31,6 +32,7 @@ table{
 	border-top-left-radius:20px; 
 	border-bottom-right-radius:20px; 
 	border-bottom-left-radius:20px;
+        margin-top: 5%;
 }
 #contReg{
 }

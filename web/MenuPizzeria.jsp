@@ -24,9 +24,10 @@
         <li><a href="Home.html">Home</a></li>               
         <li><a href="Chi Siamo.html">Chi Siamo</a></li>
         <li class="spost"><a href="Home.html">Esci</a></li>
-        <li class="spost"><a href="ProfiloPizzeria.Html">Ciao,Pizzeria</a></li>
+        <li class="spost"><a href="ProfiloPizzeria.html">Profilo</a></li>
     </ul>     
     <body>
+        <div id="container">
         <h1 align="center" class="titolo">Componi il tuo Men&ugrave</h1>
         <form action="/ComposizioneMenuPizzeria" method="post">
         <div class="tabellamenu">
@@ -43,6 +44,7 @@
         </td>
     </tr>
         </form>
+        </div>
 </body>
 <script>
     $(document).on("click", ".bottone", function () {

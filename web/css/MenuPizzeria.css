@@ -1,9 +1,18 @@
+body{
+    height:750px;
+
+}
 .titolo{
 	margin-top: 2%;
 }
 .tabellamenu{
-	margin-left: 38%;
+	margin-left: 32%;
 	margin-top: 5%;
+}
+#container{
+    margin-top: -2%;
+           background-image: url(/img/immaginetrasppp.jpg);
+           height: 100%;
 }
 #salva{
 	margin-left: 48%;

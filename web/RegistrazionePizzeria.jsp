@@ -21,14 +21,16 @@
         <link href="css/prova.css" rel="stylesheet" type="text/css">
         <link href="css/RegistrazionePizzeria.css" rel="stylesheet" type="text/css">
         <title>Registrazione</title>
-    </head>
-    <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
+         <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
     <ul class="menu">
         <li><a  href="Home.html">Home</a></li>
         <li><a href="Chi Siamo.html">Chi Siamo</a></li>
         <li class="spost"><a href="Login.html">Login</a></li>
         <li class="spost"><a href="RegistrazioneCliente.html" class="active">Registrazione</a></li>
-    </ul>      
+    </ul> 
+    </head>
+    <body>
+    <div id="container">
     <form name="modulo" id="form" action="/RegistrazionePizzeria" method="post" onSubmit="return controlForm()">
         <div id="tabella">
             <table cellspacing="6">
@@ -114,7 +116,7 @@
             </table>
         </div>
     </form>
-
+    </div>
 
 </body>
 </html>
