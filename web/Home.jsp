@@ -37,7 +37,10 @@
 <body>
     <form id="conteiner_imm_ricerca_did" action="/Ricerca" method="post"> 
         <div id="didascalia">  Ordina pizza a domicilio </div>
-        <div id="didascalia2"> Centinaia di pizzerie per te </div>
+        <div id="celiaci"><input type="checkbox" id="celiaci" name="cel"  value="celiaci">
+            <b>Cerca contenuti per celiaci</b> 
+        </div>
+
         <input name="cerco" type="search" id="barraricerca" placeholder="   Inserisci l'indirizzo di consegna, un punto di riferimento o il nome di un ristorante" value="" autocomplete="off"> 
         <input type="submit" id="tastocerca" name="sub" value="Cerca">
         <ol class="commentlist">
