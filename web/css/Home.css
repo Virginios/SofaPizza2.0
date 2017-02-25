@@ -58,6 +58,7 @@ div#hormenu li ul
     display: none
 }
 
+
 div#hormenu li:hover ul
 {
     display: block;
@@ -97,7 +98,7 @@ div#hormenu li:hover ul
 }
 #conteiner_imm_ricerca_did{
 	padding-top:10%;
-       background-image: url(/img/immaginetrasppp.png);
+       background-image: url(/img/immaginetrasppp.jpg);
 	height: 72.2%;
 }
 #didascalia{
@@ -147,4 +148,8 @@ div#hormenu li:hover ul
 }
 .commentlist li:active {
     background-color:#FFED00; 
+}
+
+#barraricerca::-webkit-search-cancel-button{
+    display: none;    
 }

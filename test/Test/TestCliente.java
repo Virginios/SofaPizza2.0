@@ -42,9 +42,9 @@ public class TestCliente {
            System.out.println("registrato");
        else
            System.out.println("non registrato");*/
-       Cliente c = access.trovacliente("val@hotmail.it", "ssssss");
-       
-           System.out.println(c.getDataNascita());
+       Cliente c = access.trovacliente("ss");
+       System.out.println(c.getProvincia());
+          // System.out.println(c.getDataNascita());
 
     }
     

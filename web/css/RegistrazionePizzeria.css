@@ -5,7 +5,6 @@ body {
 
 
 table{
-	width:115%;	
 	padding-right:5px;
 }
 
@@ -36,8 +35,6 @@ table{
 #contReg{
 }
 #registrati{
-	position:absolute;
-	right:530px;
 	font-weight: bold;
 	font-size:15px;
 	border-top-right-radius:20px; 

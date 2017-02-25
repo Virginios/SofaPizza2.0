@@ -100,7 +100,7 @@
                 <tr>
                     <td><b>Telefono</b></td>
                     <td>
-                        <input class="input" id="Numero" name="num_telefono" type="text" required 
+                        <input class="input" id="Numero" name="numeroTelefono" type="text" required 
                                pattern="[0-9]{10}" placeholder="es:0815143536" title="giorno di nascita( solo due caratteri)"/>
                     </td>
                 </tr>

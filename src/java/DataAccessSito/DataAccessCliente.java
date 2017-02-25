@@ -31,7 +31,7 @@ public class DataAccessCliente {
 
         try {
             this.cliente = new ConnDatabase();
-            inserisci = this.cliente.getConn().prepareStatement("INSERT INTO cliente " + "(email, password, nome, cognome, via, paese, tipocliente,dataNascita) values (?,?,?,?,?,?,?,?)");
+            inserisci = this.cliente.getConn().prepareStatement("INSERT INTO cliente " + "(email, password, nome, cognome, via, paese, tipocliente,dataNascita,provincia) values (?,?,?,?,?,?,?,?,?)");
             inserisci.setString(1, cliente.getEmail());
             inserisci.setString(2, cliente.getPassword());
             inserisci.setString(3, cliente.getNome());
@@ -40,6 +40,7 @@ public class DataAccessCliente {
             inserisci.setString(6, cliente.getPaese());
             inserisci.setInt(7, cliente.getTipoCliente());
             inserisci.setDate(8, Date.valueOf(cliente.getDataNascita()));
+            inserisci.setString(9, cliente.getProvincia());
             inserisci.executeUpdate();
             inserisci.close();
             this.cliente.chiudi();
@@ -72,6 +73,7 @@ public class DataAccessCliente {
                     + " nome='" + cliente.getNome() + "',"
                     + " via='" + cliente.getVia() + "',"
                     + " paese='" + cliente.getPaese() + "',"
+                    +  "provincia='"+cliente.getProvincia()+"'"
                     + " WHERE email ='" + cliente.getEmail() + "'");
             inserisci.executeUpdate();
             inserisci.close();
@@ -100,6 +102,7 @@ public class DataAccessCliente {
                 c.setPaese(risultato.getString("paese"));
                 c.setTipoCliente(risultato.getInt("tipocliente"));
                 c.setDataNascita(risultato.getString("dataNascita"));
+                c.setProvincia(risultato.getString("provincia"));
                 clienti.add(c);
             }
             estrai.close();
@@ -111,9 +114,9 @@ public class DataAccessCliente {
         return clienti;
     }
 
-    public Cliente trovacliente(String email, String password) {
+    public Cliente trovacliente(String email) {
 
-        query = "SELECT * from cliente WHERE email='" + email + "' AND password='" + password + "'";
+        query = "SELECT * from cliente WHERE email='" + email + "'";
         ArrayList<Cliente> clienti = estraiclienti(query);
         if (clienti.isEmpty()) {
             System.out.println("vacanto");

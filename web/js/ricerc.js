@@ -19,8 +19,9 @@
     var filter = $(this).val(), count = 0;
     if(!filter){
         $(".commentlist li").hide();
-  				return;
+  		return;
     }
+   
 
     var regex = new RegExp(filter, "i");
     // Loop through the comment list

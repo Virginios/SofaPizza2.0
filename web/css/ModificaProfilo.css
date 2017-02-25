@@ -2,25 +2,26 @@ body {
     height:750px;
 	background-color:#CACACA;
 }
+
+
+table{
+	padding-right:5px;
+}
+
+.errore{
+    color:red;
+    display:none;
+
+}
 #errori{
     display:block;
     color:red;
     
 }
-table{
-	width:100%;	
-	padding:5%;
-}
-
-.errore{
-    display:none;
-    color:red;
-}
 #form
 {
+	background-image: url('img/immaginetrasppp.png');
 	height: 72.2%;
-               background-image: url(/img/immaginetrasppp.png);
-
 }
 
 
@@ -31,25 +32,48 @@ table{
 	border-bottom-right-radius:20px; 
 	border-bottom-left-radius:20px;
 }
-#contReg{
-}
-#login{
-	position: relative;
-	right:-33px;
+#registrati{
+	right:530px;
 	font-weight: bold;
 	font-size:15px;
 	border-top-right-radius:20px; 
 	border-top-left-radius:20px; 
 	border-bottom-right-radius:20px; 
 	border-bottom-left-radius:20px;
-	width: 100px;
+	width: 150px;
 	height: 30px;
 	background:#ff9900;
 	opacity:0.70;
 	margin-bottom: 5px;
 }
-
-
+#visualizzaPassword{
+	font-weight: bold;
+	font-size:12px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 150px;
+	height: 30px;
+	background:#ff9900;
+	opacity:0.70;
+	margin-bottom: 5px;
+}
+#scegli{
+	font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 90px;
+	height: 25px;
+	background:#ff9900;
+	opacity:0.70;
+	margin-bottom: 5px;
+}
+#Nome{
+}
 @media screen and (min-width: 480px) {
 	#tabella{
 		padding-left: 7%;
@@ -73,4 +97,7 @@ table{
 			padding-right: 14%;
 
 	}
+}
+.hidden{
+    display: none;
 }

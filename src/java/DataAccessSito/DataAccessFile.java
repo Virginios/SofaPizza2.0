@@ -27,15 +27,8 @@ public class DataAccessFile {
     }
 
     public ArrayList<String> getComuni(String provincia) {
-        String filename = "/file/"+provincia+".txt";
+        String filename = "\\file\\"+provincia+".txt";
         ArrayList<String> texts = new ArrayList<String>();
-        File file = new File(filename);
-        FileReader fileReader = null;
-        try {
-            fileReader = new FileReader(file);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(DataAccessFile.class.getName()).log(Level.SEVERE, null, ex);
-        }
         String temp = "";
         BufferedReader  bufferedReader = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream(filename)));
         try {

@@ -1,9 +1,8 @@
 <%-- 
-    Document   : error
-    Created on : 18-feb-2017, 13.34.42
+    Document   : ProfioCliente
+    Created on : 24-feb-2017, 21.47.03
     Author     : Valerio
 --%>
-
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="DataAccessSito.DataAccessFile"%>
@@ -99,7 +98,7 @@
                 </tr>
                 <tr >
                     <td>
-                        <span id="errori" id="erroreVecchiaPassword">password vecchia errata</span>
+                        <span class="errore" id="erroreVecchiaPassword">password vecchia errata</span>
                     </td>
                 </tr>
                 <tr class="hidden">

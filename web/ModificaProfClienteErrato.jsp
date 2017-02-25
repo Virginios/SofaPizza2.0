@@ -1,9 +1,8 @@
 <%-- 
-    Document   : error
-    Created on : 18-feb-2017, 13.34.42
+    Document   : ModificaProfClienteErrato
+    Created on : 25-feb-2017, 0.21.12
     Author     : Valerio
 --%>
-
 
 <%@page import="java.util.ArrayList"%>
 <%@page import="DataAccessSito.DataAccessFile"%>
@@ -108,7 +107,7 @@
                         <input  class="input" id="Conferma" name="NuovaPassword" type="text" required 
                                 placeholder=" Password" pattern="[^\s]{4,8}" 
                                 title=" Conferma password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"
-                                 value="<%=c.getPassword()%>" />
+                                onblur="checkpassword()" />
                     </td>
                 </tr>
                  <tr class="hidden">
@@ -116,7 +115,7 @@
                     <td>
                         <input  class="input" id="Password" name="ConfermaNuovaPassword" type="text" required
                                 placeholder="Password" pattern="[^\s]{4,8}" 
-                                title="Password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)" value="<%=c.getPassword()%>" onblur="checkpassword()"/>
+                                title="Password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"/>
                     </td>
                 </tr>
                 <tr>
@@ -142,15 +141,7 @@
         <script>
           function funct(){
               $("#VecchiaPassword").val("");
-                            $("#Password").val("");
-                                                        $("#Conferma").val("");
-
-
             $(".hidden").show();
           }  
         </script>
     </form>
-
-
-</body>
-</html>

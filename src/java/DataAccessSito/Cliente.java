@@ -21,6 +21,15 @@ public class Cliente {
     private String carta;
     private int tipoCliente;
     private LocalDate dataNascita;
+    private String provincia;
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
 
     public LocalDate getDataNascita() {
         return dataNascita;
