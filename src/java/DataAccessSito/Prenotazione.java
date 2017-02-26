@@ -19,6 +19,7 @@ public class Prenotazione {
     private String cliente;
     private int numero_prenotazione;
     private int tpo_prenotazione;
+    private String indirizzoCliente;
     private int tipo_pagamento;
     private Timestamp  data_prenotazione;
    
@@ -42,17 +43,20 @@ public class Prenotazione {
     public void setTipo_pagamento(int tipo_pagamento) {
         this.tipo_pagamento = tipo_pagamento;
     }
-
-    @Override
-    public String toString() {
-        return "Prenotazione{" + "produttore=" + produttore + ", cliente=" + cliente + ", numero_prenotazione=" + numero_prenotazione + ", tpo_prenotazione=" + tpo_prenotazione + ", tipo_pagamento=" + tipo_pagamento + ", data_prenotazione=" + data_prenotazione + '}';
-    }
-    
+   
   public void setData_prenotazione(Timestamp  data_prenotazione) {
         this.data_prenotazione = data_prenotazione;
     }  
+
+    public void setIndirizzoCliente(String indirizzoCliente) {
+        this.indirizzoCliente = indirizzoCliente;
+    }
    
 
+  
+  
+  
+  
     public String getProduttore() {
         return produttore;
     }
@@ -75,5 +79,9 @@ public class Prenotazione {
 
     public Timestamp  getData_prenotazione() {
         return data_prenotazione;
+    }
+
+    public String getIndirizzoCliente() {
+        return indirizzoCliente;
     }
 }
