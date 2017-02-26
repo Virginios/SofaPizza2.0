@@ -22,7 +22,7 @@
                  
                    
                                 
-                <li><a href="Chi Siamo.html">Chi Siamo</a></li>
+                <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
                 <li class="spost"><a class="active">Login</a><ul id="containerComaparsaLogin">
                         <li id="liLoginCliente"><a href="LoginCliente.jsp" id="comparsaLoginCliente" >Cliente</a></li>
                  <li id="liLoginPizzeria"><a href="LoginPizzeria.jsp" id="comparsaLoginPizzeria">Pizzeria</a></li>

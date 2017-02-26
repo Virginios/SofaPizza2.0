@@ -38,6 +38,7 @@
                 <li class="spost"><a class="active" href="">Registrazione</a><ul id="containerComaparsaRegistrazione">
                  <li id="liRegistrazioneCliente"><a href="RegistrazioneCliente.jsp" id="comparsaRegistrazioneCliente">Cliente</a></li>
                  <li id="liRegistrazionePizzeria"><a href="RegistrazionePizzeria.jsp"  class="active" id="comparsaRegistrazionePizzeria">Pizzeria</a></li>
+                 
      </ul></li>
             </ul>   
     </head>
