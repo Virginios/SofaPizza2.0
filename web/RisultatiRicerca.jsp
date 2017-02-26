@@ -52,6 +52,7 @@
                     <tr align="center"><td></td><th><a href="#" onclick="document.getElementById('<%=i%>').submit();" ><%=pizzerie.get(i).getNome()%></a>
                         <input type="hidden" name="pizzeria" value="<%=pizzerie.get(i).getPiva()%>"></th></tr>
                 </thead>
+               
                 <tbody id="conte" >
                     <tr>
                         <td  id="immagine">
@@ -68,6 +69,7 @@
                     </tr>
                 </tbody>
             </table>
+                            <hr>
               <div style="height: 5px"></div>
                </form>
             <%
