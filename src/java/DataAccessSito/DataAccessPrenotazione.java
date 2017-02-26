@@ -27,19 +27,20 @@ public class DataAccessPrenotazione {
     public DataAccessPrenotazione() {
     }
 
-    public void aggiungiCarrello(Prenotazione prenotazione) {
+    public void aggiungiPrenotazione(Prenotazione prenotazione) {
         try {
             this.pizzaConn = new ConnDatabase();
             String insertSQL = "INSERT INTO " + Nome_Tabella
-                    + " (produttore, cliente, numeroPrenotazione, tipoPrenotazione,tipoPagamento,dataPrenotazione)"
-                    + " VALUES (?, ?, ?, ?, ?, ?)";
+                    + " (produttore, cliente, numeroPrenotazione,indirizzoCliente, tipoPrenotazione,tipoPagamento,dataPrenotazione)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(insertSQL);
             prepStat.setString(1, prenotazione.getProduttore());
             prepStat.setString(2, prenotazione.getCliente());
             prepStat.setInt(3, prenotazione.getNumero_prenotazione());
-            prepStat.setInt(4, prenotazione.getTpo_prenotazione());
-            prepStat.setInt(5, prenotazione.getTipo_pagamento());
-            prepStat.setTimestamp(6,new Timestamp(System.currentTimeMillis()));
+            prepStat.setString(4, prenotazione.getIndirizzoCliente());
+             prepStat.setInt(5, prenotazione.getTpo_prenotazione());
+            prepStat.setInt(6, prenotazione.getTipo_pagamento());
+            prepStat.setTimestamp(7,new Timestamp(System.currentTimeMillis()));
             prepStat.executeUpdate();
             prepStat.close();
             pizzaConn.getConn().close();
@@ -66,22 +67,7 @@ public class DataAccessPrenotazione {
         }
     }
 
-    public void cancellaCarrello(String cliente) {
-        String deleteSQL = "DELETE FROM " + Nome_Tabella
-                + " WHERE (cliente = ? AND tipoPrenotazione =?)";
-        PreparedStatement prepStat;
-        try {
-            this.pizzaConn = new ConnDatabase();
-            prepStat = pizzaConn.getConn().prepareStatement(deleteSQL);
-            prepStat.setString(1, cliente);
-            prepStat.setInt(2, 2);
-            prepStat.executeUpdate();
-            prepStat.close();
-            pizzaConn.chiudi();
-        } catch (SQLException ex) {
-            Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+
 
     public Prenotazione prendiPrenotazioni(String produttore, int tipo) {
         String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE numeroPrenotazione = "
@@ -98,6 +84,7 @@ public class DataAccessPrenotazione {
                 prenotazione.setCliente(risultato.getString("cliente"));
                 prenotazione.setNumero_prenotazione(risultato.getInt("numeroPrenotazione"));
                 prenotazione.setProduttore(risultato.getString("produttore"));
+                prenotazione.setIndirizzoCliente(risultato.getString("indirizzoCliente"));
                 prenotazione.setTpo_prenotazione(risultato.getInt("tipoPrenotazione"));
                 prenotazione.setTipo_pagamento(risultato.getInt("tipoPagamento"));
                 prenotazione.setData_prenotazione(risultato.getTimestamp("dataPrenotazione"));
@@ -110,33 +97,7 @@ public class DataAccessPrenotazione {
         return prenotazione;
     }
     
-public ArrayList<Prenotazione> prendiCarrello(String cliente) {
-        String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE (cliente = ? AND tipoPrenotazione =?)";
-        ArrayList<Prenotazione> listaPrenotazione = new ArrayList<Prenotazione>();
-        PreparedStatement prepStat;
-        try {
-            this.pizzaConn = new ConnDatabase();
-            prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
-            prepStat.setString(1, cliente);
-            prepStat.setInt(2, 2);
-            ResultSet risultato = prepStat.executeQuery();
-            while (risultato.next()) {
-                Prenotazione prenotazione = new Prenotazione();
-                prenotazione.setCliente(risultato.getString("cliente"));
-                prenotazione.setNumero_prenotazione(risultato.getInt("numeroPrenotazione"));
-                prenotazione.setProduttore(risultato.getString("produttore"));
-                prenotazione.setTpo_prenotazione(risultato.getInt("tipoPrenotazione"));
-                prenotazione.setTipo_pagamento(risultato.getInt("tipoPagamento"));
-                prenotazione.setData_prenotazione(risultato.getTimestamp("dataPrenotazione"));
-                listaPrenotazione.add(prenotazione);
-            }
-            prepStat.close();
-            pizzaConn.chiudi();
-        } catch (SQLException ex) {
-            Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return listaPrenotazione;
-    }
+
 
     public void cambiaTipo(int numeroPrenotazione,int tipo) {
         String update = "UPDATE " + Nome_Tabella + " SET tipoPrenotazione = ? "
