@@ -17,7 +17,7 @@ private String password;
 private String via;
 private String paese;
 private String numero;
-private  String immagine;
+private  int immagine;
 private String provincia;
 private int celiaci;
 
@@ -40,7 +40,7 @@ private int celiaci;
         this.via = via;
     }
 
-    public void setImmagine(String immagine) {
+    public void setImmagine(int immagine) {
         this.immagine = immagine;
     }
 
@@ -81,7 +81,7 @@ private int celiaci;
         return via;
     }
 
-    public String getImmagine() {
+    public int getImmagine() {
         return immagine;
     }
 

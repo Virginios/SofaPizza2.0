@@ -31,7 +31,7 @@ public class testPizzeria {
             p.setPassword("hhj");
             p.setPiva("ggh");
             p.setVia("kk");*/
-            DataAccessPizzeria daop = new DataAccessPizzeria();
+            //DataAccessPizzeria daop = new DataAccessPizzeria();
             //daop.inserisciPizzeria(p);
             /*BufferedImage foto=ImageIO.read(new File("C:\\Users\\lenovo\\Desktop\\arrayImmagini\\imm3.jpg"));
             p.setImmagine(foto);
@@ -49,8 +49,8 @@ public class testPizzeria {
           //System.out.println(ap.get(0).getNome());
             //Pizzeria ap  = daop.trovaPizzeria("ggh", "hhj");
             //System.out.println(ap.getNome());
-            OggettoStub ap = daop.getAll();
-            ArrayList<String> nome = ap.getNome();
+            //OggettoStub ap = daop.getAll();
+           /* ArrayList<String> nome = ap.getNome();
                         ArrayList<String> via = ap.getVia();
 
             for(int i=0;i<via.size();i++){
@@ -59,6 +59,21 @@ public class testPizzeria {
 
             for(int i=0;i<nome.size();i++){
                 System.out.println("Nome="+nome.get(i));
-            }
+            }*/
+           DataAccessPizzeria  daop = new DataAccessPizzeria();
+           /*Pizzeria pizzeria = new Pizzeria();
+           pizzeria.setNome("I tre monelli");
+           pizzeria.setNumero("0815177454");
+           pizzeria.setCeliaci(1);
+           pizzeria.setPiva("454544");
+           pizzeria.setProvincia("AGRIGENTO");
+           pizzeria.setVia("via cazzo");
+           pizzeria.setPassword("password");
+           daop.inserisciPizzeria(pizzeria);*/
+           ArrayList<Pizzeria> aop = daop.trovaPizzerieDaFiltro("I tre", 0);
+           for(int i=0;i<aop.size();i++){
+               System.out.println(aop.get(i).getNome());
+           }
+           
         }
 }

@@ -34,7 +34,7 @@ public class DataAccessPizzeria {
 
         try {
             this.pizzeria = new ConnDatabase();
-            inserisci = this.pizzeria.getConn().prepareStatement("INSERT INTO pizzeria " + "(nomePizzeria, pIva, password, via, paese, provincia, numTel, celiaci) values (?,?,?,?,?,?)");
+            inserisci = this.pizzeria.getConn().prepareStatement("INSERT INTO pizzeria " + "(nomePizzeria, pIva, password, via, paese, provincia, numTel, celiaci) values (?,?,?,?,?,?,?,?)");
             inserisci.setString(1, pizzeria.getNome());
             inserisci.setString(2, pizzeria.getPiva());
             inserisci.setString(3, pizzeria.getPassword());
@@ -45,8 +45,11 @@ public class DataAccessPizzeria {
             inserisci.setInt(8, pizzeria.getCeliaci());
             inserisci.executeUpdate();
             inserisci.close();
+            estrai = this.pizzeria.getConn().createStatement();
             risultato=estrai.executeQuery("SELECT numImmagine FROM pizzeria WHERE pIva='"+pizzeria.getPiva()+"'");
+            if(risultato.next()){
             int immagine=risultato.getInt("numImmagine");
+            
             File file2 = new File("web\\img\\" + pizzeria.getPiva() + ".jpg");
             BufferedImage foto;
             foto = ImageIO.read(file2);
@@ -55,13 +58,12 @@ public class DataAccessPizzeria {
             file2.delete();
             estrai.close();
             this.pizzeria.chiudi();
+            }
         } catch (SQLException ex) {
             Logger.getLogger(DataAccessCliente.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
-        } /*catch (IOException ex) {
-            Logger.getLogger(DataAccessPizzeria.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        } 
     }
 
     public void cancellaPizzeria(String Piva,int numimmagine) {
@@ -89,7 +91,7 @@ public class DataAccessPizzeria {
                     + " password='" + pizzeria.getPassword() + "',"
                     + " via='" + pizzeria.getVia() + "',"
                     + " paese='" + pizzeria.getPaese() + "',"
-                    + " provincia='" + pizzeria.getProvincia() + "'"
+                    + " provincia='" + pizzeria.getProvincia() + "',"
                     + " numTel='" + pizzeria.getNumero() + "'"
                     + " WHERE pIva ='" + pizzeria.getPiva() + "'");
                   
@@ -123,7 +125,7 @@ public class DataAccessPizzeria {
                 c.setPaese(risultato.getString("paese"));
                 c.setProvincia(risultato.getString("provincia"));
                 c.setNumero(risultato.getString("numTel"));
-                c.setImmagine(risultato.getString("numImmagine"));
+                c.setImmagine(risultato.getInt("numImmagine"));
                 c.setCeliaci(risultato.getInt("celiaci"));
                 pizzerie.add(c);
             }
@@ -143,7 +145,7 @@ public class DataAccessPizzeria {
 
     public ArrayList<Pizzeria> trovaPizzerieDaFiltro(String cercato,int celiaci) {
         if(celiaci==0)
-        query = "SELECT * FROM pizzeria WHERE (nomePizzeria  LIKE '%"+cercato+"%' OR via  LIKE '%"+cercato+"%'";
+        query = "SELECT * FROM pizzeria WHERE (nomePizzeria  LIKE '%"+cercato+"%' OR via  LIKE '%"+cercato+"%')";
         else
         query = "SELECT * FROM pizzeria WHERE (nomePizzeria  LIKE '%"+cercato+"%' OR via  LIKE '%"+cercato+"%') AND celiaci="+celiaci;
         
