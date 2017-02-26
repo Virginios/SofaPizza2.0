@@ -30,24 +30,80 @@
             </ul> 
               
 <body>
-   <table class="pizzerie" cellspacing="13" width="620" align="center" style="float:none" >
-     <thead align="center">
-  <tr align="center"><td></td><th height="30" >Ai Tre Monelli</th></tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td height="90" width="20" >Image</td>
-            <td height="5">
-                <table align="center">
-                    <thead><tr><th>Riepilogo Ordine</th></tr></thead> 
-                    <tbody><tr><td>Margherita</td></tr></tbody> 
-                    <tbody><tr><td>Marinara</td></tr></tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
-
-</table>
+<div id="imm">
+  <table width="300" border="0" class="tabella" align="left" height="400" summary="" style="float:right;">
+  <tbody>
+    <tr>
+		<th width="400" align="" class="riepilogo"><strong>Riepilogo</strong></th>
+    </tr>
+    <tr>
+	<td><b>Marinara</b></td> <td><b class="prezzopizza">$3,00</b></td>
+   
+    </tr>
+    <tr>
+      <td>SUBTOTALE</td><td><b class="prezzopizza">$3,00</b></td>
+    </tr>
+  
+    <tr>
+      <td><b>TOTALE</b></td><td><b class="prezzopizza">$3,00</b></td>
+    </tr>
+    <tr>
+      <td align="center">Ai tre Monelli, Via Giuseppe Atzori, 235, 84014</td>
+    </tr>
+  </tbody>
+		<table class="tabella2" summary="" style="float:left;">
+			<h1 id="pagamento"> Come vuoi pagare?</h1>
+			<form> 
+ <fieldset style="border: none;  right: 25%; margin-top: -1%;" class="menu">
+  <legend></legend>
+ 
+  <select name="siti" class="menu">
+   <option value="Contanti.html" selected="selected">Contanti alla Consegna</option>
+   <option value="Carta.html">Carta di Credito</option>
+  </select>
+ </fieldset>
+</form> 
+	<button class="confermaordine">Conferma Ordine</button>
+		</table>
+        </table>
+        </div>
+<div id="imm">
+  <table width="300" border="0" class="tabella" align="left" height="400" summary="" style="float:right;">
+  <tbody>
+    <tr>
+		<th width="400" align="" class="riepilogo"><strong>Riepilogo</strong></th>
+    </tr>
+    <tr>
+	<td><b>Marinara</b></td> <td><b class="prezzopizza">$3,00</b></td>
+   
+    </tr>
+    <tr>
+      <td>SUBTOTALE</td><td><b class="prezzopizza">$3,00</b></td>
+    </tr>
+  
+    <tr>
+      <td><b>TOTALE</b></td><td><b class="prezzopizza">$3,00</b></td>
+    </tr>
+    <tr>
+      <td align="center">Ai tre Monelli, Via Giuseppe Atzori, 235, 84014</td>
+    </tr>
+  </tbody>
+		<table class="tabella2" summary="" style="float:left;">
+			<h1 id="pagamento"> Come vuoi pagare?</h1>
+			<form> 
+ <fieldset style="border: none;  right: 25%; margin-top: -1%;" class="menu">
+  <legend></legend>
+ 
+  <select name="siti" class="menu">
+   <option value="Contanti.html" selected="selected">Contanti alla Consegna</option>
+   <option value="Carta.html">Carta di Credito</option>
+  </select>
+ </fieldset>
+</form> 
+	<button class="confermaordine">Conferma Ordine</button>
+		</table>
+        </table>
+        </div>
 
 
 

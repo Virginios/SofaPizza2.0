@@ -12,8 +12,9 @@ function decr(id, myid) {
     $(id).text(number);
     var totale = $("#totale").text();
     var numero = parseFloat(totale);
-    if (numero > 0)
+    if (number >=0&&numero>0){
         var tot = numero - bottone;
+    }
     $("#totale").text(tot.toFixed(2));
 
 }

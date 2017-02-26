@@ -17,15 +17,15 @@
         <script type="text/javascript" src="js/jquery.min.js">
         </script>
         <title>ComponiPizza</title>
-    </head>
-    <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
+            <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
   
         <ul class="menu">
         <li><a href="Home.html">Home</a></li>               
         <li><a href="Chi Siamo.html">Chi Siamo</a></li>
         <li class="spost"><a href="Home.html">Esci</a></li>
         <li class="spost"><a href="ProfiloPizzeria.html">Profilo</a></li>
-    </ul>     
+    </ul> 
+    </head>    
     <body>
         <div id="container">
         <h1 align="center" class="titolo">Componi il tuo Men&ugrave</h1>

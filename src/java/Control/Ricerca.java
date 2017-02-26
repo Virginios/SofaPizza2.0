@@ -81,7 +81,7 @@ public class Ricerca extends HttpServlet {
             throws ServletException, IOException {
         String ricerca = request.getParameter("cerco");
         DataAccessPizzeria daop = new DataAccessPizzeria();
-        ArrayList<Pizzeria> p =  daop.trovaPizzerieDaFiltro(ricerca);
+        ArrayList<Pizzeria> p =  daop.trovaPizzerieDaFiltro(ricerca,0);
         HttpSession session = request.getSession();
 
         if (p.isEmpty()) {

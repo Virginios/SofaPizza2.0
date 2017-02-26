@@ -29,4 +29,7 @@
         <div id="vuoto" name="vuoto" >vacanto</div>
         <%}%>
     </body>
+    <script>
+        
+    </script>
 </html>

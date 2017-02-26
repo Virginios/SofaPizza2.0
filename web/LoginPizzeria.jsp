@@ -17,7 +17,7 @@
     <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
 
 <ul class="menu">
-                <li><a  href="Home.html">Home</a></li>
+                <li><a  href="Home.jsp">Home</a></li>
                 
                  
                    
