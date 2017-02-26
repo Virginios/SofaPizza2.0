@@ -32,11 +32,11 @@
     </script>
 
     <ul class="menu">
-        <li><a href="Home.html">Home</a></li>               
-        <li><a href="Chi Siamo.html">Chi Siamo</a></li>
-        <li class="spost"><a href="Home.html">Esci</a></li>
-        <li class="spost"><a href="Carrello.html">Carrello</a></li>
-        <li class="spost"><a href="ProfiloCliente.Html">Ciao,Utente</a></li>
+        <li><a href="Home.jsp">Home</a></li>               
+        <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
+        <li class="spost"><a href="/Logout">Esci</a></li>
+        <li class="spost"><a href="Carrello.jsp">Carrello</a></li>
+        <li class="spost"><a href="ProfiloCliente.jsp">Profilo</a></li>
     </ul> 
     <title>Home</title>
 </head>
