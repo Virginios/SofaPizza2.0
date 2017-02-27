@@ -83,7 +83,7 @@ public class Carrello extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true); 
+        HttpSession session = request.getSession(true);  
         String id[] = (String[]) session.getAttribute("id");
         String quantita[] = (String[]) session.getAttribute("quantita");
         String totale =  (String) session.getAttribute("totale");
