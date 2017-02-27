@@ -21,7 +21,7 @@
 
 <ul class="menu">
                 <li><a href="Home.jsp">Home</a></li>               
-                <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
+                <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
                 <li class="spost"><a href="Home.jsp">Esci</a></li>
 	<li class="spost"><a href="Prenotazioni.jsp">Prenotazioni</a></li>
 	<li class="spost"><a href="ProfiloCliente.jsp">Nome Pizzeria</a></li>

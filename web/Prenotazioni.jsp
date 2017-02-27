@@ -28,11 +28,11 @@
     <body>
         <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
         <ul class="menu">
-            <li><a  href="Home.html">Home</a></li>
-            <li><a href="Chi Siamo.html">Chi Siamo</a></li>
+            <li><a  href="Home.jsp">Home</a></li>
+            <li><a href="Ch Siamo.jsp">Chi Siamo</a></li>
             <li class="spost"><a href="/Logout">Esci</a></li>
             <li class="spost"><a href="Prenotazioni.jsp">Prenotazioni</a></li>
-            <li class="spost"><a href="ProfiloPizzeria.html">Nome Pizzeria</a></li>
+            <li class="spost"><a href="ProfiloPizzeria.jsp">Nome Pizzeria</a></li>
         </ul>      
         <div id="prenotazioni">
             <h1 align="center" class="title">Prenotazioni</h1>

@@ -30,7 +30,7 @@
 
 
 
-        <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
+        <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
         <li class="spost"><a href="/Logout">Esci</a></li>
         <li class="spost"><a href="ProfiloCliente.jsp">Profilo</a></li>
     </ul>     
