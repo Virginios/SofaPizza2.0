@@ -181,12 +181,12 @@ public class DataAccessPizzeria {
     }
 
  
-    public OggettoStub getAll() {
-        ArrayList<OggettoStub> ogg = new ArrayList<OggettoStub>();
+    public OggettoProxy getAll() {
+        ArrayList<OggettoProxy> ogg = new ArrayList<OggettoProxy>();
         String nome = "Select distinct nomePizzeria from pizzeria";
         String via="Select distinct via from pizzeria";
         ArrayList<String> ricerca= new ArrayList<String>();
-        OggettoStub oggetto=new OggettoStub();
+        OggettoProxy oggetto=new OggettoProxy();
         try {
             this.pizzeria = new ConnDatabase();
             inserisci = this.pizzeria.getConn().prepareStatement(nome);

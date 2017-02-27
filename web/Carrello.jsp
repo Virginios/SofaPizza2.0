@@ -46,16 +46,13 @@
     </tr>
     <tr>
         <%for(int i=0;i<pp.size();i++){%>
-	<td><b><%=pp.get(i).getNome()%></b></td> <td><b class="prezzopizza">$3,00</b></td>
+        <td><b>Nome <%=pp.get(i).getNome()%></b></td> <td><b class="prezzopizza">prezzo &euro;<%=pp.get(i).getPrezzo()%></b></td>
         <%}%>
    
     </tr>
-    <tr>
-      <td>SUBTOTALE</td><td><b class="prezzopizza">$3,00</b></td>
-    </tr>
   
     <tr>
-      <td><b>TOTALE</b></td><td><b class="prezzopizza">$3,00</b></td>
+      <td><b>TOTALE</b></td><td><b class="prezzopizza">totale &euro;<%=p.getTotale()%></b></td>
     </tr>
     <tr>
       <td align="center">Ai tre Monelli, Via Giuseppe Atzori, 235, 84014</td>

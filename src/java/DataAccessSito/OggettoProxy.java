@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Valerio
  */
-public class OggettoStub implements Serializable{
+public class OggettoProxy implements Serializable{
     private ArrayList<String> ricerca;
 
     public ArrayList<String> getRicerca() {

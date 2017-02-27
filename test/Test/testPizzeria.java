@@ -6,7 +6,7 @@
 package Test;
 
 import DataAccessSito.DataAccessPizzeria;
-import DataAccessSito.OggettoStub;
+import DataAccessSito.OggettoProxy;
 import DataAccessSito.Pizzeria;
 import java.awt.image.BufferedImage;
 import java.io.File;

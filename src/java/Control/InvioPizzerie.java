@@ -6,7 +6,7 @@
 package Control;
 
 import DataAccessSito.DataAccessPizzeria;
-import DataAccessSito.OggettoStub;
+import DataAccessSito.OggettoProxy;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -81,7 +81,7 @@ public class InvioPizzerie extends HttpServlet {
       response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         DataAccessPizzeria p = new DataAccessPizzeria();
-        OggettoStub ogg = p.getAll();
+        OggettoProxy ogg = p.getAll();
         ArrayList<String> ricerca = ogg.getRicerca();
     
 String json = (new Gson().toJson(ricerca));
