@@ -32,12 +32,12 @@
     </script>
 
     <ul class="menu">
-        <li><a href="Home.jsp">Home</a></li>               
-        <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
-        <li class="spost"><a href="/Logout">Esci</a></li>
-        <li class="spost"><a href="Carrello.jsp">Carrello</a></li>
-        <li class="spost"><a href="ProfiloCliente.jsp">Profilo</a></li>
-    </ul> 
+                <li><a href="Home.jsp">Home</a></li>
+                <li><a href="Chi Siamo.html">Chi Siamo</a></li>
+                <li class="spost"><a >Login</a><ul id="containerComaparsaLogin">
+                 <li id="liLoginCliente"><a href="LoginCliente.jsp" id="comparsaLoginCliente">Cliente</a></li>
+                 <li id="liLoginPizzeria"><a href="LoginPizzeria.jsp" id="comparsaLoginPizzeria">Pizzeria</a></li>
+                </ul></li>
     <title>Home</title>
 </head>
 

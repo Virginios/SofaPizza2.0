@@ -50,7 +50,7 @@ public class DataAccessPizzePrenotate {
     }
 
     public ArrayList<PizzePrenotate> prendiTutto(int numeroPrenotazione) {
-        String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE idpizza = ? ";
+        String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE numeroPrenotazione = ? ";
         ArrayList<PizzePrenotate> listaPizze = new ArrayList<PizzePrenotate>();
         PreparedStatement prepStat;
         try {
@@ -62,7 +62,7 @@ public class DataAccessPizzePrenotate {
                 PizzePrenotate pizza = new PizzePrenotate();
                 pizza.setIdpizza(risultato.getInt("idpizza"));
                 pizza.setPrezzo(risultato.getDouble("prezzo"));
-                pizza.setNumero_prenotazione(risultato.getInt("numeroprenotazione"));
+                pizza.setNumero_prenotazione(risultato.getInt("numeroPrenotazione"));
                 pizza.setQuantità(risultato.getInt("quantita"));
                 listaPizze.add(pizza);
             }

@@ -21,7 +21,7 @@ public class Prenotazione {
     private int tpo_prenotazione;
     private String indirizzoCliente;
     private int tipo_pagamento;
-    private Timestamp  data_prenotazione;
+    private String  data_prenotazione;
    
 
     public void setProduttore(String produttore) {
@@ -44,7 +44,7 @@ public class Prenotazione {
         this.tipo_pagamento = tipo_pagamento;
     }
    
-  public void setData_prenotazione(Timestamp  data_prenotazione) {
+  public void setData_prenotazione(String  data_prenotazione) {
         this.data_prenotazione = data_prenotazione;
     }  
 
@@ -77,7 +77,7 @@ public class Prenotazione {
         return tipo_pagamento;
     }
 
-    public Timestamp  getData_prenotazione() {
+    public String  getData_prenotazione() {
         return data_prenotazione;
     }
 

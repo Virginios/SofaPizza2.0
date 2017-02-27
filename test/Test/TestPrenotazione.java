@@ -37,8 +37,16 @@ public class TestPrenotazione {
         }*/
         //access.cambiaTipo(prenotazione.getNumero_prenotazione(), 0);
        // access.cancellaCarrello(prenotazione.getCliente());
-      
-
+       DataAccessPrenotazione daop = new  DataAccessPrenotazione();
+       Prenotazione prenotazione = new Prenotazione();
+       prenotazione.setCliente("val@hotmail.it");
+       prenotazione.setIndirizzoCliente("ddddd");
+       prenotazione.setTipo_pagamento(0);
+       prenotazione.setTpo_prenotazione(0);
+       prenotazione.setProduttore("051245154");
+       //daop.aggiungiPrenotazione(prenotazione);
+        Prenotazione p = daop.prendiPrenotazioni("051245154", 0);
+        System.out.println(p.getCliente());
 
 
     }

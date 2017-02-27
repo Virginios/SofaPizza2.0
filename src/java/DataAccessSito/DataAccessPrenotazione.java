@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -87,7 +88,9 @@ public class DataAccessPrenotazione {
                 prenotazione.setIndirizzoCliente(risultato.getString("indirizzoCliente"));
                 prenotazione.setTpo_prenotazione(risultato.getInt("tipoPrenotazione"));
                 prenotazione.setTipo_pagamento(risultato.getInt("tipoPagamento"));
-                prenotazione.setData_prenotazione(risultato.getTimestamp("dataPrenotazione"));
+                prenotazione.setData_prenotazione(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(risultato.getTimestamp("dataPrenotazione")));
+            }else{
+                prenotazione = null;
             }
             prepStat.close();
             pizzaConn.chiudi();

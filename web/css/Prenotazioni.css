@@ -1,0 +1,32 @@
+#prenotazioni{
+	height: 100%;
+       background-image: url(/img/immaginetrasppp.jpg);
+	margin-top: -23px;
+}
+#dopo{
+    font-size: 20px;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+#prenotazione{
+    font-size: 15px;
+	font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+#bottone{
+	margin-top: 16px;
+	font-weight: bold;
+	font-size:12px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 160px;
+	height: 39px;
+	background:#ff9900;
+	opacity:0.90;
+	margin-bottom: 5px;
+        margin-left: 2%;
+}
+.spazio{
+	width: 100%;
+	margin-top: 10px;
+}
