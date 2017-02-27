@@ -13,13 +13,13 @@
 <link href="css/prova.css" rel="stylesheet" type="text/css">
 <link href="css/ChiSiamo.css" rel="stylesheet" type="text/css">
 <title>LoginCliente</title>
-<meta http-equiv="refresh" content="3;URL=Home.html">
+
 </head>
 <div align="center" id="contlogo"><a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
 <ul class="menu">
                 <li><a  href="Home.jsp">Home</a></li>
-                <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
-                <li class="spost"><a href="Login.jsp" class="active">Login</a></li>
+                <li><a href="ChiSiamo.jsp" class="active">Chi Siamo</a></li>
+                <li class="spost"><a href="Login.jsp">Login</a></li>
                 <li class="spost"><a href="RegistrazioneCliente.jsp">Registrazione</a></li>
             </ul>      
 <body>
