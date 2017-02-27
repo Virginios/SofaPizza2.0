@@ -30,7 +30,7 @@
         <ul class="menu">
             <li><a  href="Home.html">Home</a></li>
             <li><a href="Chi Siamo.html">Chi Siamo</a></li>
-            <li class="spost"><a href="Home.html">Esci</a></li>
+            <li class="spost"><a href="/Logout">Esci</a></li>
             <li class="spost"><a href="Prenotazioni.jsp">Prenotazioni</a></li>
             <li class="spost"><a href="ProfiloPizzeria.html">Nome Pizzeria</a></li>
         </ul>      

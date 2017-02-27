@@ -15,26 +15,34 @@
 <!doctype html>
 <html>
     <head>
-        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <script type="text/javascript" src="js/jquery.js">
+        </script>
+        <script type="text/javascript" src="js/ricerc.js">
+        </script>
+        <script type="text/javascript" src="js/autocomplete.js">
+        </script>
         <link href="css/Home.css" rel="stylesheet" type="text/css">
         <link href="css/prova.css" rel="stylesheet" type="text/css">
-        <link href="css/Ricerca.css" rel="stylesheet" type="text/css">
+    <div align="center" id="contlogo"> <img src="/img/logo.png" alt="Logo" id="logo" > </div>
 
-        <title>Home</title>
-        
-    <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
-
-    <ul class="menu">
-        <li><a class="active" href="Home.jsp">Home</a></li>
-
-
-
-
-        <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
-        <li class="spost"><a href="/Logout">Esci</a></li>
-        <li class="spost"><a href="ProfiloCliente.jsp">Profilo</a></li>
-    </ul>     
-
+<ul class="menu">
+                <li><a class="active" href="Home.jsp">Home</a></li>
+                
+                 
+                   
+                                
+                <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
+                <li class="spost"><a >Login</a><ul id="containerComaparsaLogin">
+                 <li id="liLoginCliente"><a href="LoginCLiente.jsp" id="comparsaLoginCliente">Cliente</a></li>
+                 <li id="liLoginPizzeria"><a href="LoginPizzeria.jsp" id="comparsaLoginPizzeria">Pizzeria</a></li>
+                </ul></li>
+                <li class="spost"><a href="">Registrazione</a><ul id="containerComaparsaRegistrazione">
+                 <li id="liRegistrazioneCliente"><a href="RegistrazioneCliente.jsp" id="comparsaRegistrazioneCliente">Cliente</a></li>
+                 <li id="liRegistrazionePizzeria"><a href="RegistrazionePizzeria.jsp" id="comparsaRegistrazionePizzeria">Pizzeria</a></li>
+     </ul></li>
+            </ul>   
     </head>
 
     <body>
@@ -52,7 +60,6 @@
                     <tr align="center"><td></td><th><a href="#" onclick="document.getElementById('<%=i%>').submit();" ><%=pizzerie.get(i).getNome()%></a>
                         <input type="hidden" name="pizzeria" value="<%=pizzerie.get(i).getPiva()%>"></th></tr>
                 </thead>
-               
                 <tbody id="conte" >
                     <tr>
                         <td  id="immagine">
@@ -69,7 +76,6 @@
                     </tr>
                 </tbody>
             </table>
-                            <hr>
               <div style="height: 5px"></div>
                </form>
             <%

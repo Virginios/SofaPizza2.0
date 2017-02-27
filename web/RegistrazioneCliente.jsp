@@ -118,7 +118,7 @@
                 <tr>
                     <td><b>Password</b></td>
                     <td>
-                        <input  class="input" id="Password" name="password" type="text" required
+                        <input  class="input" id="Password" name="password" type="password" required
                                 placeholder="Password" pattern="[^\s]{4,8}" 
                                 title="Password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"/>
                     </td>
@@ -126,7 +126,7 @@
                 <tr>
                     <td><b>Conferma Password</b></td>
                     <td>
-                        <input  class="input" id="Conferma" name="conferma" type="text" required 
+                        <input  class="input" id="Conferma" name="conferma" type="password" required 
                                 placeholder=" Password" pattern="[^\s]{4,8}" 
                                 title=" Conferma password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"
                                 onblur="checkpassword()" />

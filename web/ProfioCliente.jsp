@@ -34,10 +34,10 @@
     </head>
     <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
     <ul class="menu">
-        <li><a  href="Home.html">Home</a></li>
-        <li><a href="Chi Siamo.html">Chi Siamo</a></li>
-        <li class="spost"><a href="Login.html">Login</a></li>
-        <li class="spost"><a href="RegistrazioneCliente.html" class="active">Registrazione</a></li>
+        <li><a  href="Home.jsp">Home</a></li>
+        <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
+        <li class="spost"><a href="Login.jsp">Login</a></li>
+        <li class="spost"><a href="RegistrazioneCliente.jsp" class="active">Registrazione</a></li>
     </ul>      
     <form name="modulo" id="form" action="/ProfiloCliente" method="post" onSubmit="return controlForm()">
         <div id="tabella">
