@@ -17,7 +17,7 @@
 <div align="center" id="contlogo"><a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
 <ul class="menu">
                 <li><a  href="Home.jsp">Home</a></li>
-                <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
+                <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
                <li class="spost"><a href="Home.jsp">Esci</a></li>
 	<li class="spost"><a href="Prenotazioni.jsp">Prenotazioni</a>
 	<li class="spost"><a href="ProfiloPizzeria.jsp">Nome Pizzeria</a></li>

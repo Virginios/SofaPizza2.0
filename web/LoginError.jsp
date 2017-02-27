@@ -17,7 +17,7 @@
     <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
     <ul>
         <li><a  href="Home.html">Home</a></li>
-        <li><a href="Chi Siamo.html">Chi Siamo</a></li>
+        <li><a href="ChiSiamo.html">Chi Siamo</a></li>
         <li class="spost"><a href="Login.html" class="active">Login</a></li>
         <li class="spost"><a href="RegistrazioneCliente.html">Registrazione</a></li>
     </ul>      

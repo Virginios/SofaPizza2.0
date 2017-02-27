@@ -29,7 +29,7 @@
   
         <ul class="menu">
         <li><a href="Home.jsp">Home</a></li>               
-        <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
+        <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
         <li class="spost"><a href="/Logoutl">Esci</a></li>
         <li class="spost"><a href="Carrello.jsp">Carrello</a></li>
         <li class="spost"><a href="ProfiloPizzeria.html">Profilo</a></li>
