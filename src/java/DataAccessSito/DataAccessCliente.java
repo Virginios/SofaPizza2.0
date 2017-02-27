@@ -128,6 +128,21 @@ public class DataAccessCliente {
             return clienti.get(0);
         }
     }
+    
+        public Cliente logincliente(String email, String password) {
+
+        query = "SELECT * from cliente WHERE email='" + email + "' and password='"+ password +"'" ;
+        ArrayList<Cliente> clienti = estraiclienti(query);
+        if (clienti.isEmpty()) {
+            System.out.println("vacanto");
+
+            return null;
+        } else {
+            System.out.println("c'è");
+
+            return clienti.get(0);
+        }
+    }
 
     public boolean cliente_registrato(String email) {
 
