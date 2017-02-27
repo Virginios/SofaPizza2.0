@@ -1,0 +1,19 @@
+#storico{
+	height: 100%;
+	background-image: url(immaginetrasppp.jpg);
+	margin-top: -23px;
+}
+#login{
+	margin-top: 16px;
+	font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 140px;
+	height: 40px;
+	background:#ff9900;
+	opacity:0.90;
+	margin-bottom: 5px;
+}

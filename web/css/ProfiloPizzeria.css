@@ -1,0 +1,55 @@
+.nome{
+	margin-top: 4%;
+}
+
+#conteiner_imm_ricerca_did{
+	
+padding-top:10%;
+       background-image: url(/img/immaginetrasppp.jpg);
+ height: 72.2%;
+}
+.tabella{
+	margin-top: 2%;
+}
+.bottone2{
+	font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 150px;
+	height: 40px;
+	background:#ff9900;
+	opacity:0.70;
+	margin-bottom: px;
+}
+.bottone1{
+	font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 150px;
+	height: 40px;
+	background:#ff9900;
+	opacity:0.70;
+}
+.bottone3{
+	font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 150px;
+	height: 40px;
+	background:#ff9900;
+	opacity:0.70;
+}
+#storico{
+	height: 100%;
+	background-image: url(/img/immaginetrasppp.jpg);
+	margin-top: -23px;
+}
