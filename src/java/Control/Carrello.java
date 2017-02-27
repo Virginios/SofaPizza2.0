@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -82,7 +83,6 @@ public class Carrello extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
         HttpSession session = request.getSession(true);
         String id[] = (String[]) session.getAttribute("id");
         String quantita[] = (String[]) session.getAttribute("quantita");
@@ -102,6 +102,8 @@ public class Carrello extends HttpServlet {
          session.removeAttribute("quantita");
          session.removeAttribute("totale");
          session.setAttribute("carrello", carrello);
+         RequestDispatcher view = request.getRequestDispatcher("Carrello.jsp");
+            view.forward(request, response);
     }
 
     /**

@@ -4,7 +4,15 @@
     Author     : Valerio
 --%>
 
+<%@page import="DataAccessSito.Pizze"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DataAccessSito.Prodotti"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    Prodotti p = (Prodotti)session.getAttribute("carrello");
+    ArrayList<Pizze> pp = p.getPizza();
+    
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +45,9 @@
 		<th width="400" align="" class="riepilogo"><strong>Riepilogo</strong></th>
     </tr>
     <tr>
-	<td><b>Marinara</b></td> <td><b class="prezzopizza">$3,00</b></td>
+        <%for(int i=0;i<pp.size();i++){%>
+	<td><b><%=pp.get(i).getNome()%></b></td> <td><b class="prezzopizza">$3,00</b></td>
+        <%}%>
    
     </tr>
     <tr>

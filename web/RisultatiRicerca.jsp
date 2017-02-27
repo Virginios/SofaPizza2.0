@@ -25,6 +25,8 @@
         </script>
         <link href="css/Home.css" rel="stylesheet" type="text/css">
         <link href="css/prova.css" rel="stylesheet" type="text/css">
+                <link href="css/Ricerca.css" rel="stylesheet" type="text/css">
+
     <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
 
 <ul class="menu">
