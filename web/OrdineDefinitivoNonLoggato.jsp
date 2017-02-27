@@ -21,7 +21,7 @@
         <link href="css/Home.css" rel="stylesheet" type="text/css">
         <link href="css/prova.css" rel="stylesheet" type="text/css">
         <link href="css/Ordine2.css" rel="stylesheet" type="text/css">
-    <div align="css/center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
+    <div align="css/center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
     <script type="text/javascript" src="js/jquery.js">
     </script>
     <script type="text/javascript" src="js/jquery.min.js">

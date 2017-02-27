@@ -26,7 +26,7 @@
         <title>LoginCliente</title>
     </head>
     <body>
-        <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
+        <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
         <ul class="menu">
             <li><a  href="Home.html">Home</a></li>
             <li><a href="Chi Siamo.html">Chi Siamo</a></li>

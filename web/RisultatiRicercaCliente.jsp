@@ -22,7 +22,7 @@
 
         <title>Home</title>
         
-    <div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
+    <div align="center" id="contlogo"><a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
 
     <ul class="menu">
         <li><a class="active" href="Home.jsp">Home</a></li>

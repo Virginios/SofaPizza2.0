@@ -16,7 +16,7 @@
 
 </head>
 
-<div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
+<div align="center" id="contlogo"><a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
 
 <ul>
                <li><a href="Home.html">Home</a></li>
