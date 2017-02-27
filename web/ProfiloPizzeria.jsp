@@ -31,7 +31,7 @@
  <table width="300" height="400" border="0" align="center" class="tabella">
   <tbody>
     <tr>
-		<th height="30"><h1><b>Nome Pizzeria</h1></b></th>
+        <th height="30"><h1><b>Nome Pizzeria</b></h1></th>
     </tr>
     <tr>
       <td align="center" height="10"><button class="bottone2">
