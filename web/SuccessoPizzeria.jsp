@@ -15,15 +15,7 @@
 <title>LoginCliente</title>
 <meta http-equiv="refresh" content="3;URL=ProfiloPizzeria.jsp">
 </head>
-<div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
-<ul class="menu">
-                <li><a  href="Home.jsp">Home</a></li>
-                <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
-                <li class="spost"><a href="Login.jsp" class="active">Login</a></li>
-                <li class="spost"><a href="RegistrazioneCliente.jsp">Registrazione</a></li>
-            </ul>      
-<body>
-<div id="storico">
+
 	<h1 align="center">Registrazione Effettuata con Successo!</h1>
 	<h3 align="center">A breve sarai reindirizzato alla Home.</h3>
 </div>
