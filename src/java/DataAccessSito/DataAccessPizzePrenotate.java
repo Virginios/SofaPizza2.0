@@ -29,14 +29,15 @@ public class DataAccessPizzePrenotate {
            String Nome_Tabella = "pizzeprenotate";
                 
                     String insertSQL = "INSERT INTO " + Nome_Tabella
-                            + " (idpizza, prezzo, quantita)"
-                            + " VALUES (?, ?, ?)";
+                            + " (idpizza, prezzo, quantita,numeroPrenotazione)"
+                            + " VALUES (?,?,?,?)";
                     PreparedStatement prepStat = pizzaConn.getConn().prepareStatement(insertSQL);
                     for(int i=0;i<pizza.size();i++){
                    
                     prepStat.setInt(1, pizza.get(i).getIdpizza());
                     prepStat.setDouble(2, pizza.get(i).getPrezzo());
                     prepStat.setInt(3, pizza.get(i).getQuantità());
+                    prepStat.setInt(4, pizza.get(i).getNumero_prenotazione());
                     prepStat.executeUpdate();
                     }
                     prepStat.close();
@@ -48,6 +49,7 @@ public class DataAccessPizzePrenotate {
         
 
     }
+    
 
     public ArrayList<PizzePrenotate> prendiTutto(int numeroPrenotazione) {
         String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE numeroPrenotazione = ? ";

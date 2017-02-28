@@ -31,13 +31,8 @@
     <script type="text/javascript" src="js/decremento.js">
     </script>
 
-    <ul class="menu">
-        <li><a href="Home.jsp">Home</a></li>               
-        <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
-        <li class="spost"><a href="/Logout">Esci</a></li>
-        <li class="spost"><a href="Carrello.jsp">Carrello</a></li>
-        <li class="spost"><a href="ProfiloCliente.jsp">Profilo</a></li>
-    </ul> 
+               <jsp:include page="tabRicerca.jsp"></jsp:include>
+
     <title>Home</title>
 </head>
 
@@ -67,12 +62,12 @@
 
                     <tr id="nomePizz">
 
-                        <th colspan="2"><h1>Ai Tre Monelli</h1></th>
+                        <th colspan="2"><h1><%=pizzeria.getNome()%></h1></th>
 
                     </tr>
                     <tr id="pizzeria">
                         <td colspan="2" align="center" height="10" ><pre id="caratt"><strong>Pizzeria</strong>
-Via Giuseppe Atzori, 235, Nocera Inferiore, 84014</pre></td>
+<%=pizzeria.getVia()%>,<%=pizzeria.getPaese()%></pre></td>
                     </tr>
                     <tr align="center" class="titolo1">
                         <td align="center"><strong data_temp_dwid="1">Le Nostre Pizze</strong></td>

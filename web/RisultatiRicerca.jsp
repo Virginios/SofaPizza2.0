@@ -25,66 +25,49 @@
         </script>
         <link href="css/Home.css" rel="stylesheet" type="text/css">
         <link href="css/prova.css" rel="stylesheet" type="text/css">
-                <link href="css/Ricerca.css" rel="stylesheet" type="text/css">
+        <link href="css/Ricerca.css" rel="stylesheet" type="text/css">
 
-    <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
+        <jsp:include page="tabRicerca.jsp"></jsp:include>
 
-<ul class="menu">
-                <li><a class="active" href="Home.jsp">Home</a></li>
-                
-                 
-                   
-                                
-                <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
-                <li class="spost"><a >Login</a><ul id="containerComaparsaLogin">
-                 <li id="liLoginCliente"><a href="LoginCLiente.jsp" id="comparsaLoginCliente">Cliente</a></li>
-                 <li id="liLoginPizzeria"><a href="LoginPizzeria.jsp" id="comparsaLoginPizzeria">Pizzeria</a></li>
-                </ul></li>
-                <li class="spost"><a href="">Registrazione</a><ul id="containerComaparsaRegistrazione">
-                 <li id="liRegistrazioneCliente"><a href="RegistrazioneCliente.jsp" id="comparsaRegistrazioneCliente">Cliente</a></li>
-                 <li id="liRegistrazionePizzeria"><a href="RegistrazionePizzeria.jsp" id="comparsaRegistrazionePizzeria">Pizzeria</a></li>
-     </ul></li>
-            </ul>   
-    </head>
+        </head>
 
-    <body>
-        <div>
-            <h2><%="Ristoranti trovati"%></h2>
+        <body>
+            <div>
+                <h2><%="Ristoranti trovati"%></h2>
         </div>
         <div id="contenitore">
             <%if (pizzerie != null) {
-                %>
-                   <% for (int i = 0; i < pizzerie.size(); i++) {%>
-                                   <form id="<%=i%>" action="/RisultatiRicerca">
-
-            <table id="pizzerie" cellspacing="25" style="height: 40%">
-                <thead align="center">
-                    <tr align="center"><td></td><th><a href="#" onclick="document.getElementById('<%=i%>').submit();" ><%=pizzerie.get(i).getNome()%></a>
-                        <input type="hidden" name="pizzeria" value="<%=pizzerie.get(i).getPiva()%>"></th></tr>
-                </thead>
-                <tbody id="conte" >
-                    <tr>
-                        <td  id="immagine">
-                            <div id="immc">
-                                <img src="/img/logo.png" alt="immaginehome">
-                            </div>
-                        </td>
-                        <td id="cont_info">
-                            <table align="center">
-                                <thead><tr><th>Pizza, Italiano</th></tr></thead>
-                                <tbody><tr><td><%="Via "+pizzerie.get(i).getVia()+" Pase "+pizzerie.get(i).getPaese()+"Numero di Telefono "+pizzerie.get(i).getNumero()%></td></tr></tbody>
-                            </table>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-              <div style="height: 5px"></div>
-               </form>
+            %>
+            <% for (int i = 0; i < pizzerie.size(); i++) {%>
+            <form id="<%=i%>" action="/RisultatiRicerca">
+                <table id="pizzerie" cellspacing="25" style="height: 40%">
+                    <thead align="center">
+                        <tr align="center"><td></td><th><a href="#" onclick="document.getElementById('<%=i%>').submit();" ><%=pizzerie.get(i).getNome()%></a>
+                                <input type="hidden" name="pizzeria" value="<%=pizzerie.get(i).getPiva()%>"></th></tr>
+                    </thead>
+                    <tbody id="conte" >
+                        <tr>
+                            <td  id="immagine">
+                                <div id="immc">
+                                    <img src="/img/logo.png" alt="immaginehome">
+                                </div>
+                            </td>
+                            <td id="cont_info">
+                                <table align="center">
+                                    <thead><tr><th>Pizza, Italiano</th></tr></thead>
+                                    <tbody><tr><td><%="Via " + pizzerie.get(i).getVia() + " Pase " + pizzerie.get(i).getPaese() + "Numero di Telefono " + pizzerie.get(i).getNumero()%></td></tr></tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="height: 5px"></div>
+            </form>
             <%
                 }
             %>
             <%
-                }else{
+            } else {
 
             %><h1>Non ci sono pizzerie disponibili</h1>
             <%}%>

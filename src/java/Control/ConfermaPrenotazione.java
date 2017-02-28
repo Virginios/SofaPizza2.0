@@ -5,15 +5,17 @@
  */
 package Control;
 
-import DataAccessSito.DataAccessPizze;
+import DataAccessSito.Cliente;
 import DataAccessSito.DataAccessPizzePrenotate;
+import DataAccessSito.DataAccessPrenotazione;
 import DataAccessSito.Pizze;
 import DataAccessSito.PizzePrenotate;
+import DataAccessSito.Pizzeria;
+import DataAccessSito.Prenotazione;
 import DataAccessSito.Prodotti;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,10 +28,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "Carrello", urlPatterns = {"/Carrello"})
-public class Carrello extends HttpServlet {
-
-    private static Logger logger = Logger.getLogger("classname");
+@WebServlet(name = "ConfermaPrenotazione", urlPatterns = {"/ConfermaPrenotazione"})
+public class ConfermaPrenotazione extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -48,10 +48,10 @@ public class Carrello extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Carrello</title>");
+            out.println("<title>Servlet ConfermaPrenotazione</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Carrello at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ConfermaPrenotazione at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -83,58 +83,39 @@ public class Carrello extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession(true);  
-        String id[] = (String[]) session.getAttribute("id");
-        String quantita[] = (String[]) session.getAttribute("quantita");
-        String sTotale =  (String) session.getAttribute("totale");
-        Double totale = Double.parseDouble(sTotale);
-        Prodotti prec = (Prodotti) session.getAttribute("carrello");
-        int dim =0;
-        if(prec!=null)
-            dim= prec.getPizza().size();
-        dim+=id.length;
-        ArrayList<Pizze> pizze = new ArrayList<Pizze>();
-        DataAccessPizze daop = new DataAccessPizze();
-        Prodotti carrello = new Prodotti();
-        int[] quantitaInt = new int[dim];
-        for(int i =0;i<id.length;i++){
-            pizze.add(daop.estraiPizza(Integer.parseInt(id[i])));
-            quantitaInt[i]= Integer.parseInt(quantita[i]);
-            
-        }
-         if(prec!=null){
-             session.removeAttribute("carrello");
-             int[] quantitaPrec = prec.getQuantita();
-             ArrayList<Pizze> pizzePrec = prec.getPizza();
-             int j=pizze.size();
-             boolean enter= false;
-             for(int i=0;i<pizzePrec.size();i++){
-                 for(int d=0;d<pizze.size();d++){
-                     if(pizzePrec.get(i).getIdpizza()==pizze.get(d).getIdpizza()){
-                         quantitaInt[d]+=quantitaPrec[i];
-                         enter=true;
-                         break;
-                     }
-                 }
-                 if(!enter){
-                    pizze.add(pizzePrec.get(i));
-                    quantitaInt[j]= quantitaPrec[i];
-                 }
-                 enter=false;
-                 j++;
-             }
-             totale += prec.getTotale();
-             
-         }
-               carrello.setQuantita(quantitaInt);
-        carrello.setTotale(totale);
-         carrello.setPizza(pizze);
-         session.removeAttribute("id");
-         session.removeAttribute("quantita");
-         session.removeAttribute("totale");
-         session.setAttribute("carrello", carrello);
-         RequestDispatcher view = request.getRequestDispatcher("Carrello.jsp");
+        HttpSession session = request.getSession();
+           Prodotti p = (Prodotti)session.getAttribute("carrello");
+           Cliente c = (Cliente) session.getAttribute("cliente");
+           if(c!=null){
+           Pizzeria produttore = (Pizzeria) session.getAttribute("pizzeria");
+           ArrayList<PizzePrenotate> pp = new ArrayList<PizzePrenotate>();
+           ArrayList<Pizze> pizze = p.getPizza();
+           Prenotazione prenotazione = new Prenotazione();
+           prenotazione.setCliente(c.getEmail());
+           prenotazione.setIndirizzoCliente(c.getVia());
+           prenotazione.setTipo_pagamento(0);
+           prenotazione.setTpo_prenotazione(0);
+           prenotazione.setProduttore(produttore.getPiva());
+           DataAccessPrenotazione daopre = new DataAccessPrenotazione();
+           daopre.aggiungiPrenotazione(prenotazione);
+           int numeroPrenotazione = daopre.prendiNumeroPrenotazione(c.getEmail(), 0);
+           for(int i=0;i<pizze.size();i++){
+               PizzePrenotate pizzePrenotate = new PizzePrenotate();
+               pizzePrenotate.setIdpizza(pizze.get(i).getIdpizza());
+               pizzePrenotate.setPrezzo(pizze.get(i).getPrezzo());
+               pizzePrenotate.setQuantità(p.getQuantita()[i]);
+               pizzePrenotate.setNumero_prenotazione(numeroPrenotazione);
+               pp.add(pizzePrenotate);
+           }
+           DataAccessPizzePrenotate daopp = new DataAccessPizzePrenotate();
+           daopp.aggiungi(pp);
+           session.removeAttribute("carrello");
+           }
+           else{
+               RequestDispatcher view = request.getRequestDispatcher("LoginCliente.jsp");
             view.forward(request, response);
+           }
+           
     }
 
     /**

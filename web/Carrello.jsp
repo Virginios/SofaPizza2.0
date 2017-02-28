@@ -28,10 +28,6 @@
 
 <ul>
                <li><a href="Home.jsp">Home</a></li>
-                
-                 
-                   
-                                
                 <li><a href="Chi Siamo.jsp">Chi Siamo</a></li>
                 <li class="spost"><a href="Login.jsp">Login</a></li>
                 <li class="spost"><a href="RegistrazioneCliente.jsp">Registrazione</a></li>
@@ -60,7 +56,7 @@
   </tbody>
 		<table class="tabella2" summary="" style="float:left;">
 			<h1 id="pagamento"> Come vuoi pagare?</h1>
-			<form> 
+                        <form method="post" action="/ConfermaPrenotazione">
  <fieldset style="border: none;  right: 25%; margin-top: -1%;" class="menu">
   <legend></legend>
  
@@ -69,13 +65,11 @@
    <option value="Carta.html">Carta di Credito</option>
   </select>
  </fieldset>
-</form> 
 	<button class="confermaordine">Conferma Ordine</button>
-		</table>
+                    </form>
+            </table>
         </table>
         </div>
-
-
 
 </body>
 </html>

@@ -99,7 +99,27 @@ public class DataAccessPrenotazione {
         }
         return prenotazione;
     }
-    
+    public int prendiNumeroPrenotazione(String cliente, int tipo) {
+        String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE numeroPrenotazione = "
+                + "(SELECT MAX(numeroPrenotazione) FROM " + Nome_Tabella + " WHERE (cliente = ? AND tipoPrenotazione =?))";
+        int numeroPrenotazione = 0;
+        PreparedStatement prepStat;
+        try {
+            this.pizzaConn = new ConnDatabase();
+            prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
+            prepStat.setString(1, cliente);
+            prepStat.setInt(2, tipo);
+            ResultSet risultato = prepStat.executeQuery();
+            if (risultato.next()) {
+                numeroPrenotazione = risultato.getInt("numeroPrenotazione");
+            }
+            prepStat.close();
+            pizzaConn.chiudi();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return numeroPrenotazione;
+    }
 
 
     public void cambiaTipo(int numeroPrenotazione,int tipo) {

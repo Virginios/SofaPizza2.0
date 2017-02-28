@@ -30,7 +30,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "ControlPrenotazione", urlPatterns = {"/ControlPrenotazione"})
 public class ControlPrenotazione extends HttpServlet {
-    private static Logger logger = Logger.getLogger("classname");
+        private static Logger logger = Logger.getLogger("classname");
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,10 +50,10 @@ public class ControlPrenotazione extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Prenotazione</title>");            
+            out.println("<title>Servlet ControlPrenotazione</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Prenotazione at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControlPrenotazione at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -84,12 +85,13 @@ public class ControlPrenotazione extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          response.setContentType("application/json");
+response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
         DataAccessPrenotazione daop = new DataAccessPrenotazione();
         String produttore = request.getParameter("produttore");
         Prenotazione prenotazioneVecchia = daop.prendiPrenotazioni(produttore, 0);
-        daop.cambiaTipo(prenotazioneVecchia.getNumero_prenotazione(), 1);
+        if(prenotazioneVecchia!=null)
+            daop.cambiaTipo(prenotazioneVecchia.getNumero_prenotazione(), 1);
         Prenotazione prenotazione = daop.prendiPrenotazioni(produttore, 0);
         if(prenotazione!=null){
             String json1 = (new Gson().toJson(prenotazione));
@@ -100,10 +102,10 @@ public class ControlPrenotazione extends HttpServlet {
             int totale = 0;
             for(int i =0;i<pp.size();i++){
                 Pizze p = daopi.estraiPizza(pp.get(i).getIdpizza());
+                logger.info("cazzo");
                 totale+=p.getPrezzo()*pp.get(i).getQuantità();
                 pizze.add(p);
             }
-            logger.info(""+pp.get(0).getIdpizza());
             String email = prenotazione.getCliente();
             DataAccessCliente daoc = new DataAccessCliente();
             Cliente cliente = daoc.trovacliente(email);
@@ -116,8 +118,7 @@ public class ControlPrenotazione extends HttpServlet {
             String json = (new Gson().toJson(prenotazione));
             String bothJson = "["+json+"]";
             response.getWriter().write(bothJson);
-        }
-    }
+        }    }
 
     /**
      * Returns a short description of the servlet.

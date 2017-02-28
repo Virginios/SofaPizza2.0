@@ -5,6 +5,7 @@
  */
 package DataAccessSito;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Prodotti{
     private ArrayList<Pizze> pizza;
-    private int quantita;
+    private int[] quantita;
     private double totale;
 
     public double getTotale() {
@@ -33,11 +34,11 @@ public class Prodotti{
         this.pizza = pizza;
     }
 
-    public int getQuantita() {
+    public int[] getQuantita() {
         return quantita;
     }
 
-    public void setQuantita(int quantita) {
+    public void setQuantita(int[] quantita) {
         this.quantita = quantita;
     }
 }

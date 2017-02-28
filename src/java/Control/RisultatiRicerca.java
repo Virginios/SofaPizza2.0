@@ -71,7 +71,6 @@ public class RisultatiRicerca extends HttpServlet {
         Pizzeria pizzeria = null;
         for (int i = 0; i < p.size(); i++) {
             if (p.get(i).getPiva().equals(partitaIva)) {
-                logger.info("boh");
                 pizzeria = p.get(i);
                 break;
             }
