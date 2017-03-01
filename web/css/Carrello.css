@@ -107,14 +107,14 @@ text-decoration: none;
     font-size: 1.4rem;
     font-weight: 300;
     color: #222;
-    margin: 2;
+    margin: 2%;
     outline: none;
 	left: 0%;
 }
 .menu{
 	
 	width: 45%;
-	margin-left:5%;
+	margin-left:23%;
 	margin-top:5%;
 }
 .confermaordine{
@@ -136,4 +136,20 @@ text-decoration: none;
 #pagamento{
 	margin-left:5%;
 	margin-top:2%;
+}
+.svuotacarrello{
+	
+	right: 60%;
+	margin-left: 7%;
+	margin-top: 2%;
+	font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 170px;
+	height: 40px;
+	background:#ff9900;
+	opacity:0.70;
 }

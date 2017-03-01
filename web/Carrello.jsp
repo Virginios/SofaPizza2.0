@@ -46,7 +46,20 @@
         <%}%>
    
     </tr>
-  
+  <tr>
+	<td><b>Quantità</b></td> <td><b class="prezzopizza"> &nbsp;&nbsp;&nbsp;  1</b></td>
+   
+    </tr>
+    <tr>
+        <%for(int i=0;i<pp.size();i++){%>
+        <td><b>Nome <%=pp.get(i).getNome()%></b></td> <td><b class="prezzopizza">prezzo &euro;<%=pp.get(i).getPrezzo()%></b></td>
+        <%}%>
+   
+    </tr>
+    <tr>
+	<td><b>Quantità</b></td> <td><b class="prezzopizza"> &nbsp;&nbsp;&nbsp;  1</b></td>
+   
+    </tr>
     <tr>
       <td><b>TOTALE</b></td><td><b class="prezzopizza">totale &euro;<%=p.getTotale()%></b></td>
     </tr>
@@ -66,6 +79,7 @@
   </select>
  </fieldset>
 	<button class="confermaordine">Conferma Ordine</button>
+        <button class="svuotacarrello">Svuota Carrello</button>
                     </form>
             </table>
         </table>
