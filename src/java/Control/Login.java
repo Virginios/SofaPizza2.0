@@ -81,10 +81,18 @@ public class Login extends HttpServlet {
         DataAccessCliente daoc = new DataAccessCliente();
         Cliente c = daoc.logincliente(email, password);
         if (c != null) {
+            if(c.getTipoCliente()==0){
             HttpSession session = request.getSession();
             session.setAttribute("cliente", c);
              RequestDispatcher view = request.getRequestDispatcher("Home.jsp");
             view.forward(request, response);
+            }else{
+             HttpSession session = request.getSession();
+            session.setAttribute("cliente", c);
+             RequestDispatcher view = request.getRequestDispatcher(".jsp");
+            view.forward(request, response);
+            }
+            
         } else {
             RequestDispatcher view = request.getRequestDispatcher("LoginError.jsp");
             view.forward(request, response);
