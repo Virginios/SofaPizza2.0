@@ -1,0 +1,107 @@
+#storico{
+	height: 100%;
+	background-image: url(immaginetrasppp.jpg);
+	margin-top: -23px;
+}
+ul#menu {
+    font-family: Verdana, sans-serif;
+    font-size: 12px;
+    margin-top: 45px;
+    padding: 10;
+    list-style: none;
+}
+ul#menu li {
+    background-color: #FF0004;
+    border-left: 4px solid #000000;
+    display: block;
+    width: 128px;
+    height: 49px;
+    margin: 2px 0;
+}
+ul#menu li a {
+    color: #0000000;
+    display: block;
+    font-weight: bold;
+    line-height: 12px;
+    padding-left: 1px;
+    text-decoration: none;
+    width: 120px; 
+    height: 21px;
+}
+ul#menu li.active, ul#menu li:hover {
+    background-color: #E4EB00;
+    border-left: 5px solid #FF831C;
+}
+
+#login{
+	margin-top: 16px;
+	font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 180px;
+	height: 30px;
+	background:#ff9900;
+	opacity:0.70;
+	margin-bottom: 5px;
+}
+.menu{
+	width: 99.6%;
+    list-style-type: none;
+    margin:0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #F11114;
+    font-style:oblique;
+  border-top-right-radius:20px; 
+ border-top-left-radius:20px; 
+    border-bottom-right-radius:0px; 
+    border-bottom-left-radius:0px;
+ border-width:2px;
+ border-color:antiquewhite;
+    border-style:outset;
+ background : -webkit-gradient(linear, left top, left bottom, from(#F11114), to(#CC0000));
+ background: -webkit-linear-gradient(top, #F11114, #CC0000);
+ background: -moz-linear-gradient(top, #F11114, #CC0000);
+ background: -ms-linear-gradient(top, #F11114, #CC0000);
+ background: -o-linear-gradient(top, #F11114, #CC0000); 
+}
+#containerComparsaAmministratore{
+ width: 14.7%;
+}
+#liListaPizzerie{
+  width: 100%;
+
+}
+#comparsaListaUtenti{
+ width:131%;
+}
+
+#comparsaListaPizzerie{
+ width:82%;
+
+}
+#comparsaListaAmministratori{
+ width:85%;
+
+}
+.menu li ul
+{
+    display: none
+}
+
+.menu li:hover ul
+{
+    display: block;
+ z-index:1;
+    position: absolute;
+ vertical-align:auto;
+    padding: 0;
+    margin: 0 0 0 -1px;
+    background: #F11114;
+     list-style-type: none;
+ color: black;
+
+}
