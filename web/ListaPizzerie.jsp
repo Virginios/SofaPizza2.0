@@ -31,13 +31,26 @@
 
 		<h1 class="title" align="center">Lista Pizzerie</h1>
 		<div align="center">
+		<form action="Filtra Per:">
+    <fieldset style="border: none">
+        <legend>Filtra Per:</legend>
+        Partita Iva <input type="radio" name="linguaggio" value="P-iva"/>
+        Nome <input type="radio" name="linguaggio" value="Nome"/>
+        Provincia <input type="radio" name="linguaggio" value="Provincia"/>
+        Pizzerie per Celiaci <input type="radio" name="linguaggio" value="Celiaci"/>
+        <input type="text" name="tuoTesto" value="Search">
+        <input type="button" name="cerca" value="Cerca">
+        <pre></pre>
+        <input name="Submit" id="login"  type="button" value="Elimina Pizzeria">
+    </fieldset>
+		</form>
 		<hr>
 		<p>
-			<b>Ai Tre Monelli</b>, Via Atzori 233, Nocera Inferiore, 84014 <input name="Submit" id="login"  type="button" value="Elimina Pizzeria" >
+			<input type="checkbox" name="spunta" value="spunta"><b>Ai Tre Monelli</b>, Via Atzori 233, Nocera Inferiore,(SA), 84014
 		</p>
 		<hr>
 		<p>
-			<b>Porgi Qua La Pancia</b>, Via Matteotti 82, Nocera Inferiore, 84014 <input name="Submit" id="login"  type="button" value="Elimina Pizzeria" >
+			<input type="checkbox" name="spunta" value="spunta"><b>Porgi Qua La Pancia</b>, Via Matteotti 82, Nocera Inferiore,(SA), 84014
 		</p>
 		<hr>
 		</div>
