@@ -28,4 +28,9 @@
 	<h3 align="center">A breve sarai reindirizzato alla Home.</h3>
 </div>
 </body>
+<script>
+  setTimeout(function() {
+      document.location = "Home.jsp";
+  }, 2000); // <-- this is the delay in milliseconds
+</script>
 </html>

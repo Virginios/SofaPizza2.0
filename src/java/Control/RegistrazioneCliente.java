@@ -85,8 +85,8 @@ public class RegistrazioneCliente extends HttpServlet {
         c.setEmail(request.getParameter("email"));
         c.setVia(request.getParameter("indirizzo"));
         c.setPaese(request.getParameter("paese"));
-        c.setTipoCliente(Integer.parseInt(request.getParameter("pizzeriacliente")));
         c.setPassword(request.getParameter("password"));
+        c.setProvincia(request.getParameter("provincia"));
         String data = (request.getParameter("anno")
                 + "-" + request.getParameter("mese") + "-" + request.getParameter("giorno"));
         c.setDataNascita(data);
@@ -94,7 +94,8 @@ public class RegistrazioneCliente extends HttpServlet {
         DataAccessCliente daoc = new DataAccessCliente();
         if (!daoc.cliente_registrato(request.getParameter("email"))) {
             daoc.inserisciCliente(c);
-        
+            RequestDispatcher view = request.getRequestDispatcher("SuccessoCliente.jsp");
+            view.forward(request, response);
         } else {
             RequestDispatcher view = request.getRequestDispatcher("RegErrorCliente.jsp");
             view.forward(request, response);
