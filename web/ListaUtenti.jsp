@@ -31,6 +31,17 @@
 	
 		<h1 class="title" align="center">Lista Utenti</h1>
 		<div align="center">
+                    <form action="Filtra Per:">
+    <fieldset style="border: none">
+        <legend>Filtra Per:</legend>
+        E-mail <input type="radio" name="linguaggio" value="E-mail"/>
+        Nome  <input type="radio" name="linguaggio" value="Nome"/>
+        Cognome <input type="radio" name="linguaggio" value="Cognome"/>
+        Provincia <input type="radio" name="linguaggio" value="Provincia"/>
+        Tipo Cliente <input type="radio" name="linguaggio" value="TipoCliente"/>
+        <input type="text" name="tuoTesto" value="Search">
+    </fieldset>
+		</form>
 		<hr>
 		<p>
 			<b>Alessandro Petrosino</b>, Via Villanova 42, Nocera Inferiore, 84014 <input name="Submit" id="login"  type="button" value="Elimina Utente" >&nbsp;&nbsp;<input name="Submit" id="login"  type="button" value="Rendi Amministratore" >
