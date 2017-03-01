@@ -32,7 +32,7 @@
 		<h1 class="title" align="center">Lista Utenti</h1>
 		<div align="center">
                     <form action="Filtra Per:">
-    <fieldset style="border: none">
+   <fieldset style="border: none">
         <legend>Filtra Per:</legend>
         E-mail <input type="radio" name="linguaggio" value="E-mail"/>
         Nome  <input type="radio" name="linguaggio" value="Nome"/>
@@ -40,7 +40,9 @@
         Provincia <input type="radio" name="linguaggio" value="Provincia"/>
         Tipo Cliente <input type="radio" name="linguaggio" value="TipoCliente"/>
         <input type="text" name="tuoTesto" value="Search">
-        <input name="Submit" id="login"  type="button" value="Elimina Utente" >&nbsp;&nbsp;<input name="Submit" id="login"  type="button" value="Rendi Amministratore" >
+        <input type="button" name="cerca" value="Cerca">
+        <pre></pre>
+        <input name="Submit" id="login"  type="button" value="Elimina Utente">&nbsp;&nbsp;<input name="Submit" id="login"  type="button" value="Rendi Amministratore">
     </fieldset>
 		</form>
 		<hr>
