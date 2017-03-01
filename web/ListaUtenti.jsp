@@ -40,15 +40,16 @@
         Provincia <input type="radio" name="linguaggio" value="Provincia"/>
         Tipo Cliente <input type="radio" name="linguaggio" value="TipoCliente"/>
         <input type="text" name="tuoTesto" value="Search">
+        <input name="Submit" id="login"  type="button" value="Elimina Utente" >&nbsp;&nbsp;<input name="Submit" id="login"  type="button" value="Rendi Amministratore" >
     </fieldset>
 		</form>
 		<hr>
 		<p>
-			<b>Alessandro Petrosino</b>, Via Villanova 42, Nocera Inferiore, 84014 <input name="Submit" id="login"  type="button" value="Elimina Utente" >&nbsp;&nbsp;<input name="Submit" id="login"  type="button" value="Rendi Amministratore" >
+			<input type="checkbox" name="spunta" value="spunta"><b>Alessandro Petrosino</b>, Via Villanova 42, Nocera Inferiore,(SA), 84014
 		</p>
 		<hr>
 		<p>
-			<b>Virginio Santonicola</b>, Via Atzori 123, Nocera Inferiore, 84014 <input name="Submit" id="login"  type="button" value="Elimina Utente" >&nbsp;&nbsp;<input name="Submit" id="login"  type="button" value="Rendi Amministratore" >
+			<input type="checkbox" name="spunta" value="spunta"><b>Virginio Santonicola</b>, Via Atzori 123, Nocera Inferiore,(SA), 84014
 		</p>
 		<hr>
 		</div>
