@@ -89,7 +89,7 @@
                     <form method="post" action="/CancellaPrenotazione">
                         <button class="svuotacarrello " type="sumbit">Svuota Carrello</button>
                     </form>
-                </table>
+                </table> 
                 <%} else {
                 %>
                 <h2>non ci sono elementi disponibili nel carrello</h2>
