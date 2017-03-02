@@ -118,7 +118,7 @@ public class DataAccessPizzeria {
             risultato = estrai.executeQuery("" + query);
             while (risultato.next()) {
                 Pizzeria c = new Pizzeria();
-                c.setNome("please wait calming... "+risultato.getString("nomePizzeria"));
+                c.setNome(risultato.getString("nomePizzeria"));
                 c.setPassword(risultato.getString("password"));
                 c.setPiva(risultato.getString("pIva"));
                 c.setVia(risultato.getString("via"));
