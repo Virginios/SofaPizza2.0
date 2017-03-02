@@ -80,8 +80,13 @@ public class Ricerca extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String ricerca = request.getParameter("cerco");
+        String val = request.getParameter("cel");
+        int cel = 0;
+        if(val!=null){
+            cel=1;
+        }
         DataAccessPizzeria daop = new DataAccessPizzeria();
-        ArrayList<Pizzeria> p =  daop.trovaPizzerieDaFiltro(ricerca,0);
+        ArrayList<Pizzeria> p =  daop.trovaPizzerieDaFiltro(ricerca,cel);
         HttpSession session = request.getSession();
 
         if (p.isEmpty()) {

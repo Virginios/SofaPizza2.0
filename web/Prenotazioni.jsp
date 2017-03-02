@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <%
     DataAccessPizzeria daop = new DataAccessPizzeria();
-    Pizzeria p = daop.trovaPizzeria("051245154", "i tre");
+    Pizzeria p=(Pizzeria)session.getAttribute("pizzeria");
 %>
 <!doctype html>
 <html>

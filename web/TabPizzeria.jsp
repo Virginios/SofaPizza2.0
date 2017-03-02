@@ -10,15 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/Home.css" rel="stylesheet" type="text/css">
-<link href="css/prova.css" rel="stylesheet" type="text/css">
-        <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
-
-<ul class="menu">
-    	<li ><a href="Prenotazioni.jsp">Prenotazioni</a></li>
-                <li class="spost"><a href="ChiSiamo.jsp">Chi Siamo</a></li>
-	<li class="spost"><a href="ProfiloPizzeria.jsp">Nome Pizzeria</a></li>
+        <link href="css/prova.css" rel="stylesheet" type="text/css">
+    <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
+    <ul class="menu">
+        <li ><a href="Prenotazioni.jsp">Prenotazioni</a></li>
+        <li class="spost"><a href="ChiSiamo.jsp">Chi Siamo</a></li>
+            <li class="spost"><a href="ProfiloPizzeria.jsp">Profilo</a></li>
         <li class="spost"><a href="/Logout">Esci</a></li>
-  </ul>     </head>
-    <body>
-    </body>
+    </ul>     
+</head>
+<body>
+</body>
 </html>

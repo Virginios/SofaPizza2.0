@@ -43,6 +43,20 @@
 	border-bottom-right-radius:20px; 
 	border-bottom-left-radius:20px;
 }
+.textarea{
+    border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+        margin-top: 5%;
+}
+.NomePizza{
+    border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+        margin-top: 5%;
+}
 .MenuImpostazioniCliente{
 	align: center;
 	width: 400px;
@@ -101,4 +115,8 @@ ul#menu li a {
 ul#menu li.active, ul#menu li:hover {
     background-color: #E4EB00;
     border-left: 5px solid #FF831C;
+}
+#contMenu{
+           background-image: url(/img/immaginetrasppp.jpg);
+
 }

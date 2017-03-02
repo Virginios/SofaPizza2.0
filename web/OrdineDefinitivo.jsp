@@ -21,7 +21,6 @@
         <link href="css/Home.css" rel="stylesheet" type="text/css">
         <link href="css/prova.css" rel="stylesheet" type="text/css">
         <link href="css/Ordine2.css" rel="stylesheet" type="text/css">
-    <div align="css/center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
     <script type="text/javascript" src="js/jquery.js">
     </script>
     <script type="text/javascript" src="js/jquery.min.js">
@@ -44,7 +43,7 @@
             <table>
                 <header>
                     <p>
-                        <span class="totaleordine">  <b>Totale Ordine</b> â‚¬</span>
+                        <span class="totaleordine">  <b>Totale Ordine</b> &euro;</span>
                         <span data-baskettotal class="infototale" id="totale">0.00</span>
                     </p>
                 </header>
@@ -77,7 +76,7 @@
                     <tr>
                         <td width="60%"><pre id="caratt"><strong style="float: left"><%=pizze.get(i).getNome()%></strong> <strong style="float: right"><%=pizze.get(i).getPrezzo()%> &euro; </strong>
 <%=pizze.get(i).getIngredienti()%>                                </pre>
-                        <td width="30%" align="center"><b>QuantitÃ </b>
+                        <td width="30%" align="center"><b>Quantita' </b>
                             <span data-baskettotal class="infoquantita" id="<%=pizze.get(i).getIdpizza()%>">0</span>
                         </td></td>
                         <td width="20" height="30"><button class="bottone1" id="<%=pizze.get(i).getPrezzo()%>" OnClick="add('<%="#" + pizze.get(i).getIdpizza()%>', this.id);" required>

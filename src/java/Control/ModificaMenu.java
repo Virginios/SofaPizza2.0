@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -85,13 +86,13 @@ public class ModificaMenu extends HttpServlet {
         String[] nomeIngredienti = request.getParameterValues("nomeIngredienti");
         String[] prezzo = request.getParameterValues("prezzo");
 
-        //HttpSession session = request.getSession();
-        //Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");
+        HttpSession session = request.getSession();
+        Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");
         String[] idUp = request.getParameterValues("id");
         ArrayList<Pizze> modListaPizze = new ArrayList<Pizze>();
         DataAccessPizze pizze = new DataAccessPizze();
 
-        ArrayList<Pizze> pizzeEsist = pizze.estraiPizze("051245154");
+        ArrayList<Pizze> pizzeEsist = pizze.estraiPizze(p.getPiva());
 
         int intPart = 0;
         int[] numDaCancellare = new int[pizzeEsist.size()];
@@ -108,7 +109,7 @@ public class ModificaMenu extends HttpServlet {
                 pizza.setIngredienti(nomeIngredienti[i]);
                 pizza.setNome(nomePizze[i]);
                 pizza.setPrezzo(numero);
-                pizza.setProduttore("051245154");
+                pizza.setProduttore(p.getPiva());
                 pizza.setIdpizza(idNumUp[i]);
                 modListaPizze.add(pizza);
             }
@@ -136,7 +137,7 @@ public class ModificaMenu extends HttpServlet {
             pizza.setIngredienti(nomeIngredienti[i]);
             pizza.setNome(nomePizze[i]);
             pizza.setPrezzo(numero);
-            pizza.setProduttore("051245154");
+            pizza.setProduttore(p.getPiva());
             listaPizze.add(pizza);
 
         }
@@ -145,6 +146,8 @@ public class ModificaMenu extends HttpServlet {
 
             pizze.cancellapizze(numDaCancellare);
         pizze.inseriscipizze(listaPizze);
+        RequestDispatcher view = request.getRequestDispatcher("ModificaMenu.jsp");
+            view.forward(request, response);
     }
 
     /**

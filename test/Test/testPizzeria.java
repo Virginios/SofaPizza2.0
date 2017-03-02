@@ -71,7 +71,13 @@ public class testPizzeria {
            pizzeria.setPassword("password");
            daop.inserisciPizzeria(pizzeria);*/
            Pizzeria p =daop.trovaPizzeria("051245154", "itre");
-           System.out.println(p.getVia());
+           Pizzeria pizzeria = new Pizzeria();
+          pizzeria.setNome("I tre monelli");
+           pizzeria.setNumero("0815177454");
+           pizzeria.setProvincia("AGRIGENTO");
+           pizzeria.setVia("via cazzo");
+           pizzeria.setPassword("password");
+           daop.modificaPizzeria(pizzeria);
            
         }
 }

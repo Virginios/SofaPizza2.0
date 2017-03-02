@@ -121,7 +121,7 @@ public class ComposizioneMenuPizzeria extends HttpServlet {
             File file = new File("src\\img\\images2.jpg");
             ImageIO.write(bufImage, "jpg", file);
         }
-        RequestDispatcher view = request.getRequestDispatcher("Prenotazioni.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("SuccessoRegistrazione.jsp");
             view.forward(request, response);
 
     }

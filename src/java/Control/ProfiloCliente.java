@@ -81,7 +81,7 @@ public class ProfiloCliente extends HttpServlet {
         c.setCognome(request.getParameter("cognome"));
         c.setProvincia(request.getParameter("provincia"));
         c.setPaese(request.getParameter("paese"));
-        c.setVia(request.getParameter("via"));
+        c.setVia(request.getParameter("indirizzo"));
         DataAccessCliente daoc = new DataAccessCliente();
         HttpSession session = request.getSession();
         Cliente cliente = (Cliente)session.getAttribute("cliente");
@@ -90,6 +90,8 @@ public class ProfiloCliente extends HttpServlet {
             String nPassword = request.getParameter("NuovaPassword");
             c.setPassword(nPassword);
             daoc.modificaCliente(c);
+            RequestDispatcher view = request.getRequestDispatcher("ProfiloCliente.jsp");
+            view.forward(request, response);
         }
         else{
             RequestDispatcher view = request.getRequestDispatcher("ModificaProfClienteErrato.jsp");

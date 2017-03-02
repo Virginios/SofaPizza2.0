@@ -33,13 +33,9 @@
         <title>Registrazione</title>
     </head>
     <div align="center" id="contlogo"><a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
-    <ul class="menu">
-        <li><a  href="Home.jsp">Home</a></li>
-        <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
-        <li class="spost"><a href="Login.jsp">Login</a></li>
-        <li class="spost"><a href="RegistrazioneCliente.jsp" class="active">Registrazione</a></li>
-    </ul>      
-    <form name="modulo" id="form" action="/ProfiloCliente" method="post" onSubmit="return controlForm()">
+            <jsp:include page="TabPizzeria.jsp"></jsp:include>
+      
+    <form name="modulo" id="form" action="/ModificaDatiPizzeria" method="post" onSubmit="return controlForm()">
         <div id="tabella">
             <table cellspacing="6">
                 <tbody>

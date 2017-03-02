@@ -15,9 +15,13 @@
 <title>LoginCliente</title>
 <meta http-equiv="refresh" content="3;URL=HomeLoggato.jsp">
 </head>
-        <jsp:include page="tabHome.jsp"></jsp:include>
-
-      
+<div align="center" id="contlogo"> <img src="logo.png" alt="Logo" id="logo" > </div>
+<ul class="menu">
+                <li><a  href="Home.jsp">Home</a></li>
+                <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
+                <li class="spost"><a href="Login.jsp" class="active">Login</a></li>
+                <li class="spost"><a href="RegistrazioneCliente.jsp">Registrazione</a></li>
+            </ul>      
 <body>
 <div id="storico">
 	<h1 align="center">Registrazione Effettuata con Successo!</h1>
@@ -26,7 +30,7 @@
 </body>
 <script>
   setTimeout(function() {
-      document.location = "Home.jsp";
+      document.location = "Prenotazioni.jsp";
   }, 2000); // <-- this is the delay in milliseconds
 </script>
 </html>

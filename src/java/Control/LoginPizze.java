@@ -5,8 +5,6 @@
  */
 package Control;
 
-import DataAccessSito.Cliente;
-import DataAccessSito.DataAccessCliente;
 import DataAccessSito.DataAccessPizzeria;
 import DataAccessSito.Pizzeria;
 import java.io.IOException;
@@ -23,8 +21,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "LoginPizzeria", urlPatterns = {"/LoginPizzeria"})
-public class LoginPizzeria extends HttpServlet {
+@WebServlet(name = "LoginPizze", urlPatterns = {"/LoginPizze"})
+public class LoginPizze extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +41,10 @@ public class LoginPizzeria extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginPizzeria</title>");            
+            out.println("<title>Servlet LoginPizze</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginPizzeria at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LoginPizze at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -78,21 +76,19 @@ public class LoginPizzeria extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String partitaIva = request.getParameter("partitaiva");
+String partitaIva = request.getParameter("partitaiva");
         String password = request.getParameter("password");
         DataAccessPizzeria daoc = new DataAccessPizzeria();
-        System.out.println(partitaIva+" "+password);
         Pizzeria c = daoc.trovaPizzeria(partitaIva, password);
         if (c != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("pizzeria", c);
                 RequestDispatcher view = request.getRequestDispatcher("Prenotazioni.jsp");
                 view.forward(request, response);
-           
-
-        } else {
+        }
+        else{
             RequestDispatcher view = request.getRequestDispatcher("LoginPizzeriaError.jsp");
-            view.forward(request, response);
+                view.forward(request, response);
         }
     }
 

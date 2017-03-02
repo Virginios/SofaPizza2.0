@@ -28,6 +28,7 @@
         <div id="didascalia">  Ordina pizza a domicilio </div>
         <input name="cerco" type="search" id="barraricerca" placeholder="   Inserisci l'indirizzo di consegna, un punto di riferimento o il nome di un ristorante" value="" autocomplete="off"> 
         <input type="submit" id="tastocerca" name="sub" value="Cerca">
+        <div id="celiaci"><input type="checkbox" id="celiaci" name="cel"  value="celiaci"><b>Cerca contenuti per celiaci</b></div>
         <ol class="commentlist">
          </ol> 
     </form>

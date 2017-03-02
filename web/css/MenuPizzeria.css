@@ -10,6 +10,44 @@ body{
 	margin-left: 32%;
 	margin-top: 5%;
 }
+.textarea{
+    border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+        margin-top: 5%;
+}
+.NomePizza{
+    border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+        margin-top: 5%;
+}
+.bottone{
+    font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 60px;
+	height: 30px;
+	background:#ff9900;
+	opacity:0.70;
+}
+.bottoneDecr{
+    font-weight: bold;
+	font-size:15px;
+	border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+	width: 60px;
+	height: 30px;
+	background:#ff9900;
+	opacity:0.70;
+}
 #container{
     margin-top: -2%;
            background-image: url(/img/immaginetrasppp.jpg);
@@ -26,20 +64,16 @@ body{
 	width: 5%;
 	background: #ff9900
 }
-.bottone{
-	border-top-right-radius:20px; 
-	border-top-left-radius:20px; 
-	border-bottom-right-radius:20px; 
-	border-bottom-left-radius:20px;
-	background: #ff9900
-}
-.bottoneDecr{
-	border-top-right-radius:20px; 
-	border-top-left-radius:20px; 
-	border-bottom-right-radius:20px; 
-	border-bottom-left-radius:20px;
-	background: #ff9900
-}
+
 .margin{
     margin-left: 0.5%;
+    border-top-right-radius:20px; 
+	border-top-left-radius:20px; 
+	border-bottom-right-radius:20px; 
+	border-bottom-left-radius:20px;
+        margin-top: 5%;
+}
+#contMenu{
+           background-image: url(/img/immaginetrasppp.jpg);
+
 }

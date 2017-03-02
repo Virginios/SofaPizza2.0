@@ -4,12 +4,14 @@
     Author     : Alessandro
 --%>
 
+<%@page import="DataAccessSito.Pizzeria"%>
 <%@page import="DataAccessSito.Pizze"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DataAccessSito.DataAccessPizze"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%DataAccessPizze daop = new DataAccessPizze();
-    ArrayList<Pizze> pizze = daop.estraiPizze("051245154");
+    Pizzeria pizzeria = (Pizzeria)session.getAttribute("pizzeria");
+    ArrayList<Pizze> pizze = daop.estraiPizze(pizzeria.getPiva());
 %>
 <!DOCTYPE html>
 <html>
@@ -30,16 +32,11 @@
 
     <div align="center" id="contlogo"><a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
 
-    <ul class="menu">
-        <li><a href="Home.jsp">Home</a></li>               
-        <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
-        <li class="spost"><a href="Home.jsp">Esci</a></li>
-        <li class="spost"><a href="Prenotazioni.jsp">Prenotazioni</a></li>
-        <li class="spost"><a href="ProfiloCliente.jsp">Nome Pizzeria</a></li>
-    </ul>     
+            <jsp:include page="TabPizzeria.jsp"></jsp:include>
+    
 
     <body>
-        <form action="/ModificaMenu" method="post" onSubmit="return controlNome()">
+        <form action="/ModificaMenu" method="post" onSubmit="return controlNome()" id="contMenu">
          <div class="tabellamenu">
                                         <h2 id="uguale" style="display: none;color: red">Le pizze nel menu non possono avere nome uguale</h2>
                                         

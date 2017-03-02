@@ -25,7 +25,7 @@
     <tr>
         <th height="30"><h1><b>Nome Pizzeria</b></h1></th>
     </tr>
-  <form action="ModificaDatiPizzeria.jsp" method="post">>
+  <form action="ModificaDatiPizzeria.jsp" method="post">
     <tr>
         <td align="center" height="10"><button class="bottone2" type="submit">Modifica Dati</button>
               <span class="storico-ordini"></span></td>
@@ -38,11 +38,12 @@
               <span class="storico-ordini"></span></td>
     </tr>
     </form>
-
+  <form action="ModificaMenu.jsp" method="post">
     <tr>
         <td align="center" height="10" ><button class="bottone3">Modifica Menu</button>
             <span class="storico-ordini"></span></td>
     </tr>
+  </form>
   </tbody>
 </table>
 	  </div>

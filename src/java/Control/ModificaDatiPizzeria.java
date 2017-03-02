@@ -82,15 +82,18 @@ public class ModificaDatiPizzeria extends HttpServlet {
         c.setNome(request.getParameter("nome"));
         c.setProvincia(request.getParameter("provincia"));
         c.setPaese(request.getParameter("paese"));
-        c.setVia(request.getParameter("via"));
+        c.setVia(request.getParameter("indirizzo"));
         DataAccessPizzeria daoc = new DataAccessPizzeria();
         HttpSession session = request.getSession();
-        Pizzeria pizzeria = (Pizzeria)session.getAttribute("pizzeria");        
+        Pizzeria pizzeria = (Pizzeria)session.getAttribute("pizzeria");
+        c.setPiva(pizzeria.getPiva());
         String vPassword = request.getParameter("VecchiaPassword");
         if(vPassword.equals(pizzeria.getPassword())){
             String nPassword = request.getParameter("NuovaPassword");
             c.setPassword(nPassword);
             daoc.modificaPizzeria(c);
+            RequestDispatcher view = request.getRequestDispatcher("ModificaDatiPizzeria.jsp");
+            view.forward(request, response);
         }
         else{
             RequestDispatcher view = request.getRequestDispatcher("ModificaProfPizzeriaErrato.jsp");
