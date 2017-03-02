@@ -7,7 +7,6 @@ package Control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,10 +19,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "GetCarrello", urlPatterns = {"/GetCarrello"})
-public class GetCarrello extends HttpServlet {
-
-    private static Logger logger = Logger.getLogger("classname");
+@WebServlet(name = "CancellaPrenotazione", urlPatterns = {"/CancellaPrenotazione"})
+public class CancellaPrenotazione extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +39,10 @@ public class GetCarrello extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GetCarrello</title>");
+            out.println("<title>Servlet SvuotaCarrello</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet GetCarrello at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SvuotaCarrello at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -77,12 +74,10 @@ public class GetCarrello extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id[] = request.getParameterValues("id[]");
-        String quantita[] = request.getParameterValues("quantita[]");
-        HttpSession session = request.getSession(true);
-        session.setAttribute("id", id);
-        session.setAttribute("quantita", quantita);
-
+        HttpSession session = request.getSession();
+            session.removeAttribute("carrello");
+            RequestDispatcher view = request.getRequestDispatcher("SuccessoPizzeria.jsp");
+            view.forward(request, response);
     }
 
     /**

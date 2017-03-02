@@ -120,6 +120,34 @@ public class DataAccessPrenotazione {
         }
         return numeroPrenotazione;
     }
+     public ArrayList<Prenotazione> prendiStorico(String produttore) {
+        String selectSQL = "SELECT * FROM " + Nome_Tabella + " (nomePizzeria = ? AND tipoPrenotazione =1)";
+        int numeroPrenotazione = 0;
+        PreparedStatement prepStat;
+        ArrayList<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
+        try {
+            this.pizzaConn = new ConnDatabase();
+            prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
+            prepStat.setString(1, produttore);
+            ResultSet risultato = prepStat.executeQuery();
+            while(risultato.next()) {
+                Prenotazione prenotazione = new Prenotazione();
+                prenotazione.setCliente(risultato.getString("cliente"));
+                prenotazione.setNumero_prenotazione(risultato.getInt("numeroPrenotazione"));
+                prenotazione.setProduttore(risultato.getString("produttore"));
+                prenotazione.setIndirizzoCliente(risultato.getString("indirizzoCliente"));
+                prenotazione.setTpo_prenotazione(risultato.getInt("tipoPrenotazione"));
+                prenotazione.setTipo_pagamento(risultato.getInt("tipoPagamento"));
+                prenotazione.setData_prenotazione(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(risultato.getTimestamp("dataPrenotazione")));
+                prenotazioni.add(prenotazione);
+            }
+            prepStat.close();
+            pizzaConn.chiudi();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataAccessPizzePrenotate.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return prenotazioni;
+    }
 
 
     public void cambiaTipo(int numeroPrenotazione,int tipo) {

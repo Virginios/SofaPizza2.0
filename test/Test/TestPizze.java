@@ -10,6 +10,8 @@ import DataAccessSito.DataAccessPizzePrenotate;
 import DataAccessSito.Pizze;
 import DataAccessSito.PizzePrenotate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 
@@ -58,10 +60,10 @@ public class TestPizze {
         pizze.add(pizza);
         pizze.add(pizza2);
         data.modificaPizze(pizze);*/
-        ArrayList<Pizze> pizze= data.estraiPizze("2c");
-        for(int i =0;i<pizze.size();i++){
-            System.out.println(pizze.get(i).getIdpizza());
-        }
+        int[] id= new int[2];
+        id[0]= 545446;
+        data.cancellapizze(id);
+
         
     }
     

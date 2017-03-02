@@ -4,7 +4,16 @@
     Author     : Alessandro
 --%>
 
+<%@page import="DataAccessSito.Prenotazione"%>
+<%@page import="DataAccessSito.Pizzeria"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="DataAccessSito.DataAccessPrenotazione"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    DataAccessPrenotazione daop = new DataAccessPrenotazione();
+    Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");
+    ArrayList<Prenotazione> prenotazioni = daop.prendiStorico(p.getPiva());
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,15 +36,11 @@
 		<h1 align="center" class="title">Storico Ordini</h1>
 		<div align="center">
 		<hr>
+                <%for(int i=0;i<prenotazioni.size();i++){%>
 		<p>
-			<b>Alessandro Petrosino</b>, Via Villanova 42, Nocera Inferiore, 84014, Totale Spesa: $10,00
-		</p>
+                    <b><%=prenotazioni.get(i).getCliente()%></b>, <%=prenotazioni.get(i).getIndirizzoCliente()+" "+prenotazioni.get(i).getData_prenotazione()%>
 		<hr>
-		<p>
-			<b>Virginio Santonicola</b>, Via Atzori 123, Nocera Inferiore, 84014, Totale Spesa: $15,00
-		</p>
-		<hr>
-		</div>
+                <%}%>
 		<div align="center">
 			<input name="Submit" id="login"  type="button" value="Svuota tutto" >
 		</div>

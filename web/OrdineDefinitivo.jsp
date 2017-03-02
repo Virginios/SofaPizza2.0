@@ -101,8 +101,7 @@
                 quantita.push($(this).text());
                 id.push($(this).attr('id'));
             });
-            var totale = $("#totale").text();
-            $.post('/GetCarrello', {"id": id, "quantita": quantita, "totale": totale});
+            $.post('/GetCarrello', {"id": id, "quantita": quantita});
             //$("form").submit();
 
         }

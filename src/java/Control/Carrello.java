@@ -86,9 +86,8 @@ public class Carrello extends HttpServlet {
         HttpSession session = request.getSession(true);  
         String id[] = (String[]) session.getAttribute("id");
         String quantita[] = (String[]) session.getAttribute("quantita");
-        String sTotale =  (String) session.getAttribute("totale");
-        Double totale = Double.parseDouble(sTotale);
         Prodotti prec = (Prodotti) session.getAttribute("carrello");
+        double totale =0;
         int dim =0;
         if(prec!=null)
             dim= prec.getPizza().size();
@@ -98,9 +97,13 @@ public class Carrello extends HttpServlet {
         Prodotti carrello = new Prodotti();
         int[] quantitaInt = new int[dim];
         for(int i =0;i<id.length;i++){
-            pizze.add(daop.estraiPizza(Integer.parseInt(id[i])));
             quantitaInt[i]= Integer.parseInt(quantita[i]);
-            
+            if(quantitaInt[i]>0){
+                Pizze p = daop.estraiPizza(Integer.parseInt(id[i]));
+                totale+=p.getPrezzo()*quantitaInt[i];
+                totale = Math.floor(totale * 100) / 100;
+                pizze.add(p);
+            }
         }
          if(prec!=null){
              session.removeAttribute("carrello");
@@ -131,7 +134,6 @@ public class Carrello extends HttpServlet {
          carrello.setPizza(pizze);
          session.removeAttribute("id");
          session.removeAttribute("quantita");
-         session.removeAttribute("totale");
          session.setAttribute("carrello", carrello);
          RequestDispatcher view = request.getRequestDispatcher("Carrello.jsp");
             view.forward(request, response);

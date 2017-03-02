@@ -1,3 +1,4 @@
+<%@page import="DataAccessSito.Pizzeria"%>
 <HTML>
 <HEAD>
 <%@ page 
@@ -14,8 +15,8 @@ pageEncoding="ISO-8859-1"
 
 response.setContentType("text/html");
 response.setHeader("Cache-control","no-cache");
-String pathpizzeria = (String)session.getAttribute("pizzeria");
-
+Pizzeria pizzeria = (Pizzeria)session.getAttribute("pizzeria");
+String pathpizzeria= pizzeria.getPiva();
 out.println("request "+request.getParameter("file")+"");
 
 String err = "";
@@ -112,3 +113,4 @@ out.println("done");
    response.setStatus(response.SC_MOVED_TEMPORARILY);
    response.setHeader("Location", site); 
 %>
+

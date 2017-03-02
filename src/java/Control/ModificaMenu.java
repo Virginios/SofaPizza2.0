@@ -9,33 +9,25 @@ import DataAccessSito.DataAccessPizze;
 import DataAccessSito.DataAccessPizzeria;
 import DataAccessSito.Pizze;
 import DataAccessSito.Pizzeria;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.text.DecimalFormat;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.servlet.RequestDispatcher;
+import java.util.Arrays;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
 
 /**
  *
  * @author Valerio
  */
-@WebServlet(name = "ComposizioneMenuPizzeria", urlPatterns = {"/ComposizioneMenuPizzeria"})
-public class ComposizioneMenuPizzeria extends HttpServlet {
-
-    private static Logger logger = Logger.getLogger("classname");
+@WebServlet(name = "ModificaMenu", urlPatterns = {"/ModificaMenu"})
+public class ModificaMenu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -54,10 +46,10 @@ public class ComposizioneMenuPizzeria extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ComposizioneMenuPizzeria</title>");
+            out.println("<title>Servlet ModificaMenu</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ComposizioneMenuPizzeria at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ModificaMenu at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -92,38 +84,67 @@ public class ComposizioneMenuPizzeria extends HttpServlet {
         String[] nomePizze = request.getParameterValues("nomePizza");
         String[] nomeIngredienti = request.getParameterValues("nomeIngredienti");
         String[] prezzo = request.getParameterValues("prezzo");
-        HttpSession session = request.getSession();
-        Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");
-        DataAccessPizzeria pizzerie = new DataAccessPizzeria();
 
-        pizzerie.inserisciPizzeria(p);
+        //HttpSession session = request.getSession();
+        //Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");
+        String[] idUp = request.getParameterValues("id");
+        ArrayList<Pizze> modListaPizze = new ArrayList<Pizze>();
+        DataAccessPizze pizze = new DataAccessPizze();
 
+        ArrayList<Pizze> pizzeEsist = pizze.estraiPizze("051245154");
+
+        int intPart = 0;
+        int[] numDaCancellare = new int[pizzeEsist.size()];
+
+        if (idUp.length > 0) {
+            int[] idNumUp = new int[idUp.length];
+            for (int i = 0; i < idUp.length; i++) {
+                idNumUp[i] = Integer.parseInt(idUp[i]);
+            }
+            for (int i = 0; i < idNumUp.length; i++) {
+                Pizze pizza = new Pizze();
+                double numero = Double.parseDouble(prezzo[i]);
+                numero = Math.floor(numero * 100) / 100;
+                pizza.setIngredienti(nomeIngredienti[i]);
+                pizza.setNome(nomePizze[i]);
+                pizza.setPrezzo(numero);
+                pizza.setProduttore("051245154");
+                pizza.setIdpizza(idNumUp[i]);
+                modListaPizze.add(pizza);
+            }
+            intPart = idNumUp.length;
+            boolean canc = true;
+            for (int i = 0; i < pizzeEsist.size(); i++) {
+                for (int j = 0; j < idNumUp.length; j++) {
+                    if (pizzeEsist.get(i).getIdpizza() == idNumUp[j]) {
+                        canc = false;
+                        break;
+                    }
+                }
+                if (canc) {
+                    numDaCancellare[i] = pizzeEsist.get(i).getIdpizza();
+                }
+                canc = true;
+            }
+        }
         ArrayList<Pizze> listaPizze = new ArrayList<Pizze>();
-
-        for (int i = 0; i < prezzo.length; i++) {
+        boolean mod = false;
+        for (int i = intPart; i < prezzo.length; i++) {
             Pizze pizza = new Pizze();
             double numero = Double.parseDouble(prezzo[i]);
             numero = Math.floor(numero * 100) / 100;
             pizza.setIngredienti(nomeIngredienti[i]);
             pizza.setNome(nomePizze[i]);
             pizza.setPrezzo(numero);
-            pizza.setProduttore(p.getPiva());
+            pizza.setProduttore("051245154");
             listaPizze.add(pizza);
-        }
-        DataAccessPizze pizze = new DataAccessPizze();
 
+        }
+
+        pizze.modificaPizze(modListaPizze);
+
+            pizze.cancellapizze(numDaCancellare);
         pizze.inseriscipizze(listaPizze);
-        try (PrintWriter out = response.getWriter()) {
-            logger.info("cazzo");
-            Part part = request.getPart("file");
-            InputStream is = part.getInputStream();
-            BufferedImage bufImage = ImageIO.read(is);
-            File file = new File("src\\img\\images2.jpg");
-            ImageIO.write(bufImage, "jpg", file);
-        }
-        RequestDispatcher view = request.getRequestDispatcher("Prenotazioni.jsp");
-            view.forward(request, response);
-
     }
 
     /**

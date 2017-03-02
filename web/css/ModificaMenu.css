@@ -84,6 +84,10 @@ ul#menu li {
     height: 49px;
     margin: 2px 0;
 }
+#uguale{
+        color: red;
+        display: none;
+}
 ul#menu li a {
     color: #0000000;
     display: block;

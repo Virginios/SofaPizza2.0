@@ -29,10 +29,11 @@
     <body>
         <div id="container">
         <h1 align="center" class="titolo">Componi il tuo Men&ugrave</h1>
-        <form action="/ComposizioneMenuPizzeria" method="post">
+        <form action="/ComposizioneMenuPizzeria" method="post" onSubmit="return controlNome()">
         <div class="tabellamenu">
+                                        <h2 id="uguale" style="display: none;color: red">Le pizze nel menu non possono avere nome uguale</h2>
             <div class="contenitore" id="1">
-                <input type="text" name="nomePizza" id="text" placeholder="Nome Pizza" size="20" class="textarea" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required>
+                <input type="text" name="nomePizza" id="text" placeholder="Nome Pizza" size="20" class="NomePizza" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required>
                 <input type="text" name="nomeIngredienti" id="text" placeholder="Ingredienti" size="20" class="textarea" required>
                 <input type="text" name="prezzo" id="text" placeholder="Prezzo" size="5" class="textarea" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required pattern="[0-9]+([\,|\.][0-9]+)?">
                 <input type="button" value="+"  class="bottone">
@@ -54,7 +55,7 @@
         $(this).remove();
         var idDiv = num + "del";
         $('.bottoneDecr').remove();
-        $('<div class="contenitore" id="att"><input type="text" name="nomePizza" id="text" placeholder="Nome Pizza" size="20" class="textarea" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required> <input type="text" name="nomeIngredienti"  id="text" placeholder="Ingredienti" size="20" class="textarea" required><input type="text" name="prezzo" id="text" placeholder="Prezzo" size="5" class="margin" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required pattern="[0-9]+([\,|\.][0-9]+)?"><input type="button" value="+"  class="bottone"><input type="button" value="-"  class="bottoneDecr" id="bottoneDecre"></div>').appendTo('.tabellamenu');
+        $('<div class="contenitore" id="att"><input type="text" name="nomePizza" id="text" placeholder="Nome Pizza" size="20" class="NomePizza" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required> <input type="text" name="nomeIngredienti"  id="text" placeholder="Ingredienti" size="20" class="textarea" required><input type="text" name="prezzo" id="text" placeholder="Prezzo" size="5" class="margin" aria-hidden="true" jsaction="mousedown:ntp.fkbxclk" required pattern="[0-9]+([\,|\.][0-9]+)?"><input type="button" value="+"  class="bottone"><input type="button" value="-"  class="bottoneDecr" id="bottoneDecre"></div>').appendTo('.tabellamenu');
         $("#att").attr('id', idDiv);
         $("#bottoneDecre").attr('id', num);
         var n = "#" + num;
