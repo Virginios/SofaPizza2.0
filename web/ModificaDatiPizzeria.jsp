@@ -1,16 +1,17 @@
 <%-- 
-    Document   : ModificaProfClienteErrato
-    Created on : 25-feb-2017, 0.21.12
+    Document   : ProfioCliente
+    Created on : 24-feb-2017, 21.47.03
     Author     : Valerio
 --%>
 
+<%@page import="DataAccessSito.Pizzeria"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DataAccessSito.DataAccessFile"%>
 <%@page import="DataAccessSito.Cliente"%>
 <%@page import="DataAccessSito.DataAccessCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Cliente c =(Cliente) session.getAttribute("cliente");
+    Pizzeria c = (Pizzeria) session.getAttribute("pizzeria");
     DataAccessFile daof = new DataAccessFile();
     ArrayList<String> comuni = daof.getComuni(c.getProvincia());
 %>
@@ -19,10 +20,10 @@
     <head>
         <meta charset="utf-8">
         <script type="text/javascript" src="js/checkpassword.js">
-            </script>
-            <script type="text/javascript" src="js/controlForm.js">
         </script>
-           <script type="text/javascript" src="js/jquery.js">
+        <script type="text/javascript" src="js/controlForm.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.js">
         </script>
         <script type="text/javascript" src="js/getComuni.js">
         </script>
@@ -31,14 +32,14 @@
         <link href="css/ModificaProfilo.css" rel="stylesheet" type="text/css">
         <title>Registrazione</title>
     </head>
-    <div align="center" id="contlogo"><a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
+    <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
     <ul class="menu">
         <li><a  href="Home.jsp">Home</a></li>
         <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
         <li class="spost"><a href="Login.jsp">Login</a></li>
         <li class="spost"><a href="RegistrazioneCliente.jsp" class="active">Registrazione</a></li>
     </ul>      
-    <form name="modulo" id="form" action="/ProfiloCliente" method="post" onSubmit="return controlForm()">
+    <form name="modulo" id="form" action="/ModificaDatiPizzeria" method="post" onSubmit="return controlForm()">
         <div id="tabella">
             <table cellspacing="6">
                 <tbody>
@@ -47,13 +48,6 @@
                         <td>
                             <input class="input" id="Nome" name="nome" type="text" required pattern="[A-Za-z\s]{3,45}" 
                                    placeholder=" nome" title="nome utente (dai 3 ai 45 caratteri)" value="<%=c.getNome()%>"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Cognome</b></td>
-                        <td>
-                            <input class="input" id="Cognome"  name="cognome" type="text" required pattern="[A-Za-z\s]{3,45}" 
-                                   placeholder=" cognome" title="cognome  utente (dai 3 ai 45 caratteri)" value="<%=c.getCognome()%>"/>
                         </td>
                     </tr>
                     <tr>
@@ -66,25 +60,25 @@
                         </td>
                     </tr>
                     <tr>
-     
+
                     </tr>
                 <td><b>Comune di residenza</b></td>
                 <td>
                     <select class="input" name="paese" id="comune">
                         <option value="<%=c.getPaese()%>"><%=c.getPaese()%></option>
-                        <%for(int i=0;i<comuni.size();i++){%>
+                        <%for (int i = 0; i < comuni.size(); i++) {%>
                         <option value="<%=comuni.get(i)%>"><%=comuni.get(i)%></option>
                         <%}%>
                     </select> 
                 </td>   
                 <tr>
-                    
+
                 </tr>
                 <tr>
                     <td><b>Indirizzo</b></td>
                     <td>
                         <input class="input" id="Indirizzo" name="indirizzo" type="text" required  pattern="[A-Za-z0-9\s]{3,45}" 
-                                   placeholder=" indirizzo" title="via (dai 3 ai 45 caratteri)" value="<%=c.getVia()%>"/>
+                               placeholder=" indirizzo" title="via (dai 3 ai 45 caratteri)" value="<%=c.getVia()%>"/>
                     </td>
                 </tr>
                 <tr class="hidden">
@@ -97,7 +91,7 @@
                 </tr>
                 <tr >
                     <td>
-                        <span id="errori" id="erroreVecchiaPassword">password vecchia errata</span>
+                        <span class="errore" id="erroreVecchiaPassword">password vecchia errata</span>
                     </td>
                 </tr>
                 <tr class="hidden">
@@ -106,15 +100,15 @@
                         <input  class="input" id="Conferma" name="NuovaPassword" type="text" required 
                                 placeholder=" Password" pattern="[^\s]{4,8}" 
                                 title=" Conferma password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"
-                                onblur="checkpassword()" />
+                                value="<%=c.getPassword()%>" />
                     </td>
                 </tr>
-                 <tr class="hidden">
+                <tr class="hidden">
                     <td><b>Conferma Nuova Password</b></td>
                     <td>
                         <input  class="input" id="Password" name="ConfermaNuovaPassword" type="text" required
                                 placeholder="Password" pattern="[^\s]{4,8}" 
-                                title="Password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"/>
+                                title="Password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)" value="<%=c.getPassword()%>" onblur="checkpassword()"/>
                     </td>
                 </tr>
                 <tr>
@@ -138,9 +132,16 @@
             </table>
         </div>
         <script>
-          function funct(){
-              $("#VecchiaPassword").val("");
-            $(".hidden").show();
-          }  
+            function funct() {
+                $("#VecchiaPassword").val("");
+                $("#Password").val("");
+                $("#Conferma").val("");
+                $(".hidden").show();
+                $("#visualizzaPassword").hide();
+            }
         </script>
     </form>
+
+
+</body>
+</html>

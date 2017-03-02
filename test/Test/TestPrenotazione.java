@@ -37,14 +37,9 @@ public class TestPrenotazione {
         }*/
         //access.cambiaTipo(prenotazione.getNumero_prenotazione(), 0);
        // access.cancellaCarrello(prenotazione.getCliente());
-      Prenotazione prenotazione = new Prenotazione();
-           prenotazione.setCliente("val@hotmail.it");
-           prenotazione.setIndirizzoCliente("Via Garibaldi");
-           prenotazione.setTipo_pagamento(0);
-           prenotazione.setTpo_prenotazione(0);
-           prenotazione.setProduttore("051245154");
            DataAccessPrenotazione daopre = new DataAccessPrenotazione();
-           daopre.aggiungiPrenotazione(prenotazione);
+           ArrayList<Prenotazione> prenotazioni=daopre.prendiStorico("051245154");
+           System.out.println(prenotazioni.get(0).getCliente());
 
 
     }

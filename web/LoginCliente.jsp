@@ -41,7 +41,7 @@
                    <%}%> 
             </ul>     
     <body>
-        <form name="modulo" id="form" action="/Login" method="post">
+        <form name="modulo" id="form" action="/LoginCliente" method="post">
             <div id="tabella">
                 <table cellspacing="6">
                     <tbody>

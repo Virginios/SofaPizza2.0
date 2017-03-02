@@ -15,38 +15,35 @@
 
 
 <title>Home</title>
-</head>
 
-<div align="center" id="contlogo"><a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
+        <jsp:include page="TabPizzeria.jsp"></jsp:include>
 
-<ul class="menu">
-                <li><a href="Home.jsp">Home</a></li>               
-                <li><a href="ChiSiamo.jsp">Chi Siamo</a></li>
-                <li class="spost"><a href="Home.jsp">Esci</a></li>
-	<li class="spost"><a href="Prenotazioni.jsp">Prenotazioni</a></li>
-	<li class="spost"><a href="ProfiloPizzeria.jsp">Nome Pizzeria</a></li>
-  </ul>     
+</head>    
   <body>
-  <div id="storico">
  <table width="300" height="400" border="0" align="center" class="tabella">
   <tbody>
     <tr>
         <th height="30"><h1><b>Nome Pizzeria</b></h1></th>
     </tr>
+  <form action="ModificaDatiPizzeria.jsp" method="post">>
     <tr>
-      <td align="center" height="10"><button class="bottone2">
-              <span class="storico-ordini"><a href="StoricoOrdini.jsp">Storico Ordini</a></span></td>
+        <td align="center" height="10"><button class="bottone2" type="submit">Modifica Dati</button>
+              <span class="storico-ordini"></span></td>
     </tr>
+      </form>
+
+  <form action="/ControlStorico" method="post">
     <tr>
-      <td align="center" height="10"><button class="bottone1">
-              <span class="storico-ordini"><a href="ModificaDati.jsp">Modifica Dati</a></span></td>
+        <td align="center" height="10"><button class="bottone1" type="submit">Storico</button>
+              <span class="storico-ordini"></span></td>
     </tr>
+    </form>
+
     <tr>
-    <td align="center" height="10" ><button class="bottone3">
-            <span class="storico-ordini"><a href ="ModificaMenu.jsp">Modifica Menu</a></span></td>
+        <td align="center" height="10" ><button class="bottone3">Modifica Menu</button>
+            <span class="storico-ordini"></span></td>
     </tr>
   </tbody>
 </table>
 	  </div>
-  </body>
-</html>
+  </body>	

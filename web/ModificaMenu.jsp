@@ -41,7 +41,6 @@
     <body>
         <form action="/ModificaMenu" method="post" onSubmit="return controlNome()">
          <div class="tabellamenu">
-        <h2>Ricorda le pizze prenotate non verranno cancellate si prega quindi prima di eseguire la prneotazione poi cancellare<h2>
                                         <h2 id="uguale" style="display: none;color: red">Le pizze nel menu non possono avere nome uguale</h2>
                                         
             <%for (int i = 0; i < pizze.size(); i++) {%>

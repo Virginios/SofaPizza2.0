@@ -157,7 +157,10 @@ public class DataAccessPizzeria {
 
         query = "SELECT * from pizzeria WHERE pIva='" + Piva + "' AND password='" + password + "'";
         ArrayList<Pizzeria> pizzerie = estraipizzerie(query);
-        return pizzerie.get(0);
+        if(pizzerie.size()>0)
+            return pizzerie.get(0);
+        else
+            return null;
     }
 
     public boolean Pizzeria_registrata(String Piva) {

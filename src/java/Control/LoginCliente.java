@@ -21,8 +21,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "LoginCliente", urlPatterns = {"/LoginCiente"})
+public class LoginCliente extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -81,22 +81,23 @@ public class Login extends HttpServlet {
         DataAccessCliente daoc = new DataAccessCliente();
         Cliente c = daoc.logincliente(email, password);
         if (c != null) {
-            if(c.getTipoCliente()==0){
-            HttpSession session = request.getSession();
-            session.setAttribute("cliente", c);
-             RequestDispatcher view = request.getRequestDispatcher("Home.jsp");
-            view.forward(request, response);
-            }else{
-             HttpSession session = request.getSession();
-            session.setAttribute("cliente", c);
-             RequestDispatcher view = request.getRequestDispatcher(".jsp");
-            view.forward(request, response);
+            if (c.getTipoCliente() == 0) {
+                HttpSession session = request.getSession();
+                session.setAttribute("cliente", c);
+                RequestDispatcher view = request.getRequestDispatcher("Home.jsp");
+                view.forward(request, response);
+            } else {
+                HttpSession session = request.getSession();
+                session.setAttribute("cliente", c);
+                RequestDispatcher view = request.getRequestDispatcher(".jsp");
+                view.forward(request, response);
             }
-            
+
         } else {
             RequestDispatcher view = request.getRequestDispatcher("LoginError.jsp");
             view.forward(request, response);
-        }    }
+        }
+    }
 
     /**
      * Returns a short description of the servlet.

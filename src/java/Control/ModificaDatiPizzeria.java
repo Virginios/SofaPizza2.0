@@ -7,6 +7,8 @@ package Control;
 
 import DataAccessSito.Cliente;
 import DataAccessSito.DataAccessCliente;
+import DataAccessSito.DataAccessPizzeria;
+import DataAccessSito.Pizzeria;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -21,8 +23,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "ProfiloCliente", urlPatterns = {"/ProfiloCliente"})
-public class ProfiloCliente extends HttpServlet {
+@WebServlet(name = "ModificaDatiPizzeria", urlPatterns = {"/ModificaDatiPizzeria"})
+public class ModificaDatiPizzeria extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +43,10 @@ public class ProfiloCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProfiloCliente</title>");            
+            out.println("<title>Servlet ModificaDatiPizzeria</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProfiloCliente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ModificaDatiPizzeria at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -76,27 +78,24 @@ public class ProfiloCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cliente c = new Cliente();
+        Pizzeria c = new Pizzeria();
         c.setNome(request.getParameter("nome"));
-        c.setCognome(request.getParameter("cognome"));
         c.setProvincia(request.getParameter("provincia"));
         c.setPaese(request.getParameter("paese"));
         c.setVia(request.getParameter("via"));
-        DataAccessCliente daoc = new DataAccessCliente();
+        DataAccessPizzeria daoc = new DataAccessPizzeria();
         HttpSession session = request.getSession();
-        Cliente cliente = (Cliente)session.getAttribute("cliente");
+        Pizzeria pizzeria = (Pizzeria)session.getAttribute("pizzeria");        
         String vPassword = request.getParameter("VecchiaPassword");
-        if(vPassword.equals(cliente.getPassword())){
+        if(vPassword.equals(pizzeria.getPassword())){
             String nPassword = request.getParameter("NuovaPassword");
             c.setPassword(nPassword);
-            daoc.modificaCliente(c);
+            daoc.modificaPizzeria(c);
         }
         else{
-            RequestDispatcher view = request.getRequestDispatcher("ModificaProfClienteErrato.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("ModificaProfPizzeriaErrato.jsp");
             view.forward(request, response);
         }
-        
-            
     }
 
     /**

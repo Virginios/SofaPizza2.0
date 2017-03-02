@@ -26,16 +26,11 @@
         <script type="text/javascript" src="js/onLoadPrenotazioni.js">
         </script>
         <title>LoginCliente</title>
+                        <jsp:include page="TabPizzeria.jsp"></jsp:include>
+
     </head>
     <body>
-        <div align="center" id="contlogo"> <a href="Home.jsp"> <img src="logo.png" alt="Logo" id="logo"></a> </div>
-        <ul class="menu">
-            <li><a  href="Home.html">Home</a></li>
-            <li><a href="Chi Siamo.html">Chi Siamo</a></li>
-            <li class="spost"><a href="/Logout">Esci</a></li>
-            <li class="spost"><a href="Prenotazioni.jsp">Prenotazioni</a></li>
-            <li class="spost"><a href="ProfiloPizzeria.html">Nome Pizzeria</a></li>
-        </ul>      
+     
         <div id="prenotazioni">
             <h1 align="center" class="title">Prenotazioni</h1>
             <div align="center">
@@ -64,11 +59,11 @@
                     {
                         $('<h2 id="nonCiSonoOrdini">Non ci sono ordini disponibili,verranno mostrati gli ordini appena disponnibili....</h2>').appendTo(".spazio");
                     }
-                    $(".dopo").remove();
-                    $(".prenotazione").remove();
-                    $("#totale").remove();
-                    $("#bottone").hide();
-                    setTimeout(functa, 7000, x);
+                    $("#dopo").remove();
+            $(".prenotazione").remove();
+            $("#totale").remove();
+            $("#bottone").hide();
+            setTimeout(functa, 7000, x);
 
                 } else {
                     $("#nonCiSonoOrdini").remove();

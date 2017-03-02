@@ -10,8 +10,7 @@
 <%@page import="DataAccessSito.DataAccessCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    DataAccessCliente daoc = new DataAccessCliente();
-    Cliente c = daoc.trovacliente("ss");
+    Cliente c =(Cliente) session.getAttribute("cliente");
     DataAccessFile daof = new DataAccessFile();
     ArrayList<String> comuni = daof.getComuni(c.getProvincia());
 %>
@@ -20,10 +19,10 @@
     <head>
         <meta charset="utf-8">
         <script type="text/javascript" src="js/checkpassword.js">
-            </script>
-            <script type="text/javascript" src="js/controlForm.js">
         </script>
-           <script type="text/javascript" src="js/jquery.js">
+        <script type="text/javascript" src="js/controlForm.js">
+        </script>
+        <script type="text/javascript" src="js/jquery.js">
         </script>
         <script type="text/javascript" src="js/getComuni.js">
         </script>
@@ -67,7 +66,7 @@
                         </td>
                     </tr>
                     <tr>
-     
+
                     </tr>
                 <td><b>Comune di residenza</b></td>
                 <td>
@@ -79,13 +78,13 @@
                     </select> 
                 </td>   
                 <tr>
-                    
+
                 </tr>
                 <tr>
                     <td><b>Indirizzo</b></td>
                     <td>
                         <input class="input" id="Indirizzo" name="indirizzo" type="text" required  pattern="[A-Za-z0-9\s]{3,45}" 
-                                   placeholder=" indirizzo" title="via (dai 3 ai 45 caratteri)" value="<%=c.getVia()%>"/>
+                               placeholder=" indirizzo" title="via (dai 3 ai 45 caratteri)" value="<%=c.getVia()%>"/>
                     </td>
                 </tr>
                 <tr class="hidden">
@@ -107,10 +106,10 @@
                         <input  class="input" id="Conferma" name="NuovaPassword" type="text" required 
                                 placeholder=" Password" pattern="[^\s]{4,8}" 
                                 title=" Conferma password (dai 4 a 8 caratteri alfanumerici e speciali, spazi esclusi)"
-                                 value="<%=c.getPassword()%>" />
+                                value="<%=c.getPassword()%>" />
                     </td>
                 </tr>
-                 <tr class="hidden">
+                <tr class="hidden">
                     <td><b>Conferma Nuova Password</b></td>
                     <td>
                         <input  class="input" id="Password" name="ConfermaNuovaPassword" type="text" required
@@ -139,14 +138,13 @@
             </table>
         </div>
         <script>
-          function funct(){
-              $("#VecchiaPassword").val("");
-                            $("#Password").val("");
-                                                        $("#Conferma").val("");
-
-
-            $(".hidden").show();
-          }  
+            function funct() {
+                $("#VecchiaPassword").val("");
+                $("#Password").val("");
+                $("#Conferma").val("");
+                $(".hidden").show();
+                $("#visualizzaPassword").hide();
+            }
         </script>
     </form>
 

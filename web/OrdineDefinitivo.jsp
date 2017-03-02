@@ -75,7 +75,7 @@
                                         <%for (int i = 0; i < pizze.size(); i++) {%>
 
                     <tr>
-                        <td width="60%"><pre id="caratt"><strong><%=pizze.get(i).getNome()%> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp; <%=pizze.get(i).getPrezzo()%> &euro; </strong>
+                        <td width="60%"><pre id="caratt"><strong style="float: left"><%=pizze.get(i).getNome()%></strong> <strong style="float: right"><%=pizze.get(i).getPrezzo()%> &euro; </strong>
 <%=pizze.get(i).getIngredienti()%>                                </pre>
                         <td width="30%" align="center"><b>QuantitÃ </b>
                             <span data-baskettotal class="infoquantita" id="<%=pizze.get(i).getIdpizza()%>">0</span>

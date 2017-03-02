@@ -70,10 +70,8 @@ public class testPizzeria {
            pizzeria.setVia("via cazzo");
            pizzeria.setPassword("password");
            daop.inserisciPizzeria(pizzeria);*/
-           ArrayList<Pizzeria> aop = daop.trovaPizzerieDaFiltro("I tre", 0);
-           for(int i=0;i<aop.size();i++){
-               System.out.println(aop.get(i).getNome());
-           }
+           Pizzeria p =daop.trovaPizzeria("051245154", "itre");
+           System.out.println(p.getVia());
            
         }
 }

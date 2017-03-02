@@ -59,7 +59,7 @@ public class DataAccessPrenotazione {
             this.pizzaConn = new ConnDatabase();
             prepStat = pizzaConn.getConn().prepareStatement(deleteSQL);
             prepStat.setString(1, produttore);
-            prepStat.setInt(2, 0);
+            prepStat.setInt(2, 1);
             prepStat.executeUpdate();
             prepStat.close();
             pizzaConn.chiudi();
@@ -121,7 +121,7 @@ public class DataAccessPrenotazione {
         return numeroPrenotazione;
     }
      public ArrayList<Prenotazione> prendiStorico(String produttore) {
-        String selectSQL = "SELECT * FROM " + Nome_Tabella + " (nomePizzeria = ? AND tipoPrenotazione =1)";
+        String selectSQL = "SELECT * FROM " + Nome_Tabella + " WHERE produttore = ? AND tipoPrenotazione = ?";
         int numeroPrenotazione = 0;
         PreparedStatement prepStat;
         ArrayList<Prenotazione> prenotazioni = new ArrayList<Prenotazione>();
@@ -129,6 +129,7 @@ public class DataAccessPrenotazione {
             this.pizzaConn = new ConnDatabase();
             prepStat = pizzaConn.getConn().prepareStatement(selectSQL);
             prepStat.setString(1, produttore);
+            prepStat.setInt(2, 1);
             ResultSet risultato = prepStat.executeQuery();
             while(risultato.next()) {
                 Prenotazione prenotazione = new Prenotazione();

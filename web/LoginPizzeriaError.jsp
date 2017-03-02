@@ -33,7 +33,7 @@
      </ul></li>
             </ul>     
     <body>
-        <form name="modulo" id="form" action="/LoginPizzeria" method="post">
+        <form name="modulo" id="form" action="/Login" method="post">
             <div id="tabella">
                 <table cellspacing="6">
                     <tbody>
@@ -46,11 +46,6 @@
                                 <input class="input" id="partitaiva" name="partitaiva" type="text"/>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span class="errore" id="erroreNome">il campo non può essere lasciato vuoto</span>
-                            </td>
-                        </tr>
                         <tr></tr>
                     <td><b>Password</b></td>
                     <td>
@@ -58,7 +53,6 @@
                     </td>
                     <tr>
                         <td>
-                            <span class="errore" id="erroreNome">il campo non può essere lasciato vuoto</span>
                         </td>
                     </tr>
 

@@ -18,7 +18,7 @@ function functa() {
             } else {
                 $('<h2 id="nonCiSonoOrdini">Non ci sono ordini disponibili,verranno mostrati gli ordini appena disponnibili....</h2>').appendTo(".spazio");
             }
-            $(".dopo").remove();
+            $("#dopo").remove();
             $(".prenotazione").remove();
             $("#totale").remove();
             $("#bottone").hide();

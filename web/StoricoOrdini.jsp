@@ -10,9 +10,7 @@
 <%@page import="DataAccessSito.DataAccessPrenotazione"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    DataAccessPrenotazione daop = new DataAccessPrenotazione();
-    Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");
-    ArrayList<Prenotazione> prenotazioni = daop.prendiStorico(p.getPiva());
+    ArrayList<Prenotazione> prenotazioni = (ArrayList<Prenotazione>)request.getAttribute("storico");
 %>
 <!DOCTYPE html>
 <html>
@@ -36,14 +34,21 @@
 		<h1 align="center" class="title">Storico Ordini</h1>
 		<div align="center">
 		<hr>
+                <%if(prenotazioni!=null){%>
                 <%for(int i=0;i<prenotazioni.size();i++){%>
 		<p>
                     <b><%=prenotazioni.get(i).getCliente()%></b>, <%=prenotazioni.get(i).getIndirizzoCliente()+" "+prenotazioni.get(i).getData_prenotazione()%>
 		<hr>
                 <%}%>
+                <form action="/ControlCancellaStorico" method="post">
 		<div align="center">
-			<input name="Submit" id="login"  type="button" value="Svuota tutto" >
+			<input name="Submit" id="login"  type="submit" value="Svuota tutto" >
 		</div>
+                    </form>
+                <%}
+                else{%>   
+                <h1>Storico Vuoto</h1>
+                        <%}%>
 	</div>
 </body>
 </html>

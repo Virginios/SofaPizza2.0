@@ -5,10 +5,12 @@
  */
 package Control;
 
-import DataAccessSito.Cliente;
-import DataAccessSito.DataAccessCliente;
+import DataAccessSito.DataAccessPrenotazione;
+import DataAccessSito.Pizzeria;
+import DataAccessSito.Prenotazione;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,8 +23,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Valerio
  */
-@WebServlet(name = "ProfiloCliente", urlPatterns = {"/ProfiloCliente"})
-public class ProfiloCliente extends HttpServlet {
+@WebServlet(name = "ControlStorico", urlPatterns = {"/ControlStorico"})
+public class ControlStorico extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +43,10 @@ public class ProfiloCliente extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProfiloCliente</title>");            
+            out.println("<title>Servlet ControlStorico</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProfiloCliente at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControlStorico at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -76,27 +78,15 @@ public class ProfiloCliente extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cliente c = new Cliente();
-        c.setNome(request.getParameter("nome"));
-        c.setCognome(request.getParameter("cognome"));
-        c.setProvincia(request.getParameter("provincia"));
-        c.setPaese(request.getParameter("paese"));
-        c.setVia(request.getParameter("via"));
-        DataAccessCliente daoc = new DataAccessCliente();
+        DataAccessPrenotazione prenotazione = new DataAccessPrenotazione();
         HttpSession session = request.getSession();
-        Cliente cliente = (Cliente)session.getAttribute("cliente");
-        String vPassword = request.getParameter("VecchiaPassword");
-        if(vPassword.equals(cliente.getPassword())){
-            String nPassword = request.getParameter("NuovaPassword");
-            c.setPassword(nPassword);
-            daoc.modificaCliente(c);
-        }
-        else{
-            RequestDispatcher view = request.getRequestDispatcher("ModificaProfClienteErrato.jsp");
-            view.forward(request, response);
-        }
+        Pizzeria p = (Pizzeria) session.getAttribute("pizzeria");   
+        ArrayList<Prenotazione> storico= prenotazione.prendiStorico(p.getPiva());
+        request.setAttribute("storico",storico );
+        RequestDispatcher view = request.getRequestDispatcher("StoricoOrdini.jsp");
+        view.forward(request, response);
+
         
-            
     }
 
     /**

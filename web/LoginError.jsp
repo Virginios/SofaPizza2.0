@@ -27,20 +27,11 @@
                 <table cellspacing="6">
                     <tbody>
                         <tr>
-                            <td><b>Tipo</b></td>
-                            <td>
-                                <input id= "Tipo" name="pizzeriacliente" type="radio" value="1" checked="checked">
-                                <label class="radio-item"><b>Cliente</b></label>
-                                <input id="Tipo" name ="pizzeriacliente" type="radio" value="1" >
-                                <label class="radio-item"><b>Pizzeria</b></label>
-                            </td>
-                        </tr>
-                        <tr>
 
                         </tr>
                         <tr>
                             <td>
-                                <span id="errori">username o password errati</span>
+                                <span id="errori" style="display: block;color: red" >username o password errati</span>
                             </td>
                         </tr>
                         <tr>
@@ -49,22 +40,11 @@
                                 <input class="input" id="E-mail" name="email" type="text"/>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span class="errore" id="erroreNome">il campo non può essere lasciato vuoto</span>
-                            </td>
-                        </tr>
                         <tr></tr>
                     <td><b>Password</b></td>
                     <td>
                         <input class="input" id="Pssword" name="password" type="password"/>
                     </td>
-                    <tr>
-                        <td>
-                            <span class="errore" id="erroreNome">il campo non può essere lasciato vuoto</span>
-                        </td>
-                    </tr>
-
                     <tr id ="contReg">
                         <td></td>
                         <td>

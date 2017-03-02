@@ -4,13 +4,14 @@
     Author     : Valerio
 --%>
 
+<%@page import="DataAccessSito.Pizzeria"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="DataAccessSito.DataAccessFile"%>
 <%@page import="DataAccessSito.Cliente"%>
 <%@page import="DataAccessSito.DataAccessCliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    Cliente c =(Cliente) session.getAttribute("cliente");
+    Pizzeria c = (Pizzeria) session.getAttribute("pizzeria");
     DataAccessFile daof = new DataAccessFile();
     ArrayList<String> comuni = daof.getComuni(c.getProvincia());
 %>
@@ -47,13 +48,6 @@
                         <td>
                             <input class="input" id="Nome" name="nome" type="text" required pattern="[A-Za-z\s]{3,45}" 
                                    placeholder=" nome" title="nome utente (dai 3 ai 45 caratteri)" value="<%=c.getNome()%>"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><b>Cognome</b></td>
-                        <td>
-                            <input class="input" id="Cognome"  name="cognome" type="text" required pattern="[A-Za-z\s]{3,45}" 
-                                   placeholder=" cognome" title="cognome  utente (dai 3 ai 45 caratteri)" value="<%=c.getCognome()%>"/>
                         </td>
                     </tr>
                     <tr>
